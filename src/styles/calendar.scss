@@ -1,0 +1,70 @@
+.Calendar {
+	@include container;
+	background-color: darken(white, 5%);
+	& .Sheet {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		text-align: center;
+		& input {
+			width: 2.5em;
+			height: 2.5em;
+			border-radius: 50%;
+			font-size: 1em;
+			color: black;
+			background: transparent;
+			margin: auto;
+			&:hover {
+				background-color: $theme;
+				color: white;
+			}
+		}
+	}
+}
+
+.CalendarInput {
+	overflow: hidden;
+	transition: max-height linear 0.3s;
+	& .Sheet {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		text-align: center;
+		& input {
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 50%;
+			font-size: 1rem;
+			color: black;
+			background: transparent;
+			margin: auto;
+			padding: 0;
+			line-height: 2.5rem;
+			&:hover {
+				background-color: $theme;
+				color: white;
+			}
+		}
+		& span {
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 50%;
+			font-size: 1rem;
+			color: grey;
+			margin: auto;
+			display: block;
+			line-height: 2.5rem;
+		}
+	}
+	& .Disabled {
+		cursor: default;
+		opacity: 0;
+		pointer-events: none;
+		//       &:hover {
+		// color: grey;
+		// background-color: transparent;
+		//       }
+	}
+	& .CalendarControls {
+		display: flex;
+		justify-content: space-between;
+	}
+}

@@ -1,0 +1,73 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import './app.scss';
+@import './menu.scss';
+@import './tasks.scss';
+@import './calendar.scss';
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+.Card {
+	border-radius: 5px;
+	padding: 0.8rem;
+	background-color: darken(white, 5);
+	display: block;
+	border: none;
+	font-size: 1em;
+	width: 100%;
+	text-align: left;
+	font-weight: 500;
+	position: relative;
+}
+
+////////////////////////   TEMP   ////////////////////////
+
+button {
+	font-family: 'Roboto', sans-serif;
+	background: transparent;
+	border: none;
+	outline: none;
+}
+
+h1 {
+	font-size: 1.4em;
+	font-weight: bolder;
+}
+
+span {
+	font-size: 1em;
+}
+
+.addTodo {
+	background: inherit;
+	border: none;
+	outline: none;
+	font-size: 1em;
+	border-bottom: 1px black solid;
+}
+
+.todoCheck {
+	margin-right: 0.5rem;
+}
+
+input[type='button'],
+input[type='submit'] {
+	background-color: $theme;
+	padding: .3em .5em;
+	border: none;
+	border-radius: 2px;
+	cursor: pointer;
+	outline: none;
+	color: white;
+}
