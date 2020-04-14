@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Todo from './Todo';
+import Todo from "./Todo";
 
 class TaskDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: '',
-    }
+      todo: "",
+    };
   }
 
   updateInput = (e) => {
     this.setState({
       todo: e.target.value,
     });
-  }
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -22,17 +22,18 @@ class TaskDetail extends Component {
     const { addTodo, task } = this.props;
     const id = task.id;
     addTodo(todo);
-  }
+  };
 
   render() {
     const { task } = this.props;
-    const {todo} = this.state;
+    const { todo } = this.state;
     return (
       <div className="TaskDetailContainer Card">
         <div className="TaskDetails">
           <h1>{task.title}</h1>
-          <span>Todos</span>
-          <span>
+          <span style={{ display: "block" }}>{`due: ${task.due}`}</span>
+          <span style={{ display: "block" }}>Todos</span>
+          <span style={{ display: "block" }}>
             id:
             {task.id}
           </span>

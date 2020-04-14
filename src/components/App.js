@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { quickid } from "quickids";
+import { quickId } from "quickids";
 
 import Menu from "./Menu";
 import Today from "./Today";
@@ -13,25 +13,22 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      viewTaskId: 0,
       tasks: [],
+      dueToday: [],
     };
   }
 
-  componentWillMount() {
-    // console.log(quickiId());
-  }
-
-  changeTaskId(id) {
+  changeTaskId = (id) => {
     this.setState({ viewTaskId: id });
-  }
+  };
 
-  addTask(name) {
+  addTask = (task) => {
     const { tasks } = this.state;
+    task.id = quickId();
     this.setState({
-      tasks: [...tasks, name],
+      tasks: [...tasks, task],
     });
-  }
+  };
 
   render() {
     const { tasks } = this.state;
@@ -39,14 +36,14 @@ class App extends Component {
 
     function getTask() {
       if (tasks.length >= 1) {
-        return <TaskDetail task={tasks[viewTaskId]} />;
+        return <TaskDetail task={tasks[0]} />;
       }
       return null;
     }
 
     return (
       <div className="App">
-        <Menu />
+        <Menu addTask={this.addTask} />
         <div className="Content">
           <div className="Tasks">
             <Today />

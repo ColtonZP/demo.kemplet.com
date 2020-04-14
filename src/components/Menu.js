@@ -4,7 +4,7 @@ import DayNight from './DayNight';
 import add from '../add.svg';
 import Add from './Add';
 
-function Menu() {
+function Menu(props) {
   const [displayAdd, toggleAdd] = useState(false);
 
   const toggle = () => {
@@ -17,7 +17,7 @@ function Menu() {
       <button className="add" type="button" onClick={() => toggle()}>
         <img src={add} alt="add button" />
       </button>
-      {displayAdd && <Add toggle={toggle} />}
+      {displayAdd && <Add toggle={toggle} addTask={props.addTask} />}
     </div>
   );
 }
