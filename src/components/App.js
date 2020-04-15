@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       tasks: [],
       dueToday: [],
+      openTask: {},
     };
   }
 
@@ -27,19 +28,26 @@ class App extends Component {
     task.id = quickId();
     this.setState({
       tasks: [...tasks, task],
+      openTask: task,
+    });
+  };
+
+  changeOpenTask = (task) => {
+    this.setState({
+      openTask: task,
+    });
+  };
+
+  addTodo = (id, todo) => {
+    // const task = this.state.tasks.find((task) => task.id === id).todoList.push(todo);
+    // task.todoList = [...task.todoList, todo];
+    this.setState({
+      tasks: this.state.tasks[0].todoList.push(todo),
     });
   };
 
   render() {
-    const { tasks } = this.state;
-    const { viewTaskId } = this.state;
-
-    function getTask() {
-      if (tasks.length >= 1) {
-        return <TaskDetail task={tasks[0]} />;
-      }
-      return null;
-    }
+    const { tasks, openTask } = this.state;
 
     return (
       <div className="App">
@@ -65,10 +73,10 @@ class App extends Component {
                   </button>
                 ))}
               </div>
-              {getTask()}
+              {openTask.title && <TaskDetail task={openTask} />}
             </div>
           </div>
-          <Calendar />
+          {/* <Calendar /> 👀 */}
         </div>
       </div>
     );

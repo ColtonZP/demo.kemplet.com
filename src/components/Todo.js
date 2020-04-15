@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
 function Todo(props) {
-  const toggleChecked = () => {
-    props.item.completed = !props.item.completed;
-  };
+  const [completed, updateCompleted] = useState(false);
+
+  // const toggleChecked = () => {
+  //   props.todo.completed = !props.todo.completed;
+  // };
+
+  useEffect(() => {
+    props.todo.completed = completed;
+  });
 
   return (
-    <li>
+    <li className="todoCheck">
       <input
         type="checkbox"
-        className="todoCheck"
         readOnly
-        checked={props.item.completed}
-        onClick={toggleChecked}
+        checked={completed}
+        onClick={() => updateCompleted(!completed)}
       />
-      {props.item.name}
+      <label>{props.todo.title}</label>
     </li>
   );
 }

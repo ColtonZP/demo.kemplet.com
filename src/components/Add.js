@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import CalendarInput from './CalendarInput';
+import CalendarInput from "./CalendarInput";
 
 class Add extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      todos: [],
+      title: "",
+      todoList: [],
       due: "",
-      showingCalendar: false
+      showingCalendar: false,
     };
   }
 
@@ -17,46 +17,46 @@ class Add extends Component {
     this.setState({
       title: e.target.value,
     });
-  }
+  };
 
   toggleCalendar = () => {
-    this.setState({showingCalendar: !this.state.showingCalendar})
-  }
+    this.setState({ showingCalendar: !this.state.showingCalendar });
+  };
 
   updateDue = (e) => {
     this.setState({
       due: e.target.value,
     });
-  }
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { title, todos, due } = this.state;
+    const { title, todoList, due, addTask } = this.state;
     if (title) {
       this.props.addTask({
         title,
-        todos,
+        todoList,
         due,
+        addTask,
       });
       this.props.toggle();
     }
-  }
+  };
 
   handleDue = (selected) => {
-    this.setState({due: selected})
-  }
+    this.setState({ due: selected });
+  };
 
   getDate(add) {
-    const date = new Date()
+    const date = new Date();
     let month = (date.getMonth() + 1).toString();
     let day = (date.getDate() + add).toString();
     const year = date.getFullYear();
-    const returnDate = [month, day, year].join('/');
+    const returnDate = [month, day, year].join("/");
     return returnDate;
   }
 
   render() {
-
     const { title, due } = this.state;
     const today = this.getDate(0);
     const tomorrow = this.getDate(1);
@@ -90,10 +90,10 @@ class Add extends Component {
 
         <CalendarInput
           showing={this.state.showingCalendar}
-          handleDue={this.handleDue} 
+          handleDue={this.handleDue}
           toggle={this.toggleCalendar}
         />
-        
+
         <div className="dueOptions">
           <input
             className="active"

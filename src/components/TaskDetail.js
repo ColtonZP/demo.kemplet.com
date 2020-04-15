@@ -6,13 +6,16 @@ class TaskDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todo: "",
+      todo: {
+        title: "",
+        completed: false,
+      },
     };
   }
 
   updateInput = (e) => {
     this.setState({
-      todo: e.target.value,
+      todo: { ...this.state.todo, title: e.target.value },
     });
   };
 
@@ -21,7 +24,10 @@ class TaskDetail extends Component {
     const { todo } = this.state;
     const { addTodo, task } = this.props;
     const id = task.id;
-    addTodo(todo);
+    task.todoList.push(todo);
+    this.setState({
+      todo: { title: "", completed: false },
+    });
   };
 
   render() {
@@ -32,16 +38,12 @@ class TaskDetail extends Component {
         <div className="TaskDetails">
           <h1>{task.title}</h1>
           <span style={{ display: "block" }}>{`due: ${task.due}`}</span>
-          <span style={{ display: "block" }}>Todos</span>
-          <span style={{ display: "block" }}>
-            id:
-            {task.id}
-          </span>
+          <span style={{ display: "block" }}>Todo:</span>
           <div>
             <ul>
-              {/* {task.todos.map((todo) => (
-                <Todo item={todo} />
-              ))} */}
+              {task.todoList.map((todo) => (
+                <Todo todo={todo} key={todo.title} />
+              ))}
               <form>
                 <input
                   type="text"
@@ -49,7 +51,7 @@ class TaskDetail extends Component {
                   className="addTodo"
                   autoComplete="off"
                   placeholder="Add item"
-                  value={todo}
+                  value={todo.title}
                   onChange={this.updateInput}
                 />
                 <input type="submit" value="+" onClick={this.handleSubmit} />
