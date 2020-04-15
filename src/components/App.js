@@ -13,7 +13,28 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      tasks: [],
+      tasks: [
+        {
+          title: "Welcome!",
+          due: "01/01/2021",
+          todoList: [
+            {
+              title:
+                "to add a task board, click the add button at the top of the window",
+              completed: false,
+            },
+            {
+              title:
+                "mark todo completed by clicking a the square to the left of a todo",
+              completed: false,
+            },
+            {
+              title: "this is complete",
+              completed: true,
+            },
+          ],
+        },
+      ],
       dueToday: [],
       openTask: {},
     };
@@ -32,22 +53,21 @@ class App extends Component {
     });
   };
 
-  changeOpenTask = (task) => {
+  openTask = (task) => {
+    // const task = this.state.tasks.find((task) => task.id === id).todoList.push(todo);
     this.setState({
       openTask: task,
     });
   };
 
-  addTodo = (id, todo) => {
-    // const task = this.state.tasks.find((task) => task.id === id).todoList.push(todo);
-    // task.todoList = [...task.todoList, todo];
-    this.setState({
-      tasks: this.state.tasks[0].todoList.push(todo),
-    });
-  };
+  componentDidMount() {
+    this.openTask(this.state.tasks[0]);
+  }
 
   render() {
     const { tasks, openTask } = this.state;
+    {
+    }
 
     return (
       <div className="App">

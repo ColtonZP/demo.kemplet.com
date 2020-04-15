@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function Todo(props) {
-  const [completed, updateCompleted] = useState(false);
+  const [completed, updateCompleted] = useState(props.todo.completed);
 
   // const toggleChecked = () => {
   //   props.todo.completed = !props.todo.completed;
