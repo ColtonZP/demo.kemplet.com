@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import Todo from "./Todo";
 
@@ -22,8 +23,7 @@ class TaskDetail extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { todo } = this.state;
-    const { addTodo, task } = this.props;
-    const id = task.id;
+    const { task } = this.props;
     task.todoList.push(todo);
     this.setState({
       todo: { title: "", completed: false },
@@ -63,5 +63,9 @@ class TaskDetail extends Component {
     );
   }
 }
+
+TaskDetail.propTypes = {
+  task: PropTypes.object,
+};
 
 export default TaskDetail;

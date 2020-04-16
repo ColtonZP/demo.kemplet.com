@@ -1,7 +1,9 @@
-import React from 'react';
+import React from "react";
 
 function Calendar() {
-  const date = new Date(), month = date.getMonth(), year = date.getFullYear();
+  const date = new Date(),
+    month = date.getMonth(),
+    year = date.getFullYear();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   let days = [];
@@ -11,7 +13,7 @@ function Calendar() {
   return (
     <div className="Calendar">
       <h1>Calendar</h1>
-      <div className="Sheet" style={{maxWidth: "auto"}}>
+      <div className="Sheet" style={{ maxWidth: "auto" }}>
         <span>Mon</span>
         <span>Tue</span>
         <span>Wed</span>
@@ -21,9 +23,15 @@ function Calendar() {
         <span>Sun</span>
         {days.map((day) => {
           if (day === 1) {
-            return <input type="button" value={day} style={{ gridColumnStart: firstDay }} />;
+            return (
+              <input
+                type="button"
+                value={day}
+                style={{ gridColumnStart: firstDay }}
+              />
+            );
           }
-          return <input type="button" value={day} />;
+          return <input type="button" value={day} key={day} />;
         })}
       </div>
     </div>

@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 
 function Today() {
   const dateOptions = {
-    weekday: 'short',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+    weekday: "short",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   };
-  const date = new Intl.DateTimeFormat('en-US', dateOptions).format(new Date());
+  const date = new Intl.DateTimeFormat("en-US", dateOptions).format(new Date());
   return (
     <div className="Today Card">
       <h1>{`${date}`}</h1>

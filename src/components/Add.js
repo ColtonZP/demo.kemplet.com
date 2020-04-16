@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import CalendarInput from "./CalendarInput";
 
@@ -31,15 +32,15 @@ class Add extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { title, todoList, due, addTask } = this.state;
+    const { title, todoList, due } = this.state;
+    const { addTask, toggle } = this.props;
     if (title) {
-      this.props.addTask({
+      addTask({
         title,
         todoList,
         due,
-        addTask,
       });
-      this.props.toggle();
+      toggle();
     }
   };
 
@@ -82,8 +83,8 @@ class Add extends Component {
             className="DateInput"
             autoComplete="off"
             value={due}
+            // readOnly
             onClick={this.toggleCalendar}
-            required
           />
           <span>Due</span>
         </div>
@@ -122,5 +123,10 @@ class Add extends Component {
     );
   }
 }
+
+Add.propTypes = {
+  addTask: PropTypes.func,
+  toggle: PropTypes.func,
+};
 
 export default Add;

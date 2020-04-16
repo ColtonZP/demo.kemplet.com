@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-class Calendar extends Component {
+class CalendarInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +14,7 @@ class Calendar extends Component {
   }
 
   updateMonth(direction) {
-    if (direction === 'ascend') {
+    if (direction === "ascend") {
       if (this.state.month === 11) {
         this.setState({
           month: 0,
@@ -25,7 +26,7 @@ class Calendar extends Component {
         });
       }
     }
-    if (direction === 'descend') {
+    if (direction === "descend") {
       if (this.state.month === 0) {
         this.setState({
           month: 11,
@@ -40,13 +41,24 @@ class Calendar extends Component {
   }
 
   render() {
-    const {
-      month, today, year, actualMonth, actualYear,
-    } = this.state;
+    const { month, today, year, actualMonth, actualYear } = this.state;
     const { showing, handleDue, toggle } = this.props;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDay = new Date(year, month, 1).getDay();
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     let days = [];
 
     for (let i = 1; i <= daysInMonth; i++) {
@@ -63,12 +75,12 @@ class Calendar extends Component {
       if (day === 1) {
         return (
           <input
-            key={day}
             type="button"
             value={day}
+            key={day}
             style={{ gridColumnStart: firstDay }}
             onClick={() => {
-              handleDue([month + 1, day, year].join('/'));
+              handleDue([month + 1, day, year].join("/"));
               toggle();
             }}
           />
@@ -76,33 +88,43 @@ class Calendar extends Component {
       }
       return (
         <input
-          key={day}
           type="button"
           value={day}
+          key={day}
           onClick={() => {
-            handleDue([month + 1, day, year].join('/'));
+            handleDue([month + 1, day, year].join("/"));
             toggle();
           }}
         />
       );
     }
 
-    const onCurrentMonth = (actualMonth === month && actualYear === year) && 'Disabled';
+    const onCurrentMonth =
+      actualMonth === month && actualYear === year && "Disabled";
 
     return (
-      <div className="CalendarInput" style={{ maxHeight: showing ? '20em' : 0 }}>
+      <div
+        className="CalendarInput"
+        style={{ maxHeight: showing ? "20em" : 0 }}
+      >
         <div className="CalendarControls">
           <input
             type="button"
             value="<"
             className={onCurrentMonth}
-            onClick={() => this.updateMonth('descend')}
+            onClick={() => this.updateMonth("descend")}
           />
-          <span style={{ gridColumnEnd: 'span 5', color: 'black', textAlign: 'center' }}>{`${months[month]}, ${year}`}</span>
+          <span
+            style={{
+              gridColumnEnd: "span 5",
+              color: "black",
+              textAlign: "center",
+            }}
+          >{`${months[month]}, ${year}`}</span>
           <input
             type="button"
             value=">"
-            onClick={() => this.updateMonth('ascend')}
+            onClick={() => this.updateMonth("ascend")}
           />
         </div>
 
@@ -114,13 +136,17 @@ class Calendar extends Component {
           <span>Fri</span>
           <span>Sat</span>
           <span>Sun</span>
-          {days.map((day) => (
-            calendarMap(day)
-          ))}
+          {days.map((day) => calendarMap(day))}
         </div>
       </div>
     );
   }
 }
 
-export default Calendar;
+CalendarInput.propTypes = {
+  showing: PropTypes.bool,
+  handleDue: PropTypes.func,
+  toggle: PropTypes.func,
+};
+
+export default CalendarInput;

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { quickId } from "quickids";
 
 import Menu from "./Menu";
 import Today from "./Today";
 import TaskDetail from "./TaskDetail";
-import Calendar from "./Calendar";
+// import Calendar from "./Calendar";
 
 import options from "../options.svg";
 
@@ -66,8 +65,6 @@ class App extends Component {
 
   render() {
     const { tasks, openTask } = this.state;
-    {
-    }
 
     return (
       <div className="App">
@@ -102,9 +99,5 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  tasks: PropTypes.arrayOf.isRequired,
-};
 
 export default App;

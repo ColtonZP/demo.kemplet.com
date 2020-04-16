@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class DayNight extends Component {
   constructor() {
@@ -25,10 +25,7 @@ export default class DayNight extends Component {
     const completionTime = Math.round(((time - startHour) / activeHours) * 100);
     if (completionTime >= 100 || completionTime <= 0) {
       return (
-        <span
-          role="img"
-          aria-label="sleep"
-          className="DayNight">
+        <span role="img" aria-label="sleep" className="DayNight">
           💤
         </span>
       );
