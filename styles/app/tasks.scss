@@ -61,7 +61,7 @@ span {
 
 .Options {
 	height: 2em;
-	width: 1em;
+	width: 2em;
 	position: absolute;
 	right: 1em;
 	cursor: pointer;
@@ -87,9 +87,6 @@ span {
 				text-decoration: line-through;
 				color: lighten(black, 50%);
 			}
-		}
-		&:hover + label::before {
-			box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
 		}
 	}
 	position: relative;

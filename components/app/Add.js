@@ -20,8 +20,12 @@ class Add extends Component {
     });
   };
 
-  toggleCalendar = () => {
-    this.setState({ showingCalendar: !this.state.showingCalendar });
+  toggleCalendar = (arg) => {
+    if (arg !== undefined) {
+      this.setState({ showingCalendar: arg });
+    } else {
+      this.setState({ showingCalendar: !this.state.showingCalendar });
+    }
   };
 
   updateDue = (e) => {
@@ -83,8 +87,8 @@ class Add extends Component {
             className="DateInput"
             autoComplete="off"
             value={due}
-            // readOnly
-            onClick={this.toggleCalendar}
+            readOnly
+            onFocus={() => this.toggleCalendar(true)}
           />
           <span>Due</span>
         </div>
@@ -100,17 +104,26 @@ class Add extends Component {
             className="active"
             type="button"
             value="none"
-            onClick={() => this.handleDue("")}
+            onClick={() => {
+              this.handleDue("");
+              this.toggleCalendar(false);
+            }}
           />
           <input
             type="button"
             value="today"
-            onClick={() => this.handleDue(today)}
+            onClick={() => {
+              this.handleDue(today);
+              this.toggleCalendar(false);
+            }}
           />
           <input
             type="button"
             value="tomorrow"
-            onClick={() => this.handleDue(tomorrow)}
+            onClick={() => {
+              this.handleDue(tomorrow);
+              this.toggleCalendar(false);
+            }}
           />
         </div>
         <input

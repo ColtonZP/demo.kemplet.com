@@ -68,9 +68,13 @@ class CalendarInput extends Component {
     function calendarMap(day) {
       if (day < today && actualMonth === month && actualYear === year) {
         if (day === 1) {
-          return <span style={{ gridColumnStart: firstDay }}>{day}</span>;
+          return (
+            <span key={day} style={{ gridColumnStart: firstDay }}>
+              {day}
+            </span>
+          );
         }
-        return <span>{day}</span>;
+        return <span key={day}>{day}</span>;
       }
       if (day === 1) {
         return (

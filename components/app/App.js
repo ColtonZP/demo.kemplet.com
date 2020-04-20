@@ -6,8 +6,6 @@ import Today from "./Today";
 import TaskDetail from "./TaskDetail";
 // import Calendar from "./Calendar";
 
-import options from "../options.svg";
-
 class App extends Component {
   constructor() {
     super();
@@ -16,20 +14,12 @@ class App extends Component {
         {
           title: "Welcome!",
           due: "01/01/2021",
+          id: "welcome",
           todoList: [
             {
               title:
                 "to add a task board, click the add button at the top of the window",
               completed: false,
-            },
-            {
-              title:
-                "mark todo completed by clicking a the square to the left of a todo",
-              completed: false,
-            },
-            {
-              title: "this is complete",
-              completed: true,
             },
           ],
         },
@@ -53,7 +43,6 @@ class App extends Component {
   };
 
   openTask = (task) => {
-    // const task = this.state.tasks.find((task) => task.id === id).todoList.push(todo);
     this.setState({
       openTask: task,
     });
@@ -76,17 +65,14 @@ class App extends Component {
               <div className="TaskList">
                 {tasks.map((task) => (
                   <button
-                    key={task}
+                    key={task.id}
                     className="Card"
                     type="button"
                     onClick={() => {
-                      this.changeTaskId(task.id);
+                      this.openTask(task);
                     }}
                   >
                     {task.title}
-                    <button className="Options" type="button">
-                      <img src={options} alt="options button" />
-                    </button>
                   </button>
                 ))}
               </div>

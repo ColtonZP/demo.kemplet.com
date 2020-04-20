@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import DayNight from "./DayNight";
-import add from "../add.svg";
+import add from "./add.svg";
 import Add from "./Add";
 
 function Menu(props) {
