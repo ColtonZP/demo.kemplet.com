@@ -15,11 +15,26 @@ export default class AppIndex extends Component {
           title: "Welcome!",
           due: "01/01/2021",
           id: "welcome",
-          todoList: [
+          todoLists: [
             {
-              title:
-                "to add a task board, click the add button at the top of the window",
-              completed: false,
+              title: "Add a board",
+              todos: [
+                {
+                  todo:
+                    "to add a task board, click the add button at the top of the window.",
+                  completed: false,
+                },
+              ],
+            },
+            {
+              title: "Add a todo list",
+              todos: [
+                {
+                  todo:
+                    "add a list to the board by pressing the add button at the bottom of the board.",
+                  completed: false,
+                },
+              ],
             },
           ],
         },

@@ -8,7 +8,7 @@ class Add extends Component {
     super(props);
     this.state = {
       title: "",
-      todoList: [],
+      todoLists: [],
       due: "",
       showingCalendar: false,
     };
@@ -36,12 +36,12 @@ class Add extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { title, todoList, due } = this.state;
+    const { title, todoLists, due } = this.state;
     const { addTask, toggle } = this.props;
     if (title) {
       addTask({
         title,
-        todoList,
+        todoLists,
         due,
       });
       toggle();

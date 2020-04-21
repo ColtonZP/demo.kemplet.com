@@ -13,6 +13,11 @@ const Nav = () => (
         <Link href="/about">
           <a>About</a>
         </Link>
+        <li>
+          <Link href="/app">
+            <a>App</a>
+          </Link>
+        </li>
       </li>
     </ul>
   </nav>

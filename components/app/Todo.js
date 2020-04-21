@@ -17,7 +17,7 @@ function Todo(props) {
         checked={completed}
         onClick={() => updateCompleted(!completed)}
       />
-      <label>{todo.title}</label>
+      <label>{todo.todo}</label>
     </li>
   );
 }
