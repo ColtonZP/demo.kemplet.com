@@ -14,9 +14,9 @@ function Menu(props) {
   };
 
   return (
-    <div className="Menu">
+    <div className="menu">
       <DayNight />
-      <button className="add" type="button" onClick={() => toggle()}>
+      <button className="addBtn" type="button" onClick={() => toggle()}>
         <img src={add} alt="add button" />
       </button>
       {displayAdd && <Add toggle={toggle} addTask={addTask} />}

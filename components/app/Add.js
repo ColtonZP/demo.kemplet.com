@@ -67,8 +67,8 @@ class Add extends Component {
     const tomorrow = this.getDate(1);
 
     return (
-      <form className="Add">
-        <div className="InputMotion">
+      <form className="addContainer">
+        <div className="inputMotion">
           <input
             type="text"
             name="title"
@@ -80,14 +80,14 @@ class Add extends Component {
           <span>Title</span>
         </div>
 
-        <div className="InputMotion">
+        <div className="inputMotion">
           <input
             type="text"
             name="due"
-            className="DateInput"
+            className="dateInput"
             autoComplete="off"
             value={due}
-            readOnly
+            required
             onFocus={() => this.toggleCalendar(true)}
           />
           <span>Due</span>
@@ -127,7 +127,7 @@ class Add extends Component {
           />
         </div>
         <input
-          className="btnAdd"
+          className="addSubmit"
           type="submit"
           value="add"
           onClick={this.handleSubmit}

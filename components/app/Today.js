@@ -9,7 +9,7 @@ function Today() {
   };
   const date = new Intl.DateTimeFormat("en-US", dateOptions).format(new Date());
   return (
-    <div className="Today Card">
+    <div className="today card">
       <h1>{`${date}`}</h1>
       <span>Due today</span>
     </div>

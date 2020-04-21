@@ -2,7 +2,7 @@ span {
 	margin-bottom: 0.4em;
 }
 
-.Tasks {
+.tasks {
 	@include container;
 	display: -webkit-box;
 	display: flex;
@@ -13,12 +13,12 @@ span {
 	flex-direction: column;
 }
 
-.Today {
+.today {
 	margin-bottom: 1rem;
 	width: 100%;
 }
 
-.TaskContent {
+.taskContent {
 	display: grid;
 	overflow: scroll;
 	-webkit-box-flex: 1;
@@ -27,16 +27,16 @@ span {
 	grid-gap: 1rem;
 }
 
-.TaskList > * {
+.taskList > * {
 	margin-bottom: 1rem;
 	&:hover {
 		cursor: pointer;
 	}
 }
 
-.TaskList {
+.taskList {
 	overflow: scroll;
-	& .Card {
+	& .card {
 		white-space: nowrap;
 		overflow: hidden !important;
 		text-overflow: ellipsis;
@@ -51,7 +51,7 @@ span {
 	}
 }
 
-.TaskDetailContainer {
+.taskDetailContainer {
 	grid-column: 2 / 4;
 	overflow: scroll;
 	& h1 {
@@ -59,7 +59,7 @@ span {
 	}
 }
 
-.Options {
+.options {
 	height: 2em;
 	width: 2em;
 	position: absolute;

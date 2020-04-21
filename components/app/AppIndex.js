@@ -4,9 +4,9 @@ import { quickId } from "quickids";
 import Menu from "./Menu";
 import Today from "./Today";
 import TaskDetail from "./TaskDetail";
-// import Calendar from "./Calendar";
+import Calendar from "./Calendar";
 
-class App extends Component {
+export default class AppIndex extends Component {
   constructor() {
     super();
     this.state = {
@@ -58,15 +58,15 @@ class App extends Component {
     return (
       <div className="App">
         <Menu addTask={this.addTask} />
-        <div className="Content">
-          <div className="Tasks">
+        <div className="content">
+          <div className="tasks">
             <Today />
-            <div className="TaskContent">
-              <div className="TaskList">
+            <div className="taskContent">
+              <div className="taskList">
                 {tasks.map((task) => (
                   <button
                     key={task.id}
-                    className="Card"
+                    className="card"
                     type="button"
                     onClick={() => {
                       this.openTask(task);
@@ -79,11 +79,9 @@ class App extends Component {
               {openTask.title && <TaskDetail task={openTask} />}
             </div>
           </div>
-          {/* <Calendar /> 👀 */}
+          {/* <Calendar /> */}
         </div>
       </div>
     );
   }
 }
-
-export default App;

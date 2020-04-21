@@ -6,7 +6,7 @@ export default class DayNight extends Component {
     this.state = {
       startHour: 9,
       endHour: 9,
-      time: 0,
+      time: "",
     };
   }
 
@@ -25,12 +25,12 @@ export default class DayNight extends Component {
     const completionTime = Math.round(((time - startHour) / activeHours) * 100);
     if (completionTime >= 100 || completionTime <= 0) {
       return (
-        <span role="img" aria-label="sleep" className="DayNight">
+        <span role="img" aria-label="sleep" className="dayNight">
           💤
         </span>
       );
     }
-    return <span className="DayNight">{completionTime}</span>;
+    return <span className="dayNight">{completionTime}</span>;
   }
 
   render() {

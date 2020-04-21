@@ -11,9 +11,8 @@ function Calendar() {
     days = [...days, i];
   }
   return (
-    <div className="Calendar">
-      <h1>Calendar</h1>
-      <div className="Sheet" style={{ maxWidth: "auto" }}>
+    <div className="calendar">
+      <div className="sheet" style={{ maxWidth: "auto" }}>
         <span>Mon</span>
         <span>Tue</span>
         <span>Wed</span>

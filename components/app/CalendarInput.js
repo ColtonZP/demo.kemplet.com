@@ -108,10 +108,10 @@ class CalendarInput extends Component {
 
     return (
       <div
-        className="CalendarInput"
+        className="calendarInput"
         style={{ maxHeight: showing ? "20em" : 0 }}
       >
-        <div className="CalendarControls">
+        <div className="calendarControls">
           <input
             type="button"
             value="<"
@@ -132,7 +132,7 @@ class CalendarInput extends Component {
           />
         </div>
 
-        <div className="Sheet">
+        <div className="sheet">
           <span>Mon</span>
           <span>Tue</span>
           <span>Wed</span>

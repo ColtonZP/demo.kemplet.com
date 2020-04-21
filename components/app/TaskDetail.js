@@ -34,8 +34,8 @@ class TaskDetail extends Component {
     const { task } = this.props;
     const { todo } = this.state;
     return (
-      <div className="TaskDetailContainer Card">
-        <div className="TaskDetails">
+      <div className="taskDetailContainer card">
+        <div className="taskDetails">
           <h1>{task.title}</h1>
           <span style={{ display: "block" }}>{`due: ${task.due}`}</span>
           <span style={{ display: "block" }}>Todo:</span>
