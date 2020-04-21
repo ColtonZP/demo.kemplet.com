@@ -33,7 +33,7 @@ class TodoList extends Component {
     const { list } = this.props;
     const { todo } = this.state;
     return (
-      <div>
+      <div className="todoList">
         <span>{list.title}</span>
         <ul>
           {list.todos.map((todo) => (
@@ -49,7 +49,12 @@ class TodoList extends Component {
               value={todo.todo}
               onChange={this.updateInput}
             />
-            <input type="submit" value="+" onClick={this.handleSubmit} />
+            <input
+              className="submitTodo"
+              type="submit"
+              value="+"
+              onClick={this.handleSubmit}
+            />
           </form>
         </ul>
       </div>

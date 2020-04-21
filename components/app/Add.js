@@ -79,7 +79,6 @@ class Add extends Component {
           />
           <span>Title</span>
         </div>
-
         <div className="inputMotion">
           <input
             type="text"
@@ -92,13 +91,11 @@ class Add extends Component {
           />
           <span>Due</span>
         </div>
-
         <CalendarInput
           showing={this.state.showingCalendar}
           handleDue={this.handleDue}
           toggle={this.toggleCalendar}
         />
-
         <div className="dueOptions">
           <input
             className="active"

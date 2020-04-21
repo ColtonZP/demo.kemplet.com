@@ -104,7 +104,7 @@ class CalendarInput extends Component {
     }
 
     const onCurrentMonth =
-      actualMonth === month && actualYear === year && "Disabled";
+      actualMonth === month && actualYear === year && "disabled";
 
     return (
       <div

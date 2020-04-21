@@ -57,6 +57,29 @@ span {
 	& h1 {
 		margin-bottom: 0.5rem;
 	}
+	form {
+		position: relative;
+		width: 50%;
+		min-width: 8em;
+		.addTodo {
+			background: inherit;
+			border: none;
+			outline: none;
+			font-size: 1em;
+			border-bottom: 1px black solid;
+			width: 100%;
+			padding-left: 1em;
+		}
+		.submitTodo {
+			background-color: transparent;
+			color: $theme;
+			font-weight: bold;
+			position: absolute;
+			left: 0;
+			font-size: 1em;
+			padding: 0;
+		}
+	}
 }
 
 .options {
@@ -89,6 +112,9 @@ span {
 			}
 		}
 	}
+	& label {
+		word-break: break-word;
+	}
 	position: relative;
 	& label::before,
 	label::after {
@@ -113,10 +139,6 @@ span {
 	}
 }
 
-.addTodo {
-	background: inherit;
-	border: none;
-	outline: none;
-	font-size: 1em;
-	border-bottom: 1px black solid;
+.todoList {
+	margin-bottom: 2em;
 }
