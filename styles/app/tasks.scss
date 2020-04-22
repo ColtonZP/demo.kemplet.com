@@ -15,7 +15,18 @@ span {
 
 .today {
 	margin-bottom: 1rem;
-	width: 100%;
+	white-space: normal !important;
+	& span {
+		display: block;
+		margin: 0;
+		font-size: 0.8em;
+		margin: .4em 0;
+	}
+	& .dueTitle {
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $theme-color;
+	}
 }
 
 .taskContent {

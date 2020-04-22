@@ -15,8 +15,10 @@
 .addBtn {
 	height: 1.5em;
 	width: 1.5em;
-	margin: 0.5em 3em;
+	margin: 0 auto;
+	padding: .5em 0;
 	outline: none;
+	display: block;
 	&:hover {
 		cursor: pointer;
 	}

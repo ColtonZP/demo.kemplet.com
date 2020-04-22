@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { quickId } from "quickids";
 
-import { dateToday } from '../../functions/kemplet-date';
+import { dateToday } from "../../functions/kemplet-date";
 
 import Menu from "./Menu";
 import Today from "./Today";
@@ -17,10 +17,12 @@ export default class AppIndex extends Component {
           title: "Welcome",
           due: dateToday(0),
           id: "welcome",
+          complete: false,
           todoLists: [
             {
               title: "Add a board",
               id: "welcome-List-1",
+              completed: false,
               todos: [
                 {
                   todo:
@@ -32,6 +34,7 @@ export default class AppIndex extends Component {
             {
               title: "Add a todo list",
               id: "welcome-List-2",
+              completed: false,
               todos: [
                 {
                   todo:
@@ -80,9 +83,9 @@ export default class AppIndex extends Component {
         <Menu addTask={this.addTask} />
         <div className="content">
           <div className="tasks">
-            <Today />
             <div className="taskContent">
               <div className="taskList">
+                <Today tasks={tasks} />
                 {tasks.map((task) => (
                   <button
                     key={task.id}
@@ -97,10 +100,7 @@ export default class AppIndex extends Component {
                     today.toDateString() ? (
                       <span className="dueToday">today</span>
                     ) : (
-                      new Date(task.due).toDateString() <=
-                        today.toDateString() && (
-                        <span className="dueLate">Late</span>
-                      )
+                      <span>{task.due.slice(0, -5)}</span>
                     )}
                   </button>
                 ))}

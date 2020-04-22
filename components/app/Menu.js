@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import DayNight from "./DayNight";
+// import DayNight from "./DayNight";
 import add from "./add.svg";
 import Add from "./Add";
 
@@ -15,7 +15,7 @@ function Menu(props) {
 
   return (
     <div className="menu">
-      <DayNight />
+      {/* <DayNight /> */}
       <button className="addBtn" type="button" onClick={() => toggle()}>
         <img src={add} alt="add button" />
       </button>
