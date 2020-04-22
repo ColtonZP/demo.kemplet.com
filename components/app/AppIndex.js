@@ -12,8 +12,8 @@ export default class AppIndex extends Component {
     this.state = {
       tasks: [
         {
-          title: "Welcome!",
-          due: "01/01/2021",
+          title: "Welcome",
+          due: "4/21/2020",
           id: "welcome",
           todoLists: [
             {
@@ -69,7 +69,8 @@ export default class AppIndex extends Component {
 
   render() {
     const { tasks, openTask } = this.state;
-
+    let today = new Date();
+    today.setHours(0, 0, 0, 0);
     return (
       <div className="App">
         <Menu addTask={this.addTask} />
@@ -88,6 +89,10 @@ export default class AppIndex extends Component {
                     }}
                   >
                     {task.title}
+                    <span>
+                      {new Date(task.due).toDateString() ==
+                        today.toDateString() && " due today"}
+                    </span>
                   </button>
                 ))}
               </div>

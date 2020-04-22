@@ -55,7 +55,7 @@ class Add extends Component {
   getDate(add) {
     const date = new Date();
     let month = (date.getMonth() + 1).toString();
-    let day = (date.getDate() + add).toString();
+    let day = (date.getDate() + add);
     const year = date.getFullYear();
     const returnDate = [month, day, year].join("/");
     return returnDate;
@@ -79,6 +79,7 @@ class Add extends Component {
           />
           <span>Title</span>
         </div>
+
         <div className="inputMotion">
           <input
             type="text"
