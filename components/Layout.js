@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Head from "next/head";
 
 import "../styles/index.scss";
@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <Head>
-        <title>Home</title>
+        <title>Kemplet</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
