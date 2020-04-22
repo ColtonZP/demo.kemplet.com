@@ -82,17 +82,17 @@ export default class AppIndex extends Component {
                 {tasks.map((task) => (
                   <button
                     key={task.id}
-                    className="card"
+                    className="card boardBtn"
                     type="button"
                     onClick={() => {
                       this.openTask(task);
                     }}
                   >
-                    {task.title}
-                    <span>
-                      {new Date(task.due).toDateString() ==
-                        today.toDateString() && " due today"}
-                    </span>
+                    <div>{task.title}</div>
+                    {new Date(task.due).toDateString() ==
+                      today.toDateString() && (
+                      <span className="dueToday">today</span>
+                    )}
                   </button>
                 ))}
               </div>

@@ -39,7 +39,7 @@ span {
 	& .card {
 		white-space: nowrap;
 		overflow: hidden !important;
-		text-overflow: ellipsis;
+		position: relative;
 		&:hover {
 			.Options {
 				opacity: 1;
@@ -141,4 +141,22 @@ span {
 
 .todoList {
 	margin-bottom: 2em;
+}
+
+.boardBtn {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	& div {
+		text-overflow: ellipsis;
+		overflow: hidden !important;
+	}
+	& .dueToday {
+		font-weight: bold;
+		color: $theme;
+		text-transform: uppercase;
+		font-size: 0.8em;
+		margin: 0;
+	}
 }
