@@ -89,9 +89,14 @@ export default class AppIndex extends Component {
                     }}
                   >
                     <div>{task.title}</div>
-                    {new Date(task.due).toDateString() ==
-                      today.toDateString() && (
+                    {new Date(task.due).toDateString() ===
+                    today.toDateString() ? (
                       <span className="dueToday">today</span>
+                    ) : (
+                      new Date(task.due).toDateString() <=
+                        today.toDateString() && (
+                        <span className="dueLate">Late</span>
+                      )
                     )}
                   </button>
                 ))}

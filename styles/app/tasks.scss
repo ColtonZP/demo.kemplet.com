@@ -152,11 +152,16 @@ span {
 		text-overflow: ellipsis;
 		overflow: hidden !important;
 	}
-	& .dueToday {
+	& span {
 		font-weight: bold;
-		color: $theme;
 		text-transform: uppercase;
 		font-size: 0.8em;
 		margin: 0;
+	}
+	& .dueToday {
+		color: $theme;
+	}
+	& .dueLate {
+		color: #ff5252;
 	}
 }
