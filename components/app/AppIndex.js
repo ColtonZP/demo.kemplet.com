@@ -18,6 +18,7 @@ export default class AppIndex extends Component {
           todoLists: [
             {
               title: "Add a board",
+              id: "welcome-List-1",
               todos: [
                 {
                   todo:
@@ -28,6 +29,7 @@ export default class AppIndex extends Component {
             },
             {
               title: "Add a todo list",
+              id: "welcome-List-2",
               todos: [
                 {
                   todo:

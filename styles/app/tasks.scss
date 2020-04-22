@@ -72,7 +72,7 @@ span {
 		}
 		.submitTodo {
 			background-color: transparent;
-			color: $theme;
+			color: $theme-color;
 			font-weight: bold;
 			position: absolute;
 			left: 0;
@@ -104,7 +104,7 @@ span {
 		&:checked {
 			& + label::after {
 				content: '\2714';
-				color: $theme;
+				color: $theme-color;
 			}
 			& + label {
 				text-decoration: line-through;
@@ -159,7 +159,7 @@ span {
 		margin: 0;
 	}
 	& .dueToday {
-		color: $theme;
+		color: $theme-color;
 	}
 	& .dueLate {
 		color: #ff5252;
