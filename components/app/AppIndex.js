@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { quickId } from "quickids";
 
+import { dateToday } from '../../functions/kemplet-date';
+
 import Menu from "./Menu";
 import Today from "./Today";
 import TaskDetail from "./TaskDetail";
@@ -13,7 +15,7 @@ export default class AppIndex extends Component {
       tasks: [
         {
           title: "Welcome",
-          due: "4/21/2020",
+          due: dateToday(0),
           id: "welcome",
           todoLists: [
             {

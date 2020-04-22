@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+import { dateToday } from '../../functions/kemplet-date';
+
+
 import CalendarInput from "./CalendarInput";
 
 class Add extends Component {
@@ -52,19 +55,10 @@ class Add extends Component {
     this.setState({ due: selected });
   };
 
-  getDate(add) {
-    const date = new Date();
-    let month = (date.getMonth() + 1).toString();
-    let day = (date.getDate() + add);
-    const year = date.getFullYear();
-    const returnDate = [month, day, year].join("/");
-    return returnDate;
-  }
-
   render() {
     const { title, due } = this.state;
-    const today = this.getDate(0);
-    const tomorrow = this.getDate(1);
+    const today = dateToday(0);
+    const tomorrow = dateToday(1);
 
     return (
       <form className="addContainer">
