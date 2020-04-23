@@ -6,7 +6,6 @@ import { dateToday } from "../functions/kemplet-date";
 import Menu from "./Menu";
 import Today from "./Today";
 import TaskDetail from "./TaskDetail";
-import Calendar from "./Calendar";
 
 export default class App extends Component {
   constructor() {
