@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { dateToday } from '../../functions/kemplet-date';
+import { dateToday } from '../functions/kemplet-date';
 
 
 import CalendarInput from "./CalendarInput";
