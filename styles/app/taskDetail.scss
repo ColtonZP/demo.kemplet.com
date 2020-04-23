@@ -3,14 +3,17 @@
 	overflow: scroll;
 	& h1 {
 		margin-bottom: 0.5rem;
-  }
-  & span {
-    display: block;
-  }
-  .todoLists {
-    display: flex;
-    
-  }
+	}
+	& span {
+		display: block;
+	}
+	.todoLists {
+		@media screen and (min-width: 992px) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 0.8rem;
+		}
+	}
 	form {
 		position: relative;
 		width: 50%;
