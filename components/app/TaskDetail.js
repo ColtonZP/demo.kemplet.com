@@ -36,20 +36,20 @@ class TaskDetail extends Component {
         <div className="taskDetails">
           <h1>{task.title}</h1>
           <span>{`Due: ${task.due.slice(0, -5)}`}</span>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              value={this.state.title}
+              onChange={this.updateInput}
+            />
+            <input type="submit" value="add list" />
+          </form>
           <div className="todoLists">
             {task.todoLists.map((list) => (
               <TodoList list={list} key={list.title} />
             ))}
           </div>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.title}
-            onChange={this.updateInput}
-          />
-          <input type="submit" value="add list" />
-        </form>
       </div>
     );
   }
