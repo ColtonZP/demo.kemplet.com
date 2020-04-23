@@ -35,12 +35,12 @@ class TaskDetail extends Component {
       <div className="taskDetailContainer card">
         <div className="taskDetails">
           <h1>{task.title}</h1>
-          <span style={{ display: "block" }}>
-            {`Due: ${task.due.slice(0, -5)}`}
-          </span>
-          {task.todoLists.map((list) => (
-            <TodoList list={list} key={list.title} />
-          ))}
+          <span>{`Due: ${task.due.slice(0, -5)}`}</span>
+          <div className="todoLists">
+            {task.todoLists.map((list) => (
+              <TodoList list={list} key={list.title} />
+            ))}
+          </div>
         </div>
         <form onSubmit={this.handleSubmit}>
           <input
