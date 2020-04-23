@@ -1,9 +1,15 @@
 @import './variables.scss';
 @import './mixins.scss';
-@import './app.scss';
+
+@import './add.scss';
+@import './appIndex.scss';
+@import './calendar.scss';
+@import './taskDetail.scss';
 @import './menu.scss';
 @import './tasks.scss';
-@import './calendar.scss';
+@import './today.scss';
+@import './todo.scss';
+@import './todoList.scss';
 
 * {
 	margin: 0px;
