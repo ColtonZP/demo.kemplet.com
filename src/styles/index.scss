@@ -12,12 +12,13 @@
 
 html {
 	--main-color: #fff;
+	--secondary--color: #f1f1f1;
 	--theme-color: #0c9;
 	@media (prefers-color-scheme: dark) {
-		--main-color: rgb(22, 29, 56);
+		--main-color: rgb(10, 12, 20);
+		--secondary--color: rgb(15, 17, 28);
 	}
 }
-
 
 * {
 	margin: 0px;
@@ -28,12 +29,15 @@ html {
 	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	@media (prefers-color-scheme: dark) {
+		color: white;
+	}
 }
 
 .card {
 	border-radius: 5px;
 	padding: 0.8rem;
-	background: rgba(22, 29, 56, .8);
+	background: var(--secondary--color);
 	border: none;
 	width: 100%;
 	text-align: left;
