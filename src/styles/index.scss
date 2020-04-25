@@ -10,18 +10,27 @@
 @import './todo.scss';
 @import './todoList.scss';
 
-html {
-	--main-color: #fff;
-	--secondary--color: #f1f1f1;
-	--theme-color: #0c9;
+:root {
+	--main-color: rgb(255, 255, 255);
+	--secondary--color: rgb(241, 241, 241);
+
+	--theme-color: rgb(0, 200, 150);
+
+	--main-text-color: rgb(0, 0, 0);
+	--secondary-text-color: rgb(156, 156, 156);
+
+	--main-margin: 1rem;
+	--secondary-margin: .8rem;
 	@media (prefers-color-scheme: dark) {
 		--main-color: rgb(10, 12, 20);
 		--secondary--color: rgb(15, 17, 28);
+
+		--main-text-color: rgb(255, 255, 255);
+		--secondary-text-color: rgb(110, 110, 110);
 	}
 }
 
 * {
-	margin: 0px;
 	margin: 0;
 	padding: 0px;
 	font-size: 1em;
@@ -29,9 +38,7 @@ html {
 	font-family: 'Roboto', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	@media (prefers-color-scheme: dark) {
-		color: white;
-	}
+	color: var(--main-text-color)
 }
 
 .card {
@@ -61,11 +68,11 @@ h1 {
 
 input[type='button'],
 input[type='submit'] {
-	background-color: var(--theme-color);
+	background: var(--theme-color);
 	padding: 0.2em 0.4em;
 	border: none;
 	border-radius: 2px;
 	cursor: pointer;
 	outline: none;
-	color: var(--main-color);
+	color: var(--main-text-color);
 }

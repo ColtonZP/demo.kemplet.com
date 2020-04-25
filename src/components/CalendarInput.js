@@ -119,9 +119,9 @@ class CalendarInput extends Component {
             onClick={() => this.updateMonth("descend")}
           />
           <span
+            className="month"
             style={{
               gridColumnEnd: "span 5",
-              color: "black",
               textAlign: "center",
             }}
           >{`${months[month]}, ${year}`}</span>

@@ -11,7 +11,7 @@
 			}
 			& + label {
 				text-decoration: line-through;
-				color: lighten(black, 50%);
+				color: var(--secondary-text-color);
 			}
 		}
 	}

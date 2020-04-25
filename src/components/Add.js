@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { dateToday } from '../functions/kemplet-date';
-
+import { dateToday } from "../functions/kemplet-date";
 
 import CalendarInput from "./CalendarInput";
 
@@ -61,70 +60,72 @@ class Add extends Component {
     const tomorrow = dateToday(1);
 
     return (
-      <form className="addContainer">
-        <div className="inputMotion">
-          <input
-            type="text"
-            name="title"
-            autoComplete="off"
-            value={title}
-            onChange={this.updateTitle}
-            required
-          />
-          <span>Title</span>
-        </div>
+      <div className="modal">
+        <form className="addContainer">
+          <div className="inputMotion">
+            <input
+              type="text"
+              name="title"
+              autoComplete="off"
+              value={title}
+              onChange={this.updateTitle}
+              required
+            />
+            <span>Title:</span>
+          </div>
 
-        <div className="inputMotion">
-          <input
-            type="text"
-            name="due"
-            className="dateInput"
-            autoComplete="off"
-            value={due}
-            required
-            onFocus={() => this.toggleCalendar(true)}
+          <div className="inputMotion">
+            <input
+              type="text"
+              name="due"
+              className="dateInput"
+              autoComplete="off"
+              value={due}
+              required
+              onFocus={() => this.toggleCalendar(true)}
+            />
+            <span>Due:</span>
+          </div>
+          <CalendarInput
+            showing={this.state.showingCalendar}
+            handleDue={this.handleDue}
+            toggle={this.toggleCalendar}
           />
-          <span>Due</span>
-        </div>
-        <CalendarInput
-          showing={this.state.showingCalendar}
-          handleDue={this.handleDue}
-          toggle={this.toggleCalendar}
-        />
-        <div className="dueOptions">
+          <div className="dueOptions">
+            <input
+              className="active"
+              type="button"
+              value="none"
+              onClick={() => {
+                this.handleDue("");
+                this.toggleCalendar(false);
+              }}
+            />
+            <input
+              type="button"
+              value="today"
+              onClick={() => {
+                this.handleDue(today);
+                this.toggleCalendar(false);
+              }}
+            />
+            <input
+              type="button"
+              value="tomorrow"
+              onClick={() => {
+                this.handleDue(tomorrow);
+                this.toggleCalendar(false);
+              }}
+            />
+          </div>
           <input
-            className="active"
-            type="button"
-            value="none"
-            onClick={() => {
-              this.handleDue("");
-              this.toggleCalendar(false);
-            }}
+            className="addSubmit"
+            type="submit"
+            value="add"
+            onClick={this.handleSubmit}
           />
-          <input
-            type="button"
-            value="today"
-            onClick={() => {
-              this.handleDue(today);
-              this.toggleCalendar(false);
-            }}
-          />
-          <input
-            type="button"
-            value="tomorrow"
-            onClick={() => {
-              this.handleDue(tomorrow);
-              this.toggleCalendar(false);
-            }}
-          />
-        </div>
-        <input
-          className="addSubmit"
-          type="submit"
-          value="add"
-          onClick={this.handleSubmit}
-        />
-      </form>
+        </form>
+      </div>
     );
   }
 }

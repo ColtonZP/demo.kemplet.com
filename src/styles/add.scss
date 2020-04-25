@@ -1,13 +1,19 @@
-.addContainer {
+.modal {
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2;
 	position: absolute;
+	top: 0;
+}
+
+.addContainer {
 	z-index: 3;
 	background: var(--main-color);
+	// display: inline-block;
+	width: 19.5rem;
 	top: calc(100% + 1rem);
-	// margin: 0 auto;
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	transform: translateX(-50%);
-	box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.75);
+	margin: 2.5rem auto 0;
 	border-radius: 5px;
 	padding: 1rem;
 	& > span {
@@ -34,7 +40,7 @@
 		& span {
 			position: absolute;
 			font-size: 1.2em;
-			color: black;
+			color: var(--main-text-color);
 			top: 1em;
 			left: 0;
 			-webkit-transition: all ease 0.08s;
@@ -47,21 +53,22 @@
 			font-weight: bold;
 			border: none;
 			outline: none;
-			border-bottom: 1px grey solid;
+			// border-bottom: 1px var(--secondary-text-color) solid;
 			width: 100%;
+			background: inherit;
 			&:focus,
 			&:valid {
-				border-bottom: 1px var(--main-color) solid;
+				// border-bottom: 1px var(--main-color) solid;
 				& + span {
 					top: 0;
 					font-size: 0.8em;
-					color: grey;
+					color: var(--secondary-text-color);
 				}
 			}
 		}
 		& .dateInput {
 			color: transparent;
-			text-shadow: 0 0 0 black;
+			text-shadow: 0 0 0 var(--main-text-color);
 			cursor: pointer;
 		}
 	}

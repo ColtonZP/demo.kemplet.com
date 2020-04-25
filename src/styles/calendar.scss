@@ -1,6 +1,6 @@
 .calendar {
 	@include container;
-	background-color: darken(white, 5%);
+	background: var(--secondary--color);
 	& .sheet {
 		display: grid;
 		grid-template-columns: repeat(7, 1fr);
@@ -10,11 +10,11 @@
 			height: 2.5em;
 			border-radius: 50%;
 			font-size: 1em;
-			color: black;
+			color: var(--main-text-color);
 			background: transparent;
 			margin: auto;
 			&:hover {
-				background-color: var(--theme-color);
+				background: var(--theme-color);
 				color: var(--main-color);
 			}
 		}
@@ -25,6 +25,8 @@
 	overflow: hidden;
 	-webkit-transition: max-height linear 0.3s;
 	transition: max-height linear 0.3s;
+	& .month {
+	}
 	& .sheet {
 		display: grid;
 		grid-template-columns: repeat(7, 1fr);
@@ -34,13 +36,13 @@
 			height: 2.5rem;
 			border-radius: 50%;
 			font-size: 1rem;
-			color: black;
+			color: var(--main-text-color);
 			background: transparent;
 			margin: auto;
 			padding: 0;
 			line-height: 2.5rem;
 			&:hover {
-				background-color: var(--theme-color);
+				background: var(--theme-color);
 				color: var(--main-color);
 			}
 		}
@@ -49,7 +51,7 @@
 			height: 2.5rem;
 			border-radius: 50%;
 			font-size: 1rem;
-			color: grey;
+			color: var(--secondary-text-color);
 			margin: auto;
 			display: block;
 			line-height: 2.5rem;
@@ -59,10 +61,6 @@
 		cursor: default;
 		opacity: 0;
 		pointer-events: none;
-		//       &:hover {
-		// color: grey;
-		// background-color: transparent;
-		//       }
 	}
 	& .calendarControls {
 		display: -webkit-box;
