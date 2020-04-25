@@ -15,6 +15,7 @@
 	--secondary--color: rgb(241, 241, 241);
 
 	--theme-color: rgb(0, 200, 150);
+	--checkbox-color: rgb(255, 255, 255);
 
 	--main-text-color: rgb(0, 0, 0);
 	--secondary-text-color: rgb(156, 156, 156);
@@ -24,6 +25,8 @@
 	@media (prefers-color-scheme: dark) {
 		--main-color: rgb(10, 12, 20);
 		--secondary--color: rgb(15, 17, 28);
+
+		--checkbox-color: rgb(40, 42, 54);
 
 		--main-text-color: rgb(255, 255, 255);
 		--secondary-text-color: rgb(110, 110, 110);

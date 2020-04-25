@@ -125,6 +125,7 @@ class Add extends Component {
             onClick={this.handleSubmit}
           />
         </form>
+        <div className="modalBackground" onClick={this.props.toggle} />
       </div>
     );
   }

@@ -3,7 +3,7 @@
 	& input {
 		opacity: 0;
 		cursor: pointer;
-		margin-right: 0.8rem;
+		margin-right: 0.4rem;
 		&:checked {
 			& + label::after {
 				content: '\2714';
@@ -30,7 +30,7 @@
 		pointer-events: none;
 	}
 	& label::before {
-		background: white;
+		background: var(--checkbox-color);
 		content: '';
 		left: -0.2rem;
 	}

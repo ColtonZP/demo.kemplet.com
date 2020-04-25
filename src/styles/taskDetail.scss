@@ -18,7 +18,7 @@
 		border-radius: 2px 0 0 2px;
 		margin: 1rem 0;
 		outline: none;
-		padding: calc(0.2em - 2px) 0;
+		padding: calc(0.2em - 2px) .4em;
 		& + input {
 			border-radius: 0 2px 2px 0;
 		}
