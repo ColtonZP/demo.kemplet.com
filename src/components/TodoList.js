@@ -34,7 +34,7 @@ class TodoList extends Component {
     const { todo } = this.state;
     return (
       <div className="todoList">
-        <span>{list.title}</span>
+        <h2>{list.title}</h2>
         <ul>
           {list.todos.map((todo) => (
             <Todo todo={todo} key={todo.todo} />

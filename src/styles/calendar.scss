@@ -31,6 +31,9 @@
 		display: grid;
 		grid-template-columns: repeat(7, 1fr);
 		text-align: center;
+		& .day {
+			color: var(--main-text-color);
+		}
 		& input {
 			width: 2.5rem;
 			height: 2.5rem;

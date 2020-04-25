@@ -12,7 +12,7 @@ function Calendar() {
   }
   return (
     <div className="calendar">
-      <div className="sheet" style={{ maxWidth: "auto" }}>
+      <div className="sheet">
         <span>Mon</span>
         <span>Tue</span>
         <span>Wed</span>

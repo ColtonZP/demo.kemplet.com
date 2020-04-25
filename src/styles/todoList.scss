@@ -1,5 +1,9 @@
 .todoList {
 	margin-bottom: 1em;
+	& h2 {
+		font-size: 1.08em;
+		margin-bottom: 1rem;
+	}
 	& form {
 		position: relative;
 		width: 100%;
