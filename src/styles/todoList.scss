@@ -14,7 +14,7 @@
 		}
 		.submitTodo {
 			background-color: transparent;
-			color: $theme-color;
+			color: var(--theme-color);
 			font-weight: bold;
 			position: absolute;
 			left: 0;

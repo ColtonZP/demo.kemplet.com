@@ -7,7 +7,7 @@
 		&:checked {
 			& + label::after {
 				content: '\2714';
-				color: $theme-color;
+				color: var(--theme-color);
 			}
 			& + label {
 				text-decoration: line-through;

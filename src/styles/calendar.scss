@@ -14,8 +14,8 @@
 			background: transparent;
 			margin: auto;
 			&:hover {
-				background-color: $theme-color;
-				color: white;
+				background-color: var(--theme-color);
+				color: var(--main-color);
 			}
 		}
 	}
@@ -40,8 +40,8 @@
 			padding: 0;
 			line-height: 2.5rem;
 			&:hover {
-				background-color: $theme-color;
-				color: white;
+				background-color: var(--theme-color);
+				color: var(--main-color);
 			}
 		}
 		& span {

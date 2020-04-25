@@ -10,6 +10,6 @@
 	& .dueTitle {
 		font-weight: bold;
 		text-transform: uppercase;
-		color: $theme-color;
+		color: var(--theme-color);
 	}
 }
