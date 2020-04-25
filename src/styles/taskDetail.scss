@@ -7,6 +7,17 @@
 	& span {
 		display: block;
 	}
+	& .listText {
+		background: var(--main-color);
+		border: 2px var(--theme-color) solid;
+		border-right: none;
+		border-radius: 2px 0 0 2px;
+		outline: none;
+		padding: calc(0.2em - 2px) 0;
+		& + input {
+			border-radius: 0 2px 2px 0;
+		}
+	}
 	.todoLists {
 		@media screen and (min-width: 992px) {
 			display: grid;

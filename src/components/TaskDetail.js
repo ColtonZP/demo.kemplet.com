@@ -41,6 +41,7 @@ class TaskDetail extends Component {
               type="text"
               value={this.state.title}
               onChange={this.updateInput}
+              className="listText"
             />
             <input type="submit" value="add list" />
           </form>
