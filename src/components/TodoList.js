@@ -32,6 +32,8 @@ class TodoList extends Component {
   render() {
     const { list } = this.props;
     const { todo } = this.state;
+    // const tasks = list.todos.length;
+    // const completeTask = list.todos.filter(todo => todo.completed == true).length;
     return (
       <div className="todoList">
         <h2>{list.title}</h2>

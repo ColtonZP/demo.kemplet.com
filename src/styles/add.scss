@@ -19,7 +19,8 @@
 	background: var(--main-color);
 	// display: inline-block;
 	width: 19.5rem;
-	top: calc(100% + 1rem);
+	// top: calc(100% + 1rem);
+	position: relative;
 	margin: 2.5rem auto 0;
 	border-radius: 5px;
 	padding: 1rem;

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import TodoList from "./TodoList";
+import Progress from "./Progress";
 
 class TaskDetail extends Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class TaskDetail extends Component {
     const { task } = this.props;
     return (
       <div className="taskDetailContainer card">
+        {/* <Progress list={task.todoLists} /> */}
         <div className="taskDetails">
           <h1>{task.title}</h1>
           <span>{`Due: ${task.due.slice(0, -5)}`}</span>

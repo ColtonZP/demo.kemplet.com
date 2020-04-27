@@ -37,7 +37,7 @@ export default class App extends Component {
               todos: [
                 {
                   todo:
-                    "add a list to the board by pressing the add button at the bottom of the board.",
+                    "add a list to the board by pressing the add button at the top of the board.",
                   completed: false,
                 },
               ],

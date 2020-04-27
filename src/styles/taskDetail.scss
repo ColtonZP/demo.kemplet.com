@@ -1,6 +1,7 @@
 .taskDetailContainer {
 	grid-column: 2 / 4;
 	overflow: scroll;
+	position: relative;
 	& h1 {
 		margin-bottom: .4rem;
 		font-size: 1.6em;
