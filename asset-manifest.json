@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/kemplet/static/css/main.2b6a4985.chunk.css",
-    "main.js": "/kemplet/static/js/main.d61280b8.chunk.js",
-    "main.js.map": "/kemplet/static/js/main.d61280b8.chunk.js.map",
+    "main.css": "/kemplet/static/css/main.42a8f10e.chunk.css",
+    "main.js": "/kemplet/static/js/main.4161dccf.chunk.js",
+    "main.js.map": "/kemplet/static/js/main.4161dccf.chunk.js.map",
     "runtime-main.js": "/kemplet/static/js/runtime-main.3d0ecc41.js",
     "runtime-main.js.map": "/kemplet/static/js/runtime-main.3d0ecc41.js.map",
     "static/js/2.166a9d99.chunk.js": "/kemplet/static/js/2.166a9d99.chunk.js",
     "static/js/2.166a9d99.chunk.js.map": "/kemplet/static/js/2.166a9d99.chunk.js.map",
     "index.html": "/kemplet/index.html",
-    "precache-manifest.6333603b2099faf66d08b97a5bfb1c23.js": "/kemplet/precache-manifest.6333603b2099faf66d08b97a5bfb1c23.js",
+    "precache-manifest.95258d4488b9d61a321627b2f8c5963b.js": "/kemplet/precache-manifest.95258d4488b9d61a321627b2f8c5963b.js",
     "service-worker.js": "/kemplet/service-worker.js",
-    "static/css/main.2b6a4985.chunk.css.map": "/kemplet/static/css/main.2b6a4985.chunk.css.map",
+    "static/css/main.42a8f10e.chunk.css.map": "/kemplet/static/css/main.42a8f10e.chunk.css.map",
     "static/js/2.166a9d99.chunk.js.LICENSE.txt": "/kemplet/static/js/2.166a9d99.chunk.js.LICENSE.txt",
     "static/media/add.svg": "/kemplet/static/media/add.a8357920.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.3d0ecc41.js",
     "static/js/2.166a9d99.chunk.js",
-    "static/css/main.2b6a4985.chunk.css",
-    "static/js/main.d61280b8.chunk.js"
+    "static/css/main.42a8f10e.chunk.css",
+    "static/js/main.4161dccf.chunk.js"
   ]
 }
