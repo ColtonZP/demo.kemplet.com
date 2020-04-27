@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import TodoList from "./TodoList";
 import Progress from "./Progress";
+import Options from "./Options";
 
 class TaskDetail extends Component {
   constructor(props) {
@@ -31,12 +32,20 @@ class TaskDetail extends Component {
   };
 
   render() {
-    const { task } = this.props;
+    const { task, removeTask } = this.props;
+
     return (
       <div className="taskDetailContainer card">
         {/* <Progress list={task.todoLists} /> */}
         <div className="taskDetails">
-          <h1>{task.title}</h1>
+          {/* <Options id={task.id} removeTask={removeTask} /> */}
+          <h1 onClick={this.titleInput}>{task.title}</h1>
+          <input
+            type="button"
+            value="remove"
+            className="remove"
+            onClick={() => removeTask(task.id)}
+          />
           <span>{`Due: ${task.due.slice(0, -5)}`}</span>
           <form onSubmit={this.handleSubmit}>
             <input

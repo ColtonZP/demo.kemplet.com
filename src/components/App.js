@@ -69,8 +69,15 @@ export default class App extends Component {
     });
   };
 
+  removeTask = (id) => {
+    this.setState({
+      tasks: this.state.tasks.filter((task) => task.id !== id),
+      openTask: {},
+    });
+  };
+
   componentDidMount() {
-    this.openTask(this.state.tasks[0]);
+    this.state.tasks[0] && this.openTask(this.state.tasks[0]);
   }
 
   render() {
@@ -86,7 +93,7 @@ export default class App extends Component {
               <div className="taskList">
                 <Today tasks={tasks} />
                 {tasks.map((task) => (
-                  <button
+                  <div
                     key={task.id}
                     className="card boardBtn"
                     type="button"
@@ -101,10 +108,12 @@ export default class App extends Component {
                     ) : (
                       <span>{task.due.slice(0, -5)}</span>
                     )}
-                  </button>
+                  </div>
                 ))}
               </div>
-              {openTask.title && <TaskDetail task={openTask} />}
+              {openTask.title && (
+                <TaskDetail task={openTask} removeTask={this.removeTask} />
+              )}
             </div>
           </div>
           {/* <Calendar /> */}
