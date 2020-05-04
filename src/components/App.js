@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { quickId } from "quickids";
-
+import { Provider } from "mobx-react";
 import { dateToday } from "../functions/kemplet-date";
 
+import TodoStore from "../stores/TodoStore";
 import Menu from "./Menu";
 import Today from "./Today";
 import TaskDetail from "./TaskDetail";
@@ -85,40 +86,42 @@ export default class App extends Component {
     let today = new Date();
     today.setHours(0, 0, 0, 0);
     return (
-      <div className="App">
-        <Menu addTask={this.addTask} />
-        <div className="content">
-          <div className="tasks">
-            <div className="taskContent">
-              <div className="taskList">
-                <Today tasks={tasks} />
-                {tasks.map((task) => (
-                  <div
-                    key={task.id}
-                    className="card boardBtn"
-                    type="button"
-                    onClick={() => {
-                      this.openTask(task);
-                    }}
-                  >
-                    <div>{task.title}</div>
-                    {new Date(task.due).toDateString() ===
-                    today.toDateString() ? (
-                      <span className="dueToday">today</span>
-                    ) : (
-                      <span>{task.due.slice(0, -5)}</span>
-                    )}
-                  </div>
-                ))}
+      <Provider TodoStore={TodoStore}>
+        <div className="App">
+          <Menu addTask={this.addTask} />
+          <div className="content">
+            <div className="tasks">
+              <div className="taskContent">
+                <div className="taskList">
+                  <Today tasks={tasks} />
+                  {tasks.map((task) => (
+                    <div
+                      key={task.id}
+                      className="card boardBtn"
+                      type="button"
+                      onClick={() => {
+                        this.openTask(task);
+                      }}
+                    >
+                      <div>{task.title}</div>
+                      {new Date(task.due).toDateString() ===
+                      today.toDateString() ? (
+                        <span className="dueToday">today</span>
+                      ) : (
+                        <span>{task.due.slice(0, -5)}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                {openTask.title && (
+                  <TaskDetail task={openTask} removeTask={this.removeTask} />
+                )}
               </div>
-              {openTask.title && (
-                <TaskDetail task={openTask} removeTask={this.removeTask} />
-              )}
             </div>
+            {/* <Calendar /> */}
           </div>
-          {/* <Calendar /> */}
         </div>
-      </div>
+      </Provider>
     );
   }
 }

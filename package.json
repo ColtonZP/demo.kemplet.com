@@ -7,6 +7,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
+    "node-sass": "^4.13.1",
     "proptypes": "^1.1.0",
     "quickids": "^1.0.1",
     "react": "^16.13.1",
@@ -47,7 +50,6 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "gh-pages": "^2.2.0",
-    "node-sass": "^4.13.1",
     "prettier": "2.0.4",
     "prettier-eslint": "^9.0.1"
   }
