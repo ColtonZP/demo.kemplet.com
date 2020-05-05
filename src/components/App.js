@@ -21,7 +21,7 @@ const App = inject("TodoStore")(
           <div className="tasks">
             <div className="taskContent">
               <div className="taskList">
-                {/* <Today tasks={tasks} /> */}
+                <Today />
                 {/* {TodoStore.tasks.map((todo) => (
                   <div className="card">{todo}</div>
                 ))} */}
