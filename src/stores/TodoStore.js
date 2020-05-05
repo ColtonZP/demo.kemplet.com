@@ -64,7 +64,7 @@ class TodoStore {
     },
   ];
 
-  openTask = {};
+  openTask = observable({});
 
   addTask = (task) => {
     const newTask = {
@@ -88,7 +88,10 @@ class TodoStore {
   };
 
   get dueTasks() {
-    return this.tasks.length;
+    const dueToday = this.tasks.filter((task) => {
+      return task.due === dateToday(0);
+    });
+    return dueToday;
   }
 }
 
