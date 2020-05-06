@@ -30,7 +30,13 @@ const TaskDetail = inject('TodoStore')(
           </form>
           <div className="todoLists">
             {task.todoLists.map(list => (
-              <TodoList list={list} key={list.id} />
+              <TodoList
+                list={list}
+                key={list.id}
+                listId={list.id}
+                taskId={task.id}
+                addTodo={props.TodoStore.addTodo}
+              />
             ))}
           </div>
         </div>
