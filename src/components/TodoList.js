@@ -1,31 +1,31 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import Todo from "./Todo";
+import Todo from './Todo';
 
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       todo: {
-        todo: "",
+        todo: '',
         completed: false,
       },
     };
   }
 
-  updateInput = (e) => {
+  updateInput = e => {
     this.setState({
       todo: { ...this.state.todo, todo: e.target.value },
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     const { todo } = this.state;
     const { list } = this.props;
     list.todos.push(todo);
     this.setState({
-      todo: { todo: "", completed: false },
+      todo: { todo: '', completed: false },
     });
   };
 
@@ -38,7 +38,7 @@ class TodoList extends Component {
       <div className="todoList">
         <h2>{list.title}</h2>
         <ul>
-          {list.todos.map((todo) => (
+          {list.todos.map(todo => (
             <Todo todo={todo} key={todo.todo} />
           ))}
           <form>

@@ -1,16 +1,16 @@
-import React from "react";
-import { inject, observer } from "mobx-react";
+import React from 'react';
+import { inject, observer } from 'mobx-react';
 
-const Today = inject("TodoStore")(
-  observer((props) => {
+const Today = inject('TodoStore')(
+  observer(props => {
     const dateOptions = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     };
 
-    const date = new Intl.DateTimeFormat("en-US", dateOptions).format(
+    const date = new Intl.DateTimeFormat('en-US', dateOptions).format(
       new Date()
     );
     const dueTasks = props.TodoStore.dueTasks;
@@ -22,7 +22,7 @@ const Today = inject("TodoStore")(
           <div className="dueToday">
             <span className="dueTitle">Due today</span>
             <ul>
-              {dueTasks.map((task) => (
+              {dueTasks.map(task => (
                 <li key={task.id}>{task.title}</li>
               ))}
             </ul>

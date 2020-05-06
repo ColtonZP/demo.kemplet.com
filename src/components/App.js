@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { quickId } from "quickids";
-import { inject, observer } from "mobx-react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import { quickId } from 'quickids';
+import { inject, observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 
-import Menu from "./Menu";
-import Today from "./Today";
-import TaskDetail from "./TaskDetail";
+import Menu from './Menu';
+import Today from './Today';
+import TaskDetail from './TaskDetail';
 
-const App = inject("TodoStore")(
-  observer((props) => {
+const App = inject('TodoStore')(
+  observer(props => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const { TodoStore } = props;
@@ -25,7 +25,7 @@ const App = inject("TodoStore")(
                 {/* {TodoStore.tasks.map((todo) => (
                   <div className="card">{todo}</div>
                 ))} */}
-                {tasks.map((task) => (
+                {tasks.map(task => (
                   <div
                     key={task.id}
                     className="card boardBtn"

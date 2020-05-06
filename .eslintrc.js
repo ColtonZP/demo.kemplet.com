@@ -7,7 +7,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'standard',
-    'plugin:prettier/recommended'
+    'prettier'
   ],
   globals: {
     Atomics: 'readonly',
@@ -22,10 +22,18 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'react'
+    'react',
+    'prettier'
   ],
   rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "arrowParens": "avoid"
+      }
+    ],
     "no-console": 1,
     "no-unused-vars": 1,
-  }
+  },
 }

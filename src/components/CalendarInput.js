@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { inject, observer } from "mobx-react";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
 
-const CalendarInput = inject("TodoStore")(
-  observer((props) => {
+const CalendarInput = inject('TodoStore')(
+  observer(props => {
     const date = new Date();
 
     const [month, updateMonth] = useState(date.getMonth());
@@ -12,8 +12,8 @@ const CalendarInput = inject("TodoStore")(
     const actualMonth = date.getMonth();
     const actualYear = date.getFullYear();
 
-    const handleUpdateMonth = (direction) => {
-      if (direction === "ascend") {
+    const handleUpdateMonth = direction => {
+      if (direction === 'ascend') {
         if (month === 11) {
           updateMonth(0);
           updateYear(year + 1);
@@ -21,7 +21,7 @@ const CalendarInput = inject("TodoStore")(
           updateMonth(month + 1);
         }
       }
-      if (direction === "descend") {
+      if (direction === 'descend') {
         if (month === 0) {
           updateMonth(11);
           updateYear(year - 1);
@@ -34,18 +34,18 @@ const CalendarInput = inject("TodoStore")(
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDay = new Date(year, month, 1).getDay();
     const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
     let days = [];
 
@@ -72,7 +72,7 @@ const CalendarInput = inject("TodoStore")(
             key={day}
             style={{ gridColumnStart: firstDay }}
             onClick={() => {
-              handleDue([month + 1, day, year].join("/"));
+              handleDue([month + 1, day, year].join('/'));
               toggle();
             }}
           />
@@ -84,7 +84,7 @@ const CalendarInput = inject("TodoStore")(
           value={day}
           key={day}
           onClick={() => {
-            handleDue([month + 1, day, year].join("/"));
+            handleDue([month + 1, day, year].join('/'));
             toggle();
           }}
         />
@@ -92,31 +92,31 @@ const CalendarInput = inject("TodoStore")(
     }
 
     const onCurrentMonth =
-      actualMonth === month && actualYear === year && "disabled";
+      actualMonth === month && actualYear === year && 'disabled';
 
     return (
       <div
         className="calendarInput"
-        style={{ maxHeight: showing ? "20em" : 0 }}
+        style={{ maxHeight: showing ? '20em' : 0 }}
       >
         <div className="calendarControls">
           <input
             type="button"
             value="<"
             className={onCurrentMonth}
-            onClick={() => handleUpdateMonth("descend")}
+            onClick={() => handleUpdateMonth('descend')}
           />
           <span
             className="month"
             style={{
-              gridColumnEnd: "span 5",
-              textAlign: "center",
+              gridColumnEnd: 'span 5',
+              textAlign: 'center',
             }}
           >{`${months[month]}, ${year}`}</span>
           <input
             type="button"
             value=">"
-            onClick={() => handleUpdateMonth("ascend")}
+            onClick={() => handleUpdateMonth('ascend')}
           />
         </div>
 
@@ -128,7 +128,7 @@ const CalendarInput = inject("TodoStore")(
           <span className="day">Fri</span>
           <span className="day">Sat</span>
           <span className="day">Sun</span>
-          {days.map((day) => calendarMap(day))}
+          {days.map(day => calendarMap(day))}
         </div>
       </div>
     );

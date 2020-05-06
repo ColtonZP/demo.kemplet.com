@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 function Calendar() {
-  const date = new Date(),
-    month = date.getMonth(),
-    year = date.getFullYear();
+  const date = new Date();
+  const month = date.getMonth();
+  const year = date.getFullYear();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
   let days = [];
@@ -20,7 +20,7 @@ function Calendar() {
         <span>Fri</span>
         <span>Sat</span>
         <span>Sun</span>
-        {days.map((day) => {
+        {days.map(day => {
           if (day === 1) {
             return (
               <input
