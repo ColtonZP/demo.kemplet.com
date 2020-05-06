@@ -38,8 +38,10 @@ const TodoList = inject('TodoStore')(
 
     const handleSubmit = e => {
       e.preventDefault();
-      props.addTodo(props.taskId, props.listId, todo);
-      changeTodo('');
+      if (todo.length > 0) {
+        props.addTodo(props.taskId, props.listId, todo);
+        changeTodo('');
+      }
     };
 
     // onClick={() => props.addTodo(props.taskId, props.listId, 'idk')}
