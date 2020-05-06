@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 
@@ -8,8 +8,18 @@ import TodoList from './TodoList';
 
 const TaskDetail = inject('TodoStore')(
   observer(props => {
+    const [list, changeList] = useState('');
     const task = props.TodoStore.openTask;
     const removeTask = () => props.TodoStore.removeTask(task.id);
+
+    const handleSubmit = e => {
+      e.preventDefault();
+      if (list.length > 0) {
+        props.TodoStore.addList(task.id, list);
+        changeList('');
+      }
+    };
+
     return (
       <div className="taskDetailContainer card">
         {/* <Progress list={task.todoLists} /> */}
@@ -23,9 +33,13 @@ const TaskDetail = inject('TodoStore')(
             onClick={removeTask}
           />
           <span>{`Due: ${task.due.slice(0, -5)}`}</span>
-          <form>
-            {/* onSubmit, add tasks */}
-            <input type="text" className="listText" />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className="listText"
+              value={list}
+              onChange={e => changeList(e.target.value)}
+            />
             <input type="submit" value="add list" />
           </form>
           <div className="todoLists">

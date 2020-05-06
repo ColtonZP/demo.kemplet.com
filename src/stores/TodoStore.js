@@ -77,6 +77,18 @@ class TodoStore {
     this.openTask = {};
   };
 
+  addList = (taskId, list) => {
+    this.tasks.find(task => {
+      task.id === taskId &&
+        task.todoLists.push({
+          title: list,
+          id: quickId(),
+          completed: false,
+          todos: [],
+        });
+    });
+  };
+
   addTodo = (taskId, listId, todo) => {
     this.tasks.find(task => {
       task.id === taskId &&
@@ -106,6 +118,7 @@ decorate(TodoStore, {
   openTask: observable,
   addTask: action,
   removeTask: action,
+  addList: action,
   addTodo: action,
   changeOpenTask: action,
   dueTasks: computed,
