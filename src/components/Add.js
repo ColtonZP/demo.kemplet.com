@@ -1,61 +1,29 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { inject, observer } from "mobx-react";
 
 import { dateToday } from "../functions/kemplet-date";
 
 import CalendarInput from "./CalendarInput";
 
-class Add extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "",
-      todoLists: [],
-      due: "",
-      showingCalendar: false,
+const Add = inject("TodoStore")(
+  observer((props) => {
+    const [title, updateTitle] = useState("");
+    const [due, updateDue] = useState("");
+    const [calendar, toggleCalendar] = useState(false);
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (title) {
+        props.TodoStore.addTask({
+          title: title,
+          todoLists: [],
+          due: due,
+        });
+      }
+      props.toggle();
     };
-  }
 
-  updateTitle = (e) => {
-    this.setState({
-      title: e.target.value,
-    });
-  };
-
-  toggleCalendar = (arg) => {
-    if (arg !== undefined) {
-      this.setState({ showingCalendar: arg });
-    } else {
-      this.setState({ showingCalendar: !this.state.showingCalendar });
-    }
-  };
-
-  updateDue = (e) => {
-    this.setState({
-      due: e.target.value,
-    });
-  };
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const { title, todoLists, due } = this.state;
-    const { addTask, toggle } = this.props;
-    if (title) {
-      addTask({
-        title,
-        todoLists,
-        due,
-      });
-      toggle();
-    }
-  };
-
-  handleDue = (selected) => {
-    this.setState({ due: selected });
-  };
-
-  render() {
-    const { title, due } = this.state;
     const today = dateToday(0);
     const tomorrow = dateToday(1);
 
@@ -68,7 +36,7 @@ class Add extends Component {
               name="title"
               autoComplete="off"
               value={title}
-              onChange={this.updateTitle}
+              onChange={(e) => updateTitle(e.target.value)}
               required
             />
             <span>Title:</span>
@@ -82,14 +50,14 @@ class Add extends Component {
               autoComplete="off"
               value={due}
               required
-              onFocus={() => this.toggleCalendar(true)}
+              onFocus={() => toggleCalendar(true)}
             />
             <span>Due:</span>
           </div>
           <CalendarInput
-            showing={this.state.showingCalendar}
-            handleDue={this.handleDue}
-            toggle={this.toggleCalendar}
+            showing={calendar}
+            handleDue={updateDue}
+            toggle={toggleCalendar}
           />
           <div className="dueOptions">
             <input
@@ -97,24 +65,24 @@ class Add extends Component {
               type="button"
               value="none"
               onClick={() => {
-                this.handleDue("");
-                this.toggleCalendar(false);
+                updateDue("");
+                toggleCalendar(false);
               }}
             />
             <input
               type="button"
               value="today"
               onClick={() => {
-                this.handleDue(today);
-                this.toggleCalendar(false);
+                updateDue(today);
+                toggleCalendar(false);
               }}
             />
             <input
               type="button"
               value="tomorrow"
               onClick={() => {
-                this.handleDue(tomorrow);
-                this.toggleCalendar(false);
+                updateDue(tomorrow);
+                toggleCalendar(false);
               }}
             />
           </div>
@@ -122,18 +90,18 @@ class Add extends Component {
             className="addSubmit"
             type="submit"
             value="add"
-            onClick={this.handleSubmit}
+            onClick={handleSubmit}
           />
         </form>
-        <div className="modalBackground" onClick={this.props.toggle} />
+        <div className="modalBackground" onClick={props.toggle} />
       </div>
     );
-  }
-}
+  })
+);
 
 Add.propTypes = {
   addTask: PropTypes.func,
   toggle: PropTypes.func,
 };
 
-export default Add;
+export default inject("TodoStore")(observer(Add));
