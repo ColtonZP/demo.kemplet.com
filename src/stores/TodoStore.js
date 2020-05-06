@@ -67,13 +67,9 @@ class TodoStore {
   openTask = observable({});
 
   addTask = (task) => {
-    const newTask = {
-      title: task,
-      id: quickId,
-      completed: false,
-    };
+    task.id = quickId();
     this.tasks = [...this.tasks, task];
-    this.changeOpenTask(newTask.id);
+    this.changeOpenTask(task.id);
   };
 
   removeTask = (id) => {
