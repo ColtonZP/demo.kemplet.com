@@ -1,48 +1,36 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { inject, observer } from "mobx-react";
 
-class CalendarInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      month: new Date().getMonth(),
-      today: new Date().getDate(),
-      year: new Date().getFullYear(),
-      actualMonth: new Date().getMonth(),
-      actualYear: new Date().getFullYear(),
+const CalendarInput = inject("TodoStore")(
+  observer((props) => {
+    const date = new Date();
+
+    const [month, updateMonth] = useState(date.getMonth());
+    const [today] = useState(date.getDate());
+    const [year, updateYear] = useState(date.getFullYear());
+    const actualMonth = date.getMonth();
+    const actualYear = date.getFullYear();
+
+    const handleUpdateMonth = (direction) => {
+      if (direction === "ascend") {
+        if (month === 11) {
+          updateMonth(0);
+          updateYear(year + 1);
+        } else {
+          updateMonth(month + 1);
+        }
+      }
+      if (direction === "descend") {
+        if (month === 0) {
+          updateMonth(11);
+          updateYear(year - 1);
+        } else {
+          updateMonth(month - 1);
+        }
+      }
     };
-  }
-
-  updateMonth(direction) {
-    if (direction === "ascend") {
-      if (this.state.month === 11) {
-        this.setState({
-          month: 0,
-          year: this.state.year + 1,
-        });
-      } else {
-        this.setState({
-          month: this.state.month + 1,
-        });
-      }
-    }
-    if (direction === "descend") {
-      if (this.state.month === 0) {
-        this.setState({
-          month: 11,
-          year: this.state.year - 1,
-        });
-      } else {
-        this.setState({
-          month: this.state.month - 1,
-        });
-      }
-    }
-  }
-
-  render() {
-    const { month, today, year, actualMonth, actualYear } = this.state;
-    const { showing, handleDue, toggle } = this.props;
+    const { showing, handleDue, toggle } = props;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDay = new Date(year, month, 1).getDay();
     const months = [
@@ -116,7 +104,7 @@ class CalendarInput extends Component {
             type="button"
             value="<"
             className={onCurrentMonth}
-            onClick={() => this.updateMonth("descend")}
+            onClick={() => handleUpdateMonth("descend")}
           />
           <span
             className="month"
@@ -128,7 +116,7 @@ class CalendarInput extends Component {
           <input
             type="button"
             value=">"
-            onClick={() => this.updateMonth("ascend")}
+            onClick={() => handleUpdateMonth("ascend")}
           />
         </div>
 
@@ -144,8 +132,8 @@ class CalendarInput extends Component {
         </div>
       </div>
     );
-  }
-}
+  })
+);
 
 CalendarInput.propTypes = {
   showing: PropTypes.bool,
