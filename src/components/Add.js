@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { inject, observer } from "mobx-react";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
 
-import { dateToday } from "../functions/kemplet-date";
+import { dateToday } from '../functions/kemplet-date';
 
-import CalendarInput from "./CalendarInput";
+import CalendarInput from './CalendarInput';
 
-const Add = inject("TodoStore")(
-  observer((props) => {
-    const [title, updateTitle] = useState("");
-    const [due, updateDue] = useState("");
+const Add = inject('TodoStore')(
+  observer(props => {
+    const [title, updateTitle] = useState('');
+    const [due, updateDue] = useState('');
     const [calendar, toggleCalendar] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = e => {
       e.preventDefault();
       if (title) {
         props.TodoStore.addTask({
@@ -36,7 +36,7 @@ const Add = inject("TodoStore")(
               name="title"
               autoComplete="off"
               value={title}
-              onChange={(e) => updateTitle(e.target.value)}
+              onChange={e => updateTitle(e.target.value)}
               required
             />
             <span>Title:</span>
@@ -65,7 +65,7 @@ const Add = inject("TodoStore")(
               type="button"
               value="none"
               onClick={() => {
-                updateDue("");
+                updateDue('');
                 toggleCalendar(false);
               }}
             />
@@ -104,4 +104,4 @@ Add.propTypes = {
   toggle: PropTypes.func,
 };
 
-export default inject("TodoStore")(observer(Add));
+export default inject('TodoStore')(observer(Add));

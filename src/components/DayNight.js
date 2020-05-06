@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export default class DayNight extends Component {
   constructor() {
@@ -6,7 +6,7 @@ export default class DayNight extends Component {
     this.state = {
       startHour: 9,
       endHour: 9,
-      time: "",
+      time: '',
     };
   }
 

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { inject, observer } from "mobx-react";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
 
-import TodoList from "./TodoList";
+import TodoList from './TodoList';
 // import Progress from "./Progress";
 // import Options from "./Options";
 
-const TaskDetail = inject("TodoStore")(
-  observer((props) => {
+const TaskDetail = inject('TodoStore')(
+  observer(props => {
     const task = props.TodoStore.openTask;
     const removeTask = () => props.TodoStore.removeTask(task.id);
     return (
@@ -29,7 +29,7 @@ const TaskDetail = inject("TodoStore")(
             <input type="submit" value="add list" />
           </form>
           <div className="todoLists">
-            {task.todoLists.map((list) => (
+            {task.todoLists.map(list => (
               <TodoList list={list} key={list.id} />
             ))}
           </div>

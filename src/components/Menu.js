@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // import DayNight from "./DayNight";
-import add from "../images/add.svg";
-import Add from "./Add";
+import add from '../images/add.svg';
+import Add from './Add';
 
 function Menu(props) {
   const [displayAdd, toggleAdd] = useState(false);
