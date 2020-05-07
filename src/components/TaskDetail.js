@@ -9,13 +9,14 @@ import TodoList from './TodoList';
 const TaskDetail = inject('TodoStore')(
   observer(props => {
     const [list, changeList] = useState('');
-    const task = props.TodoStore.openTask;
-    const removeTask = () => props.TodoStore.removeTask(task.id);
+    const { TodoStore } = props;
+    const task = TodoStore.openTask;
+    const removeTask = () => TodoStore.removeTask(task.id);
 
     const handleSubmit = e => {
       e.preventDefault();
       if (list.length > 0) {
-        props.TodoStore.addList(task.id, list);
+        TodoStore.addList(task.id, list);
         changeList('');
       }
     };
@@ -49,7 +50,6 @@ const TaskDetail = inject('TodoStore')(
                 key={list.id}
                 listId={list.id}
                 taskId={task.id}
-                addTodo={props.TodoStore.addTodo}
               />
             ))}
           </div>

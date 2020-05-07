@@ -5,12 +5,29 @@ import { inject, observer } from 'mobx-react';
 const CalendarInput = inject('TodoStore')(
   observer(props => {
     const date = new Date();
-
     const [month, updateMonth] = useState(date.getMonth());
     const [today] = useState(date.getDate());
     const [year, updateYear] = useState(date.getFullYear());
     const actualMonth = date.getMonth();
     const actualYear = date.getFullYear();
+    const { showing, handleDue, toggle } = props;
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const firstDay = new Date(year, month, 1).getDay();
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    let days = [];
 
     const handleUpdateMonth = direction => {
       if (direction === 'ascend') {
@@ -30,24 +47,6 @@ const CalendarInput = inject('TodoStore')(
         }
       }
     };
-    const { showing, handleDue, toggle } = props;
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const firstDay = new Date(year, month, 1).getDay();
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-    let days = [];
 
     for (let i = 1; i <= daysInMonth; i++) {
       days = [...days, i];

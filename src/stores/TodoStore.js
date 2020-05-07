@@ -78,7 +78,7 @@ class TodoStore {
   };
 
   addList = (taskId, list) => {
-    this.tasks.find(task => {
+    this.tasks.forEach(task => {
       task.id === taskId &&
         task.todoLists.push({
           title: list,
@@ -90,9 +90,9 @@ class TodoStore {
   };
 
   addTodo = (taskId, listId, todo) => {
-    this.tasks.find(task => {
+    this.tasks.forEach(task => {
       task.id === taskId &&
-        task.todoLists.find(list => {
+        task.todoLists.forEach(list => {
           list.id === listId &&
             list.todos.push({ todo: todo, completed: false });
         });
