@@ -6,45 +6,16 @@ import Todo from './Todo';
 const TodoList = inject('TodoStore')(
   observer(props => {
     const [todo, changeTodo] = useState('');
-    // constructor(props) {
-    //   super(props);
-    //   this.state = {
-    //     todo: {
-    //       todo: '',
-    //       completed: false,
-    //     },
-    //   };
-    // }
-
-    // updateInput = e => {
-    //   this.setState({
-    //     todo: { ...this.state.todo, todo: e.target.value },
-    //   });
-    // };
-
-    // handleSubmit = e => {
-    //   e.preventDefault();
-    //   const { todo } = this.state;
-    //   const { list } = this.props;
-    //   list.todos.push(todo);
-    //   this.setState({
-    //     todo: { todo: '', completed: false },
-    //   });
-    // };
-    const { list } = props;
-    // const { todo } = this.state;
-    // const tasks = list.todos.length;
-    // const completeTask = list.todos.filter(todo => todo.completed == true).length;
+    const { TodoStore, list, taskId, listId } = props;
 
     const handleSubmit = e => {
       e.preventDefault();
       if (todo.length > 0) {
-        props.addTodo(props.taskId, props.listId, todo);
+        TodoStore.addTodo(taskId, listId, todo);
         changeTodo('');
       }
     };
 
-    // onClick={() => props.addTodo(props.taskId, props.listId, 'idk')}
     return (
       <div className="todoList">
         <h2>{list.title}</h2>
@@ -62,12 +33,7 @@ const TodoList = inject('TodoStore')(
               value={todo}
               onChange={e => changeTodo(e.target.value)}
             />
-            <input
-              className="submitTodo"
-              type="submit"
-              value="+"
-              // onClick={this.handleSubmit}
-            />
+            <input className="submitTodo" type="submit" value="+" />
           </form>
         </ul>
       </div>

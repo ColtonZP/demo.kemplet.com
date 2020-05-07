@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { quickId } from 'quickids';
 import { inject, observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 
@@ -7,13 +6,12 @@ import Menu from './Menu';
 import Today from './Today';
 import TaskDetail from './TaskDetail';
 
-const App = inject('TodoStore')(
-  observer(props => {
+class App extends Component {
+  render() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const { TodoStore } = props;
+    const { TodoStore } = this.props;
     const tasks = TodoStore.tasks;
-    // TodoStore.changeOpenTask("welcome");
     return (
       <div className="App">
         <Menu />
@@ -22,9 +20,6 @@ const App = inject('TodoStore')(
             <div className="taskContent">
               <div className="taskList">
                 <Today />
-                {/* {TodoStore.tasks.map((todo) => (
-                  <div className="card">{todo}</div>
-                ))} */}
                 {tasks.map(task => (
                   <div
                     key={task.id}
@@ -51,11 +46,11 @@ const App = inject('TodoStore')(
         </div>
       </div>
     );
-  })
-);
+  }
+}
 
 App.propTypes = {
   TodoStore: PropTypes.func,
 };
 
-export default App;
+export default inject('TodoStore')(observer(App));

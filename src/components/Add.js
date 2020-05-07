@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
-
 import { dateToday } from '../functions/kemplet-date';
 
 import CalendarInput from './CalendarInput';
@@ -11,21 +10,21 @@ const Add = inject('TodoStore')(
     const [title, updateTitle] = useState('');
     const [due, updateDue] = useState('');
     const [calendar, toggleCalendar] = useState(false);
+    const { TodoStore, toggle } = props;
+    const today = dateToday(0);
+    const tomorrow = dateToday(1);
 
     const handleSubmit = e => {
       e.preventDefault();
       if (title) {
-        props.TodoStore.addTask({
+        TodoStore.addTask({
           title: title,
           todoLists: [],
           due: due,
         });
       }
-      props.toggle();
+      toggle();
     };
-
-    const today = dateToday(0);
-    const tomorrow = dateToday(1);
 
     return (
       <div className="modal">
@@ -93,7 +92,7 @@ const Add = inject('TodoStore')(
             onClick={handleSubmit}
           />
         </form>
-        <div className="modalBackground" onClick={props.toggle} />
+        <div className="modalBackground" onClick={toggle} />
       </div>
     );
   })
