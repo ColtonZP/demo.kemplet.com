@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { inject, observer } from 'mobx-react';
 
 import Todo from './Todo';
+import chev from '../images/chev.svg';
 
 const TodoList = inject('TodoStore')(
   observer(props => {
     const [todo, changeTodo] = useState('');
+    const [collapsed, toggleCollapse] = useState(false);
     const { TodoStore, list, taskId, listId } = props;
 
     const handleSubmit = e => {
@@ -19,7 +21,15 @@ const TodoList = inject('TodoStore')(
     return (
       <div className="todoList">
         <h2>{list.title}</h2>
-        <ul>
+        <button
+          className={collapsed ? 'collapseButton flipped' : 'collapseButton'}
+          type="button"
+          value="Show"
+          onClick={() => toggleCollapse(!collapsed)}
+        >
+          <img src={chev} alt="" />
+        </button>
+        <ul className={collapsed && 'collapsed'}>
           {list.todos.map(todo => (
             <Todo todo={todo} key={todo.todo} />
           ))}
