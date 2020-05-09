@@ -5,7 +5,7 @@ import { dateToday } from '../functions/kemplet-date';
 class TodoStore {
   tasks = [
     {
-      title: 'Welcome MobX',
+      title: 'Welcome',
       due: dateToday(0),
       id: 'welcome',
       complete: false,
@@ -21,32 +21,6 @@ class TodoStore {
               completed: false,
             },
           ],
-        },
-        {
-          title: 'Add a todo list',
-          id: 'welcome-list-2',
-          completed: false,
-          todos: [
-            {
-              todo:
-                'add a list to the board by pressing the add button at the top of the board.',
-              completed: false,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Welcome MobX 2',
-      due: dateToday(0),
-      id: 'welcome2',
-      complete: false,
-      todoLists: [
-        {
-          title: 'Add a board',
-          id: 'welcome-list-1',
-          completed: false,
-          todos: [],
         },
         {
           title: 'Add a todo list',
