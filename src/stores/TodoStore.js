@@ -36,6 +36,70 @@ class TodoStore {
         },
       ],
     },
+    {
+      title: 'Due Yesterday',
+      due: dateToday(-1),
+      id: 'welcome-2',
+      complete: false,
+      todoLists: [
+        {
+          title: 'Add a board',
+          id: 'welcome-list-1',
+          completed: false,
+          todos: [
+            {
+              todo:
+                'to add a task board, click the add button at the top of the window.',
+              completed: false,
+            },
+          ],
+        },
+        {
+          title: 'Add a todo list',
+          id: 'welcome-list-2',
+          completed: false,
+          todos: [
+            {
+              todo:
+                'add a list to the board by pressing the add button at the top of the board.',
+              completed: false,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Due Tomorrow',
+      due: dateToday(1),
+      id: 'welcome-3',
+      complete: false,
+      todoLists: [
+        {
+          title: 'Add a board',
+          id: 'welcome-list-1',
+          completed: false,
+          todos: [
+            {
+              todo:
+                'to add a task board, click the add button at the top of the window.',
+              completed: false,
+            },
+          ],
+        },
+        {
+          title: 'Add a todo list',
+          id: 'welcome-list-2',
+          completed: false,
+          todos: [
+            {
+              todo:
+                'add a list to the board by pressing the add button at the top of the board.',
+              completed: false,
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   openTask = observable({});
@@ -88,9 +152,23 @@ class TodoStore {
 
   get lateTasks() {
     const late = this.tasks.filter(task => {
-      return new Date(task.due).toDateString() < new Date().toDateString();
+      return new Date(task.due).getTime() < new Date(dateToday(0)).getTime();
     });
     return late;
+  }
+
+  get upcomingTasks() {
+    const upcoming = this.tasks.filter(task => {
+      return new Date(task.due).getTime() > new Date(dateToday(0)).getTime();
+    });
+    return upcoming;
+  }
+
+  get noDue() {
+    const noDue = this.tasks.filter(task => {
+      return task.due === '';
+    });
+    return noDue;
   }
 }
 
@@ -104,6 +182,8 @@ decorate(TodoStore, {
   changeOpenTask: action,
   dueTasks: computed,
   lateTasks: computed,
+  upcomingTasks: computed,
+  noDue: computed,
 });
 
 const store = new TodoStore();

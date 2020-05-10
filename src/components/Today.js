@@ -20,21 +20,21 @@ const Today = inject('TodoStore')(
     return (
       <div className="today card">
         <h1>{`${date}`}</h1>
-        {dueTasks.length >= 1 && (
-          <div className="dueToday">
-            <span className="dueTitle">Due today</span>
-            <ul>
-              {dueTasks.map(task => (
-                <li key={task.id}>{task.title}</li>
-              ))}
-            </ul>
-          </div>
-        )}
         {lateTasks.length >= 1 && (
           <div className="dueLate">
             <span className="dueTitle">Late</span>
             <ul>
               {lateTasks.map(task => (
+                <li key={task.id}>{task.title}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {dueTasks.length >= 1 && (
+          <div className="dueToday">
+            <span className="dueTitle">Due today</span>
+            <ul>
+              {dueTasks.map(task => (
                 <li key={task.id}>{task.title}</li>
               ))}
             </ul>
