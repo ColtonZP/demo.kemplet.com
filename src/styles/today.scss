@@ -6,10 +6,13 @@
 		margin: 0;
 		font-size: 0.8em;
 		margin: 0.4em 0;
-	}
-	& .dueTitle {
 		font-weight: bold;
 		text-transform: uppercase;
+	}
+	& .dueToday span {
 		color: var(--theme-color);
+	}
+	& .dueLate span {
+		color: rgb(255, 100, 50);
 	}
 }

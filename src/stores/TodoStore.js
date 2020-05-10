@@ -85,6 +85,13 @@ class TodoStore {
     });
     return dueToday;
   }
+
+  get lateTasks() {
+    const late = this.tasks.filter(task => {
+      return new Date(task.due).toDateString() < new Date().toDateString();
+    });
+    return late;
+  }
 }
 
 decorate(TodoStore, {
@@ -96,6 +103,7 @@ decorate(TodoStore, {
   addTodo: action,
   changeOpenTask: action,
   dueTasks: computed,
+  lateTasks: computed,
 });
 
 const store = new TodoStore();
