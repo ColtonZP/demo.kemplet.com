@@ -32,7 +32,7 @@ const TodoList = inject('TodoStore')(
         </button>
         <ul className={collapsed && 'collapsed'}>
           {list.todos.map(todo => (
-            <Todo todo={todo} key={todo.todo} />
+            <Todo todo={todo} key={todo.todo + Math.random()} />
           ))}
           <form onSubmit={handleSubmit}>
             <input

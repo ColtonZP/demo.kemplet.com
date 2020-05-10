@@ -83,7 +83,10 @@ class TodoStore {
 
   get dueTasks() {
     const dueToday = this.tasks.filter(task => {
-      return task.due === dateToday(0) && !task.completed;
+      return (
+        new Date(task.due).toDateString() === new Date().toDateString() &&
+        !task.completed
+      );
     });
     return dueToday;
   }
@@ -98,23 +101,6 @@ class TodoStore {
     return late;
   }
 
-  get upcomingTasks() {
-    const upcoming = this.tasks.filter(task => {
-      return (
-        new Date(task.due).getTime() > new Date(dateToday(0)).getTime() &&
-        !task.completed
-      );
-    });
-    return upcoming;
-  }
-
-  get noDue() {
-    const noDue = this.tasks.filter(task => {
-      return task.due === '';
-    });
-    return noDue;
-  }
-
   get sortedTasks() {
     function compare(a, b) {
       if (a.due < b.due) {
@@ -123,8 +109,15 @@ class TodoStore {
         return 1;
       } else return 0;
     }
-    const sorted = this.tasks.sort(compare);
-    return sorted;
+    const tasks = this.tasks;
+    const hasDue = tasks.filter(task => {
+      return task.due !== '';
+    });
+    const noDue = tasks.filter(task => {
+      return task.due === '';
+    });
+    const sorted = hasDue.sort(compare);
+    return [...sorted, ...noDue];
   }
 }
 
@@ -138,8 +131,6 @@ decorate(TodoStore, {
   changeOpenTask: action,
   dueTasks: computed,
   lateTasks: computed,
-  upcomingTasks: computed,
-  noDue: computed,
   sortedTasks: computed,
 });
 

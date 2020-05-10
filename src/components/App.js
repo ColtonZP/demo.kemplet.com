@@ -19,32 +19,6 @@ class App extends Component {
             <div className="taskContent">
               <div className="taskList">
                 <Today />
-                {TodoStore.lateTasks.map(task => (
-                  <div
-                    key={task.id}
-                    className="card boardBtn"
-                    type="button"
-                    onClick={() => {
-                      TodoStore.changeOpenTask(task.id);
-                    }}
-                  >
-                    <div>{task.title}</div>
-                    <span className="late">Late</span>
-                  </div>
-                ))}
-                {TodoStore.dueTasks.map(task => (
-                  <div
-                    key={task.id}
-                    className="card boardBtn"
-                    type="button"
-                    onClick={() => {
-                      TodoStore.changeOpenTask(task.id);
-                    }}
-                  >
-                    <div>{task.title}</div>
-                    <span className="dueToday">Today</span>
-                  </div>
-                ))}
                 {TodoStore.sortedTasks.map(task => (
                   <div
                     key={task.id}
@@ -55,9 +29,18 @@ class App extends Component {
                     }}
                   >
                     <div>{task.title}</div>
-                    <span>{`${new Date(task.due).getMonth()}/${new Date(
-                      task.due
-                    ).getDate()}`}</span>
+                    {task.due !== '' && task.due < new Date().getTime() ? (
+                      <span className="dueLate">Late</span>
+                    ) : new Date(task.due).toDateString() ===
+                      new Date().toDateString() ? (
+                      <span className="dueToday">Today</span>
+                    ) : (
+                      task.due && (
+                        <span>{`${new Date(task.due).getMonth()}/${new Date(
+                          task.due
+                        ).getDate()}`}</span>
+                      )
+                    )}
                   </div>
                 ))}
                 {/* {TodoStore.noDue.map(task => (
