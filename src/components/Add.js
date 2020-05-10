@@ -9,6 +9,8 @@ const Add = inject('TodoStore')(
   observer(props => {
     const [title, updateTitle] = useState('');
     const [due, updateDue] = useState('');
+    const [hour, updateHour] = useState('23');
+    const [minute, updateMinute] = useState('59');
     const [calendar, toggleCalendar] = useState(false);
     const { TodoStore, toggle } = props;
     const today = dateToday(0);
@@ -16,11 +18,16 @@ const Add = inject('TodoStore')(
 
     const handleSubmit = e => {
       e.preventDefault();
+      let submitDue = new Date(due);
+      submitDue.setHours(hour, minute, 0);
+      submitDue.getTime();
+      if (due === '') {
+        submitDue = '';
+      }
       if (title) {
         TodoStore.addTask({
           title: title,
-          todoLists: [],
-          due: due,
+          due: submitDue,
         });
         toggle();
       }
