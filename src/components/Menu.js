@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 // import DayNight from "./DayNight";
-import add from '../images/add.svg';
 import Add from './Add';
 
 function Menu(props) {
@@ -17,7 +18,7 @@ function Menu(props) {
     <div className="menu">
       {/* <DayNight /> */}
       <button className="addBtn" type="button" onClick={() => toggle()}>
-        <img src={add} alt="add button" />
+        <FontAwesomeIcon icon={faPlus} />
       </button>
       {displayAdd && <Add toggle={toggle} addTask={addTask} />}
     </div>
