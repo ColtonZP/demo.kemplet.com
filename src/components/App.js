@@ -45,7 +45,7 @@ class App extends Component {
                     <span className="dueToday">Today</span>
                   </div>
                 ))}
-                {TodoStore.upcomingTasks.map(task => (
+                {TodoStore.sortedTasks.map(task => (
                   <div
                     key={task.id}
                     className="card boardBtn"
@@ -55,10 +55,12 @@ class App extends Component {
                     }}
                   >
                     <div>{task.title}</div>
-                    <span>{task.due.slice(0, -5)}</span>
+                    <span>{`${new Date(task.due).getMonth()}/${new Date(
+                      task.due
+                    ).getDate()}`}</span>
                   </div>
                 ))}
-                {TodoStore.noDue.map(task => (
+                {/* {TodoStore.noDue.map(task => (
                   <div
                     key={task.id}
                     className="card boardBtn"
@@ -69,7 +71,7 @@ class App extends Component {
                   >
                     <div>{task.title}</div>
                   </div>
-                ))}
+                ))} */}
               </div>
               {TodoStore.openTask.id && <TaskDetail />}
             </div>

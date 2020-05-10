@@ -6,7 +6,7 @@ class TodoStore {
   tasks = [
     {
       title: 'Welcome',
-      due: dateToday(0),
+      due: new Date(new Date().setHours(23, 59, 0)).getTime(),
       id: 'welcome',
       complete: false,
       todoLists: [
@@ -114,6 +114,18 @@ class TodoStore {
     });
     return noDue;
   }
+
+  get sortedTasks() {
+    function compare(a, b) {
+      if (a.due < b.due) {
+        return -1;
+      } else if (a.due > b.due) {
+        return 1;
+      } else return 0;
+    }
+    const sorted = this.tasks.sort(compare);
+    return sorted;
+  }
 }
 
 decorate(TodoStore, {
@@ -128,6 +140,7 @@ decorate(TodoStore, {
   lateTasks: computed,
   upcomingTasks: computed,
   noDue: computed,
+  sortedTasks: computed,
 });
 
 const store = new TodoStore();

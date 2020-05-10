@@ -12,6 +12,7 @@ const TaskDetail = inject('TodoStore')(
     const { TodoStore } = props;
     const task = TodoStore.openTask;
     const removeTask = () => TodoStore.removeTask(task.id);
+    const due = new Date(task.due);
 
     const handleSubmit = e => {
       e.preventDefault();
@@ -20,6 +21,12 @@ const TaskDetail = inject('TodoStore')(
         changeList('');
       }
     };
+
+    function formatTime(hour, minute) {
+      return `${hour > 12 ? hour - 12 : hour}:${minute} ${
+        hour > 12 ? 'pm' : 'am'
+      }`;
+    }
 
     return (
       <div className="taskDetailContainer card">
@@ -33,7 +40,14 @@ const TaskDetail = inject('TodoStore')(
             className="remove"
             onClick={removeTask}
           />
-          <span>{`Due: ${task.due.slice(0, -5)}`}</span>
+          {task.due && (
+            <span>
+              {`Due: ${due.getMonth()}/${due.getDate()} at ${formatTime(
+                due.getHours(),
+                due.getMinutes()
+              )}`}
+            </span>
+          )}
           <form onSubmit={handleSubmit}>
             <input
               type="text"
