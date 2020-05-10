@@ -30,9 +30,12 @@ class App extends Component {
                     }}
                   >
                     <div>{task.title}</div>
-                    {new Date(task.due).toDateString() ===
+                    {new Date(task.due).toDateString() <
                     today.toDateString() ? (
-                      <span className="dueToday">today</span>
+                      <span className="late">Late</span>
+                    ) : new Date(task.due).toDateString() ===
+                      today.toDateString() ? (
+                      <span className="dueToday">Today</span>
                     ) : (
                       <span>{task.due.slice(0, -5)}</span>
                     )}

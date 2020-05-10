@@ -13,7 +13,9 @@ const Today = inject('TodoStore')(
     const date = new Intl.DateTimeFormat('en-US', dateOptions).format(
       new Date()
     );
+
     const dueTasks = props.TodoStore.dueTasks;
+    const lateTasks = props.TodoStore.lateTasks;
 
     return (
       <div className="today card">
@@ -23,6 +25,16 @@ const Today = inject('TodoStore')(
             <span className="dueTitle">Due today</span>
             <ul>
               {dueTasks.map(task => (
+                <li key={task.id}>{task.title}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {lateTasks.length >= 1 && (
+          <div className="dueLate">
+            <span className="dueTitle">Late</span>
+            <ul>
+              {lateTasks.map(task => (
                 <li key={task.id}>{task.title}</li>
               ))}
             </ul>
