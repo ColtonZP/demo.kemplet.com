@@ -22,8 +22,8 @@ const Add = inject('TodoStore')(
           todoLists: [],
           due: due,
         });
+        toggle();
       }
-      toggle();
     };
 
     return (
