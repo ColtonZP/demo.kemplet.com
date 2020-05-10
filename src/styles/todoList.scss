@@ -39,13 +39,9 @@
 		right: 0;
 		width: 0.8rem;
 		cursor: pointer;
-		& img {
-			transition: all .2s ease-out;
-		}
+		transition: all 0.2s ease-out;
 	}
 	& .flipped {
-		& img {
-			transform: rotate(-180deg);
-		}
+		transform: rotate(180deg);
 	}
 }

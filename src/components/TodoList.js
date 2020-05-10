@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { inject, observer } from 'mobx-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import Todo from './Todo';
-import chev from '../images/chev.svg';
 
 const TodoList = inject('TodoStore')(
   observer(props => {
@@ -27,7 +28,7 @@ const TodoList = inject('TodoStore')(
           value="Show"
           onClick={() => toggleCollapse(!collapsed)}
         >
-          <img src={chev} alt="" />
+          <FontAwesomeIcon icon={faCaretDown} />
         </button>
         <ul className={collapsed && 'collapsed'}>
           {list.todos.map(todo => (
