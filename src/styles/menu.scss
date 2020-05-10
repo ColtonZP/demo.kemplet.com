@@ -17,6 +17,9 @@
 	margin: 0 auto;
 	outline: none;
 	display: block;
+	& svg path {
+		fill: black;
+	}
 	&:hover {
 		cursor: pointer;
 	}
