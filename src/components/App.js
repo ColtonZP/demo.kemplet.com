@@ -11,7 +11,6 @@ class App extends Component {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const { TodoStore } = this.props;
-    const tasks = TodoStore.tasks;
     return (
       <div className="App">
         <Menu />
@@ -20,7 +19,7 @@ class App extends Component {
             <div className="taskContent">
               <div className="taskList">
                 <Today />
-                {tasks.map(task => (
+                {TodoStore.lateTasks.map(task => (
                   <div
                     key={task.id}
                     className="card boardBtn"
@@ -30,15 +29,45 @@ class App extends Component {
                     }}
                   >
                     <div>{task.title}</div>
-                    {new Date(task.due).toDateString() <
-                    today.toDateString() ? (
-                      <span className="late">Late</span>
-                    ) : new Date(task.due).toDateString() ===
-                      today.toDateString() ? (
-                      <span className="dueToday">Today</span>
-                    ) : (
-                      <span>{task.due.slice(0, -5)}</span>
-                    )}
+                    <span className="late">Late</span>
+                  </div>
+                ))}
+                {TodoStore.dueTasks.map(task => (
+                  <div
+                    key={task.id}
+                    className="card boardBtn"
+                    type="button"
+                    onClick={() => {
+                      TodoStore.changeOpenTask(task.id);
+                    }}
+                  >
+                    <div>{task.title}</div>
+                    <span className="dueToday">Today</span>
+                  </div>
+                ))}
+                {TodoStore.upcomingTasks.map(task => (
+                  <div
+                    key={task.id}
+                    className="card boardBtn"
+                    type="button"
+                    onClick={() => {
+                      TodoStore.changeOpenTask(task.id);
+                    }}
+                  >
+                    <div>{task.title}</div>
+                    <span>{task.due.slice(0, -5)}</span>
+                  </div>
+                ))}
+                {TodoStore.noDue.map(task => (
+                  <div
+                    key={task.id}
+                    className="card boardBtn"
+                    type="button"
+                    onClick={() => {
+                      TodoStore.changeOpenTask(task.id);
+                    }}
+                  >
+                    <div>{task.title}</div>
                   </div>
                 ))}
               </div>
@@ -53,7 +82,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  TodoStore: PropTypes.func,
+  TodoStore: PropTypes.object,
 };
 
 export default inject('TodoStore')(observer(App));

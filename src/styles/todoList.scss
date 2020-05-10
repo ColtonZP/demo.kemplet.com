@@ -3,13 +3,14 @@
 	position: relative;
 	& h2 {
 		font-size: 1.08em;
-		margin-bottom: 1rem;
 	}
 	& ul {
 		overflow: hidden;
+		margin-top: 1rem;
 	}
 	& .collapsed {
 		height: 0px;
+		margin: 0;
 	}
 	& form {
 		position: relative;
