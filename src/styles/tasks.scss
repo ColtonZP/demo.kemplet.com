@@ -1,11 +1,8 @@
 .tasks {
 	@include container;
-	display: -webkit-box;
 	display: flex;
 	background: var(--main-color);
 	overflow: hidden;
-	-webkit-box-orient: vertical;
-	-webkit-box-direction: normal;
 	flex-direction: column;
 }
 
@@ -13,7 +10,6 @@
 	@media screen and (min-width: 768px) {
 		display: grid;
 		overflow: scroll;
-		-webkit-box-flex: 1;
 		flex: 1;
 		grid-template-columns: repeat(3, 1fr);
 		grid-gap: 1rem;
