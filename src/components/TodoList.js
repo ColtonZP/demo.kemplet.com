@@ -22,6 +22,9 @@ const TodoList = inject('TodoStore')(
     return (
       <div className="todoList">
         <h2>{list.title}</h2>
+        <span>{`${list.todos.filter(task => task.completed === true).length}/${
+          list.todos.length
+        }`}</span>
         <button
           className={collapsed ? 'collapseButton flipped' : 'collapseButton'}
           type="button"
