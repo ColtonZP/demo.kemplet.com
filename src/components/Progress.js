@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function Progress({ list }) {
-  const totalTasks = list.length;
-  const completeTasks = list.filter(list => list.completed === true);
-  console.log('idk');
+  const totalTasks = list.todos.length;
+  const completeTasks = list.todos.filter(list => list.completed === true);
 
   return <progress value={completeTasks.length} max={totalTasks} />;
 }
+
+Progress.propTypes = {
+  list: PropTypes.object,
+};
 
 export default Progress;
