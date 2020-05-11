@@ -23,7 +23,6 @@
 
 .calendarInput {
 	overflow: hidden;
-	-webkit-transition: max-height linear 0.3s;
 	transition: max-height linear 0.3s;
 	& .month {
 	}
@@ -66,9 +65,7 @@
 		pointer-events: none;
 	}
 	& .calendarControls {
-		display: -webkit-box;
 		display: flex;
-		-webkit-box-pack: justify;
 		justify-content: space-between;
 	}
 }
