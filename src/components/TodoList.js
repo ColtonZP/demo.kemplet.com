@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import Todo from './Todo';
+import Progress from './Progress';
 
 const TodoList = inject('TodoStore')(
   observer(props => {
@@ -22,9 +23,10 @@ const TodoList = inject('TodoStore')(
     return (
       <div className="todoList">
         <h2>{list.title}</h2>
-        <span>{`${list.todos.filter(task => task.completed === true).length}/${
-          list.todos.length
-        }`}</span>
+        <progress
+          value={list.todos.filter(task => task.completed === true).length}
+          max={list.todos.length}
+        />
         <button
           className={collapsed ? 'collapseButton flipped' : 'collapseButton'}
           type="button"
