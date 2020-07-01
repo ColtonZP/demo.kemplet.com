@@ -1,4 +1,4 @@
-exports.dateToday = (add) => {
+export function dateToday(add) {
   const date = new Date();
   let month = (date.getMonth() + 1).toString();
   let day = date.getDate() + add;

@@ -1,14 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./styles/index.scss";
-import App from "./components/App";
-import { Provider } from "mobx-react";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import TodoStore from "./stores/TodoStore";
+import App from './App';
 
 ReactDOM.render(
-  <Provider TodoStore={TodoStore}>
+  <React.StrictMode>
     <App />
-  </Provider>,
-  document.getElementById("root")
+  </React.StrictMode>,
+  document.getElementById('root')
 );
