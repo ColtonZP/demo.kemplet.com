@@ -15,12 +15,12 @@ const WebIndex = () => {
             <p>Get your todos Kemplet</p>
           </div>
           <div className="links">
+            <a className="app" href="https://app.kemplet.com">
+              OPEN APP
+            </a>
             <Link className="link" to="/demo">
               DEMO
             </Link>
-            <a className="app" href="kemplet.com">
-              OPEN APP
-            </a>
           </div>
           <ul>
             <li>
@@ -34,7 +34,9 @@ const WebIndex = () => {
             </li>
           </ul>
         </div>
-        <img src={screenshot} alt="screen shot" />
+        <div className="imgDiv">
+          <img src={screenshot} alt="screen shot" />
+        </div>
       </main>
       <footer></footer>
     </div>

@@ -6,14 +6,14 @@
   background: rgb(245, 245, 245);
   overflow: hidden;
   height: 100vh;
-  padding: 5rem 10% 0;
+  padding: 5rem 20% 0;
 
   & main {
     display: flex;
+    justify-content: space-between;
   }
 
   & .info {
-    width: 50%;
     & h1 {
       font-size: 4em;
     }
@@ -25,7 +25,7 @@
       margin-top: 4rem;
       & li {
         font-size: 1.2em;
-        margin-bottom: .2rem;
+        margin-bottom: 0.2rem;
         & img {
           width: 1rem;
         }
@@ -41,8 +41,6 @@
       text-decoration: none;
     }
     & .app {
-      margin-left: 2rem;
-      appearance: button;
       background-color: var(--theme-color);
       color: white;
       border: none;
@@ -51,23 +49,33 @@
       cursor: pointer;
     }
     & .link {
+      margin-left: 2rem;
+      border-bottom: 1px solid black;
       &:hover {
         color: var(--theme-color);
+        border-color: var(--theme-color);
       }
     }
   }
 
-  & img {
-    width: 50%;
-    // box-shadow: 0px 0px 30px 0px var(--theme-color);
-    // position: absolute;
-    right: 0%;
-    top: 0;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-    // box-shadow: -10px -10px 20px 0px rgb(255, 255, 255);
+  .imgDiv {
+    padding-left: 1rem;
+    width: 70%;
+    & img {
+      @media screen and (max-width: 768px) {
+        display: none;
+      }
+      width: 100%;
+      // box-shadow: 0px 0px 30px 0px var(--theme-color);
+      // position: absolute;
+      right: 0%;
+      top: 0;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      // box-shadow: -10px -10px 20px 0px rgb(255, 255, 255);
+    }
   }
 }
