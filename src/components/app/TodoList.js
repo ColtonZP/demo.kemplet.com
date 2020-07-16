@@ -112,6 +112,7 @@ const TodoList = inject('AppState')(
               key={todo.title + Math.random()}
             />
           ))}
+
           <form onSubmit={handleNewList}>
             <input className="submitTodo" type="submit" value="+" />
             <input

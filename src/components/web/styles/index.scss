@@ -1,0 +1,73 @@
+:root {
+  --theme-color: rgb(0, 200, 150);
+}
+
+.home {
+  background: rgb(245, 245, 245);
+  overflow: hidden;
+  height: 100vh;
+  padding: 5rem 10% 0;
+
+  & main {
+    display: flex;
+  }
+
+  & .info {
+    width: 50%;
+    & h1 {
+      font-size: 4em;
+    }
+
+    & p {
+      font-size: 1.4em;
+    }
+    & ul {
+      margin-top: 4rem;
+      & li {
+        font-size: 1.2em;
+        margin-bottom: .2rem;
+        & img {
+          width: 1rem;
+        }
+      }
+    }
+  }
+
+  & .links {
+    margin-top: 4rem;
+    & .link,
+    .app {
+      font-size: 1.2em;
+      text-decoration: none;
+    }
+    & .app {
+      margin-left: 2rem;
+      appearance: button;
+      background-color: var(--theme-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.2em 0.4em;
+      cursor: pointer;
+    }
+    & .link {
+      &:hover {
+        color: var(--theme-color);
+      }
+    }
+  }
+
+  & img {
+    width: 50%;
+    // box-shadow: 0px 0px 30px 0px var(--theme-color);
+    // position: absolute;
+    right: 0%;
+    top: 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    // box-shadow: -10px -10px 20px 0px rgb(255, 255, 255);
+  }
+}

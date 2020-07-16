@@ -39,7 +39,12 @@ const Todo = inject('AppState')(
             />
           </form>
         ) : (
-          <label onClick={() => toggleEditing(true)}>{todo.title}</label>
+          <>
+            <label onClick={() => toggleEditing(true)}>{todo.title} </label>
+            {todo.title === 'sign up to get more features!' && (
+              <a href="https://app.kemplet.com">app.kemplet.com</a>
+            )}
+          </>
         )}
         {todo.due && (
           <span className="todoDue">

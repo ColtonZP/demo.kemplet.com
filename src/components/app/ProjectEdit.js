@@ -6,7 +6,7 @@ import CalendarInput from './CalendarInput';
 
 const ProjectEdit = inject('AppState')(
   observer(props => {
-    const { removeProject } = props.AppState;
+    const { removeProject, editProject } = props.AppState;
     const { project, id, toggle } = props;
     const dueDate = new Date(project.due);
     const [title, updateTitle] = useState(project.title);
@@ -35,6 +35,13 @@ const ProjectEdit = inject('AppState')(
         Number(time.substr(3, 5)),
         0
       );
+      if (title && due === '') {
+        editProject(id, title, '');
+        toggle();
+      } else if (title) {
+        editProject(id, title, submitDue.getTime());
+        toggle();
+      }
     };
 
     const handleDueClick = (due, e) => {

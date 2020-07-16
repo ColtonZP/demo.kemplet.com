@@ -105,6 +105,10 @@ input[type='submit'] {
   }
 }
 
+a:hover {
+  color: var(--theme-color);
+}
+
 .hidden {
   display: none;
 }

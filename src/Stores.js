@@ -9,7 +9,7 @@ class ApplicationState {
       id: 'welcome',
       todoLists: [
         {
-          title: 'Add a board',
+          title: 'Add a project',
           id: 'welcome-list-1',
           completed: false,
           todos: [
@@ -17,18 +17,25 @@ class ApplicationState {
               title:
                 'to add a project, click the add button at the top of the window.',
               completed: false,
+              id: 1,
+            },
+            {
+              title:
+                'you can add a list to the project by using the input above.',
+              completed: false,
+              id: 2,
             },
           ],
         },
         {
-          title: 'Add a todo list',
+          title: 'Sign up',
           id: 'welcome-list-2',
           completed: false,
           todos: [
             {
-              title:
-                'You can add a list to the project by using the input above.',
+              title: 'sign up to get more features!',
               completed: false,
+              id: 3,
             },
           ],
         },
@@ -51,6 +58,15 @@ class ApplicationState {
     project.id = quickId();
     this.projects = [...this.projects, project];
     this.changeOpenProject(project);
+  };
+
+  editProject = (projectId, title, due) => {
+    this.projects.forEach(task => {
+      if (task.id === projectId) {
+        task.title = title;
+        task.due = due;
+      }
+    });
   };
 
   addList = (projectId, list) => {
