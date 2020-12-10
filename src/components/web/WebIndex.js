@@ -12,7 +12,7 @@ const WebIndex = () => {
         <div className="info">
           <div className="title">
             <h1>Kemplet</h1>
-            <p>Get your todos Kemplet</p>
+            <p>Get your projects Kemplet</p>
           </div>
           <div className="links">
             <a className="app" href="https://app.kemplet.com">
@@ -24,7 +24,7 @@ const WebIndex = () => {
           </div>
           <ul>
             <li>
-              <img src={checkmark} alt="" /> Simplistic
+              <img src={checkmark} alt="" /> Simple
             </li>
             <li>
               <img src={checkmark} alt="" /> Fast
@@ -33,9 +33,6 @@ const WebIndex = () => {
               <img src={checkmark} alt="" /> Organized
             </li>
           </ul>
-        </div>
-        <div className="imgDiv">
-          <img src={screenshot} alt="screen shot" />
         </div>
       </main>
       <footer></footer>

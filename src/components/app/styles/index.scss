@@ -32,6 +32,7 @@
 
   --main-margin: 1rem;
   --secondary-margin: 0.8rem;
+
   @media (prefers-color-scheme: dark) {
     --main-color: rgb(10, 12, 20);
     --secondary-color: rgb(15, 17, 28);
@@ -45,16 +46,7 @@
   }
 }
 
-* {
-  margin: 0;
-  padding: 0px;
-  font-size: 14px;
-  box-sizing: border-box;
-  font-family: 'Lexend Deca', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--main-font-color);
-}
+
 
 body {
   background-color: var(--main-color);
