@@ -1,39 +1,33 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
-    node: true
+    es2021: true,
+    node: true,
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
   extends: [
     'plugin:react/recommended',
     'standard',
-    'prettier'
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
   ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
-  },
-  parser: "babel-eslint",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
-    ecmaVersion: 2018,
-    sourceType: 'module'
+    ecmaVersion: 12,
+    sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'prettier'
-  ],
+  plugins: ['react', '@typescript-eslint'],
   rules: {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "arrowParens": "avoid"
-      }
-    ],
-    "no-console": 1,
-    "no-unused-vars": 1,
+    'no-use-before-define': 0,
+    'react/prop-types': 0,
+    'no-console': 1,
+    'no-unused-vars': 1,
   },
 }

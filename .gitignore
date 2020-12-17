@@ -4,7 +4,9 @@
 /node_modules
 /.pnp
 .pnp.js
-yarn.lock
+.eslintcache
+.eslintrc.js
+.prettierrc.js
 
 # testing
 /coverage
@@ -22,3 +24,5 @@ yarn.lock
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
+yarn.lock
