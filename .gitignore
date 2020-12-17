@@ -4,9 +4,6 @@
 /node_modules
 /.pnp
 .pnp.js
-.eslintcache
-.eslintrc.js
-.prettierrc.js
 
 # testing
 /coverage
@@ -26,3 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 yarn.lock
+
+.eslintcache
+.eslintrc.js
+.prettierrc.js
+tsconfig.json
