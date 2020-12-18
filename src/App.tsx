@@ -1,12 +1,16 @@
 import React from 'react'
 import './App.scss'
 
+import { StateProvider } from './StateProvider'
+import { Todos } from './components/Todos'
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Hello, Kemplet!</h1>
-      </header>
+      <h1>Todos:</h1>
+      <StateProvider>
+        <Todos />
+      </StateProvider>
     </div>
   )
 }
