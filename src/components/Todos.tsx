@@ -22,20 +22,22 @@ export const Todos = observer(({ TodoStore }: Props) => {
   }
 
   return (
-    <ul>
-      {todos.map((todo: Todo) => (
-        <li key={todo.id}>
-          <input
-            type="checkbox"
-            checked={todo.completed}
-            onChange={() => toggleTodo(todo.id)}
-          />
-          {todo.title}
-        </li>
-      ))}
+    <>
+      <ul>
+        {todos.map((todo: Todo) => (
+          <li key={todo.id}>
+            <input
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => toggleTodo(todo.id)}
+            />
+            {todo.title}
+          </li>
+        ))}
+      </ul>
       <form onSubmit={Submit}>
-        <input ref={ref} type="text" />
+        <input ref={ref} type="text" placeholder="add todo" />
       </form>
-    </ul>
+    </>
   )
 })
