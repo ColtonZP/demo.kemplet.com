@@ -1,20 +1,35 @@
-import React, { useContext, useRef } from 'react'
-import { GlobalContext } from '../StateProvider'
+import React, { useRef } from 'react'
+import { observer } from 'mobx-react'
 
-export function Todos() {
-  const { todos, addTodo } = useContext(GlobalContext)
+import { Todo } from '../lib/TodoState'
+
+type Props = {
+  TodoStore: {
+    todos: Todo[]
+    addTodo: (title: string) => {}
+    toggleTodo: (id: string) => {}
+  }
+}
+
+export const Todos = observer(({ TodoStore }: Props) => {
+  const { todos, addTodo, toggleTodo } = TodoStore
   const ref = useRef<HTMLInputElement>(null!)
 
   const Submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     addTodo(ref?.current?.value)
+    ref.current.value = ''
   }
 
   return (
     <ul>
-      {todos.map(todo => (
-        <li key={todo.title}>
-          <input type="checkbox" checked={todo.completed} />
+      {todos.map((todo: Todo) => (
+        <li key={todo.id}>
+          <input
+            type="checkbox"
+            checked={todo.completed}
+            onChange={() => toggleTodo(todo.id)}
+          />
           {todo.title}
         </li>
       ))}
@@ -23,4 +38,4 @@ export function Todos() {
       </form>
     </ul>
   )
-}
+})
