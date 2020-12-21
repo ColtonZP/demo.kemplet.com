@@ -28,3 +28,8 @@ yarn.lock
 .eslintrc.js
 .prettierrc.js
 tsconfig.json
+
+# firebase
+.firebase
+.firebaserc
+firebase.json
