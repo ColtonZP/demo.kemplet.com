@@ -2,7 +2,7 @@
 
 :root {
   --main-color: rgb(240, 240, 240);
-  --secondary-color: rgb(255, 255, 255);
+  --secondary-color: rgba(255, 255, 255, 0.1);
   --button-group-color: rgb(210, 210, 210);
   --options-background-color: rgba(225, 225, 225);
 
@@ -14,9 +14,12 @@
   --main-font-color: rgb(0, 0, 0);
   --secondary-font-color: rgb(156, 156, 156);
 
-  --spacer: 10px;
-  --small-spacer: 5px;
-  --rounded: 10px;
+  --small-spacing: 5px;
+  --spacing: 10px;
+  --large-spacing: 20px;
+  --x-large-spacing: 30px;
+
+  --rounded: 16px;
 
   @media (prefers-color-scheme: dark) {
     --main-color: rgb(10, 10, 10);
@@ -35,7 +38,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // font-size: 10px;
+  font-size: 10px;
 }
 
 @import './App.scss';
@@ -63,19 +66,20 @@ button {
   border: none;
   outline: none;
   border-radius: var(--rounded);
-  padding: var(--small-spacer) var(--spacer);
+  padding: var(--small-spacing) var(--spacing);
   cursor: pointer;
-  font-weight: bold;
+  font-size: 1.4em;
 }
 
 .card {
   border-radius: var(--rounded);
-  padding: var(--spacer);
+  padding: var(--spacing);
   background: var(--secondary-color);
   border: none;
   width: 100%;
   text-align: left;
   font-weight: 500;
+  backdrop-filter: blur(3px);
 }
 
 ul {
@@ -90,14 +94,55 @@ progress {
   top: 0;
   left: 0;
   background-color: var(--main-color);
+
   &::-webkit-progress-bar {
     background-color: var(--secondary-color);
     border-radius: 5px;
   }
+
   &::-webkit-progress-value {
     border-radius: 5px;
     background-color: var(--theme-color);
     -webkit-transition: 0.2s ease-out all;
     transition: 0.2s ease-out all;
   }
+}
+
+.input-motion {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5em;
+
+  &:nth-child(2) {
+    margin-left: var(--large-spacing);
+  }
+
+  & input {
+    font-size: 1.4em;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    width: 100%;
+    background: var(--button-group-color);
+    border-radius: var(--rounded);
+    padding: 0.5em;
+
+    &:focus,
+    &:valid {
+      & + span {
+        top: -1.5em;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.input-title {
+  position: absolute;
+  font-size: 1.4em;
+  color: var(--main-font-color);
+  top: 0.5em;
+  left: 0.5em;
+  transition: all ease 0.08s;
+  pointer-events: none;
 }

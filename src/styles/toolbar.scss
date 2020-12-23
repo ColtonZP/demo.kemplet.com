@@ -4,8 +4,8 @@
   background: var(--theme-color);
 
   & .add {
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 3em;
+    line-height: 1em;
     margin: 0 auto;
     display: block;
 
@@ -23,14 +23,14 @@
     flex-direction: row;
     align-items: center;
     position: absolute;
-    right: var(--spacer);
+    right: var(--spacing);
     top: 0;
 
     & .username {
       padding: 0;
       margin: 0;
       line-height: 28px;
-      padding-right: var(--spacer);
+      padding-right: var(--spacing);
       color: black;
       font-weight: bold;
     }
@@ -48,6 +48,64 @@
       &:hover {
         cursor: pointer;
       }
+    }
+  }
+
+  & .add-form {
+    position: absolute;
+    width: calc(21em + (var(--large-spacing) * 2));
+    top: calc(4em + var(--large-spacing));
+    right: 50%;
+    transform: translateX(50%);
+    padding: var(--large-spacing);
+    text-align: center;
+    border: 1px solid var(--button-group-color);
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.75);
+
+    & > span {
+      font-size: 1em;
+    }
+
+    & .input-motion {
+      margin-bottom: var(--large-spacing);
+    }
+
+    & .date-and-time {
+      display: flex;
+    }
+
+    & .date-input {
+      color: var(--main-font-color);
+      cursor: pointer;
+    }
+
+    & .button-group {
+      display: inline-flex;
+      border-radius: var(--rounded);
+      overflow: hidden;
+      background: var(--button-group-color);
+      margin-bottom: var(--large-spacing);
+      font-weight: regular;
+
+      & input {
+        background: transparent;
+        border-radius: var(--rounded);
+        color: var(--main-font-color);
+      }
+
+      & .active {
+        background: var(--theme-color);
+        color: white;
+      }
+    }
+
+    & .form-button {
+      width: 100%;
+    }
+
+    & .close-button {
+      background: var(--secondary-theme-color);
+      margin-top: var(--spacing);
     }
   }
 }

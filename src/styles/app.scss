@@ -11,7 +11,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: var(--spacer);
-      height: calc(100vh - 35px - (var(--spacer) * 2));
+      height: calc(100vh - 3rem - (var(--spacer) * 2));
     }
   }
 
@@ -22,7 +22,7 @@
   }
 
   .project-title {
-    font-size: 24px;
+    font-size: 2rem;
     margin-bottom: var(--spacer);
   }
 
