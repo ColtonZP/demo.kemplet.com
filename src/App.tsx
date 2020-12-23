@@ -12,9 +12,9 @@ function App() {
       <ToolBar />
       <div className="content">
         <div className="projects">
-          <div className="projectList">
+          <div className="project-list">
             {/* //! <Today /> */}
-            <h1 className="projectTitle">Projects</h1>
+            <h1 className="project-title">Projects</h1>
             {/* <Projects /> */}
           </div>
           {/* {openProjectId && <OpenProject />} */}
