@@ -1,25 +1,25 @@
-import React, { useRef } from 'react'
-import { observer } from 'mobx-react'
+import React, { useRef } from 'react';
+import { observer } from 'mobx-react';
 
-import { Todo } from '../lib/TodoState'
+import { Todo } from '../lib/TodoState';
 
 type Props = {
-  TodoStore: {
-    todos: Todo[]
-    addTodo: (title: string) => {}
-    toggleTodo: (id: string) => {}
-  }
-}
+  TodoState: {
+    todos: Todo[];
+    addTodo: (title: string) => {};
+    toggleTodo: (id: string) => {};
+  };
+};
 
-export const Todos = observer(({ TodoStore }: Props) => {
-  const { todos, addTodo, toggleTodo } = TodoStore
-  const ref = useRef<HTMLInputElement>(null!)
+export const Todos = observer(({ TodoState }: Props) => {
+  const { todos, addTodo, toggleTodo } = TodoState;
+  const ref = useRef<HTMLInputElement>(null!);
 
   const Submit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    addTodo(ref?.current?.value)
-    ref.current.value = ''
-  }
+    e.preventDefault();
+    addTodo(ref?.current?.value);
+    ref.current.value = '';
+  };
 
   return (
     <>
@@ -39,5 +39,5 @@ export const Todos = observer(({ TodoStore }: Props) => {
         <input ref={ref} type="text" placeholder="add todo" />
       </form>
     </>
-  )
-})
+  );
+});
