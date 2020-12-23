@@ -1,0 +1,53 @@
+.toolbar {
+  width: 100vw;
+  position: relative;
+  background: var(--theme-color);
+
+  & .add {
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0 auto;
+    display: block;
+
+    & svg path {
+      fill: black;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  & .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    right: var(--spacer);
+    top: 0;
+
+    & .username {
+      padding: 0;
+      margin: 0;
+      line-height: 28px;
+      padding-right: var(--spacer);
+      color: black;
+      font-weight: bold;
+    }
+
+    & .bars {
+      font-size: 24px;
+      line-height: 24px;
+      outline: none;
+      display: inline;
+
+      & svg path {
+        fill: black;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

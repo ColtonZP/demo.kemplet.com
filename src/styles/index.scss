@@ -38,6 +38,9 @@
   // font-size: 10px;
 }
 
+@import './App.scss';
+@import './toolbar.scss';
+
 body {
   margin: 0;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',

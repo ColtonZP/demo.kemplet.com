@@ -1,13 +1,26 @@
 import React from 'react';
 
-import { TodoManager } from './lib/TodoState';
-import { Todos } from './components/Todos';
+import { TodoManager } from './states/TodoState';
+
+import { ToolBar } from './components/toolbar/ToolBar';
+
+// TodoState = { TodoManager };
 
 function App() {
   return (
-    <div className="App">
-      <h1>Todos:</h1>
-      <Todos TodoState={TodoManager} />
+    <div className="app">
+      <ToolBar />
+      <div className="content">
+        <div className="projects">
+          <div className="projectList">
+            {/* //! <Today /> */}
+            <h1 className="projectTitle">Projects</h1>
+            {/* <Projects /> */}
+          </div>
+          {/* {openProjectId && <OpenProject />} */}
+        </div>
+        {/* <Calendar /> */}
+      </div>
     </div>
   );
 }

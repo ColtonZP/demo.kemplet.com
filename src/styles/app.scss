@@ -1,0 +1,36 @@
+.app {
+  .projects {
+    display: flex;
+    background: var(--main-color);
+    overflow: hidden;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    overflow: scroll;
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: var(--spacer);
+      height: calc(100vh - 35px - (var(--spacer) * 2));
+    }
+  }
+
+  .projectList {
+    @media screen and (min-width: 768px) {
+      overflow: scroll;
+    }
+  }
+
+  .projectTitle {
+    font-size: 24px;
+    margin-bottom: var(--spacer);
+  }
+
+  .content {
+    padding: var(--spacer);
+    @media screen and (min-width: 992px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { observer } from 'mobx-react';
 
-import { Todo } from '../lib/TodoState';
+import { Todo } from '../states/TodoState';
 
 type Props = {
   TodoState: {
