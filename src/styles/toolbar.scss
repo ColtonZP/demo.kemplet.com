@@ -49,13 +49,12 @@
 
   & .add-form {
     position: absolute;
-    width: calc(24.5em + (var(--large-spacing) * 2) + 2);
+    width: calc(24.5em + (var(--large-spacing) * 2) + 2px);
     top: 6em;
     right: 50%;
     transform: translateX(50%);
     padding: var(--large-spacing);
     text-align: center;
-    border: 1px solid rgba(210, 210, 210, 0.2);
     box-shadow: 0px 0px 14px -6px rgba(0, 0, 0, 0.75);
 
     & > span {
@@ -68,6 +67,7 @@
 
     & .date-and-time {
       display: flex;
+      gap: var(--spacing);
     }
 
     & .date-input {

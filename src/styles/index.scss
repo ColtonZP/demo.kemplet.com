@@ -82,6 +82,7 @@ button {
   text-align: left;
   font-weight: 500;
   backdrop-filter: blur(3px);
+  border: 1px solid rgba(210, 210, 210, 0.2);
 }
 
 ul {
@@ -114,10 +115,6 @@ progress {
   position: relative;
   width: 100%;
   margin-top: 1.5em;
-
-  &:nth-child(2) {
-    margin-left: var(--large-spacing);
-  }
 
   & input {
     font-size: 1.4em;
