@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, useRef } from 'react';
 
 import { dateToday } from '../../functions/kemplet-date';
 // import CalendarInput from '../CalendarInput';
@@ -9,15 +8,17 @@ export const Add = ({ toggle }: any) => {
 
   const [title, updateTitle] = useState('');
   const [due, updateDue] = useState('');
-  const [highlight, updateHighlight] = useState(1);
   const [time, updateTime] = useState('23:59');
   const [calendar, toggleCalendar] = useState(false);
   const [type] = useState('project'); // add change type
 
+  const addDiv = useRef<HTMLFormElement>(null!);
+  const buttonGroup = useRef<HTMLDivElement>(null);
+
   const today = dateToday(0);
   const tomorrow = dateToday(1);
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     const submitDue = new Date(due);
@@ -49,20 +50,30 @@ export const Add = ({ toggle }: any) => {
   //   changeType(type);
   // };
 
-  const handleDueClick = (due: any, e: any, highlightClick: any) => {
-    if (e === 'cal') {
-      due === today && updateHighlight(2);
-      due === tomorrow && updateHighlight(3);
-      due > tomorrow && updateHighlight(0);
+  const handleDueClick = (
+    due: React.SetStateAction<string>,
+    e: React.MouseEvent<HTMLInputElement>,
+    isCalendar?: boolean,
+  ) => {
+    buttonGroup.current?.querySelector('.active')?.classList.remove('active');
+    if (isCalendar) {
+      due === today &&
+        buttonGroup.current
+          ?.querySelector('.todayOption')
+          ?.classList.add('active');
+      due === tomorrow &&
+        buttonGroup.current
+          ?.querySelector('.tomorrowOption')
+          ?.classList.add('active');
     } else {
-      updateHighlight(highlightClick);
+      (e.target as HTMLInputElement).classList.add('active');
     }
     updateDue(due);
     toggleCalendar(false);
   };
 
   return (
-    <form className="add-form card">
+    <form className="add-form card" ref={addDiv}>
       {/* <div className="buttonGroup"> // ! Button group for basic todos
           <input
             className="active"
@@ -123,24 +134,24 @@ export const Add = ({ toggle }: any) => {
             toggle={toggleCalendar}
           />
         )} */}
-      <div className="button-group">
+      <div className="button-group" ref={buttonGroup}>
         <input
           className="noneOption active"
           type="button"
           value="none"
-          onClick={e => handleDueClick('', e, 1)}
+          onClick={e => handleDueClick('', e)}
         />
         <input
           className="todayOption"
           type="button"
           value="today"
-          onClick={e => handleDueClick(today, e, 2)}
+          onClick={e => handleDueClick(today, e)}
         />
         <input
           className="tomorrowOption"
           type="button"
           value="tomorrow"
-          onClick={e => handleDueClick(tomorrow, e, 3)}
+          onClick={e => handleDueClick(tomorrow, e)}
         />
       </div>
       <input
