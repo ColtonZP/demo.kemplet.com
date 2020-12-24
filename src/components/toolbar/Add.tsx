@@ -5,10 +5,10 @@ import { dateToday } from '../../functions/kemplet-date';
 import { CalendarInput } from '../CalendarInput';
 
 type Props = {
-  toggle: () => void;
+  toggleAdd: () => void;
 };
 
-export const Add = ({ toggle }: Props) => {
+export const Add = ({ toggleAdd }: Props) => {
   // const { addProject, addSimpleTodo } = AppState;
 
   const [title, updateTitle] = useState('');
@@ -24,7 +24,7 @@ export const Add = ({ toggle }: Props) => {
   const tomorrow = dateToday(1);
 
   useClickOutside(addDiv, () => {
-    toggle();
+    toggleAdd();
   });
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -45,7 +45,7 @@ export const Add = ({ toggle }: Props) => {
       if (title) {
         newProject.todoLists = [];
         // addProject(newProject);
-        toggle();
+        toggleAdd();
       }
     } else if (type === 'todoList') {
       newProject.todoLists = [];
@@ -61,7 +61,7 @@ export const Add = ({ toggle }: Props) => {
 
   const handleDueClick = (
     due: string,
-    e: React.MouseEvent<HTMLInputElement>,
+    e: React.MouseEvent<HTMLInputElement> | null,
     isCalendar: boolean,
   ) => {
     buttonGroup.current?.querySelector('.active')?.classList.remove('active');
@@ -136,7 +136,10 @@ export const Add = ({ toggle }: Props) => {
         )}
       </div>
       {calendar && (
-        <CalendarInput handleDue={handleDueClick} toggle={toggleCalendar} />
+        <CalendarInput
+          handleDue={handleDueClick}
+          toggleCalendar={toggleCalendar}
+        />
       )}
       <div className="button-group" ref={buttonGroup}>
         <input
@@ -168,7 +171,7 @@ export const Add = ({ toggle }: Props) => {
         className="form-button close-button"
         type="button"
         value="cancel"
-        onClick={toggle}
+        onClick={toggleAdd}
       />
     </form>
   );

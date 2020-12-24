@@ -9,11 +9,11 @@ type Props = {
     due: string,
     e: React.MouseEvent<HTMLInputElement> | null,
     isCalendar: boolean,
-  ) => {};
-  toggle: (toggle: boolean) => void;
+  ) => void;
+  toggleCalendar: (toggle: boolean) => void;
 };
 
-export const CalendarInput = ({ handleDue, toggle }: any) => {
+export const CalendarInput = ({ handleDue, toggleCalendar }: Props) => {
   const date = new Date();
 
   const [month, updateMonth] = useState(date.getMonth());
@@ -44,7 +44,7 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
   let days: number[] = [];
 
   useClickOutside(calendarInput, () => {
-    toggle(false);
+    toggleCalendar(false);
   });
 
   const handleUpdateMonth = (direction: string) => {
@@ -100,7 +100,7 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
           style={{ gridColumnStart: firstDay + 1 }}
           onClick={() => {
             handleDue([month + 1, day, year].join('/'), null, true);
-            toggle();
+            toggleCalendar(false);
           }}
         />
       );
@@ -113,7 +113,7 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
         key={day}
         onClick={() => {
           handleDue([month + 1, day, year].join('/'), null, true);
-          toggle();
+          toggleCalendar(false);
         }}
       />
     );

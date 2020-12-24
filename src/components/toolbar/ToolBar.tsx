@@ -23,7 +23,7 @@ export const ToolBar = () => {
       <button className="add" onClick={() => toggleAdd()}>
         <FontAwesomeIcon icon={faPlus} />
       </button>
-      {isAdd && <Add toggle={toggleAdd} />}
+      {isAdd && <Add toggleAdd={toggleAdd} />}
       <div className="user">
         <button className="bars" onClick={toggleMenu}>
           <FontAwesomeIcon icon={faBars} />
