@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faBars } from '@fortawesome/free-solid-svg-icons';
 
+import plus from '../../images/plus.svg';
+import menu from '../../images/menu.svg';
 import { Add } from './Add';
 // import Menu from './Menu';
 
@@ -21,12 +23,12 @@ export const ToolBar = () => {
     <div className="toolbar">
       {/* <DayNight /> */}
       <button className="add" onClick={() => toggleAdd()}>
-        <FontAwesomeIcon icon={faPlus} />
+        <img src={plus} alt="" />
       </button>
       {isAdd && <Add toggleAdd={toggleAdd} />}
       <div className="user">
         <button className="bars" onClick={toggleMenu}>
-          <FontAwesomeIcon icon={faBars} />
+          <img src={menu} alt="" />
         </button>
       </div>
       {/* {isMenu && <Menu />} */}
