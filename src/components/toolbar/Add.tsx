@@ -2,9 +2,13 @@ import React, { useState, useRef } from 'react';
 
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { dateToday } from '../../functions/kemplet-date';
-// import CalendarInput from '../CalendarInput';
+import { CalendarInput } from '../CalendarInput';
 
-export const Add = ({ toggle }: any) => {
+type Props = {
+  toggle: () => void;
+};
+
+export const Add = ({ toggle }: Props) => {
   // const { addProject, addSimpleTodo } = AppState;
 
   const [title, updateTitle] = useState('');
@@ -56,9 +60,9 @@ export const Add = ({ toggle }: any) => {
   // };
 
   const handleDueClick = (
-    due: React.SetStateAction<string>,
+    due: string,
     e: React.MouseEvent<HTMLInputElement>,
-    isCalendar?: boolean,
+    isCalendar: boolean,
   ) => {
     buttonGroup.current?.querySelector('.active')?.classList.remove('active');
     if (isCalendar) {
@@ -71,7 +75,7 @@ export const Add = ({ toggle }: any) => {
           ?.querySelector('.tomorrowOption')
           ?.classList.add('active');
     } else {
-      (e.target as HTMLInputElement).classList.add('active');
+      (e?.target as HTMLInputElement).classList.add('active');
     }
     updateDue(due);
     toggleCalendar(false);
@@ -132,31 +136,27 @@ export const Add = ({ toggle }: any) => {
           </div>
         )}
       </div>
-      {/* {calendar && (
-          <CalendarInput
-            showing={calendar}
-            handleDue={handleDueClick}
-            toggle={toggleCalendar}
-          />
-        )} */}
+      {calendar && (
+        <CalendarInput handleDue={handleDueClick} toggle={toggleCalendar} />
+      )}
       <div className="button-group" ref={buttonGroup}>
         <input
           className="noneOption active"
           type="button"
           value="none"
-          onClick={e => handleDueClick('', e)}
+          onClick={e => handleDueClick('', e, false)}
         />
         <input
           className="todayOption"
           type="button"
           value="today"
-          onClick={e => handleDueClick(today, e)}
+          onClick={e => handleDueClick(today, e, false)}
         />
         <input
           className="tomorrowOption"
           type="button"
           value="tomorrow"
-          onClick={e => handleDueClick(tomorrow, e)}
+          onClick={e => handleDueClick(tomorrow, e, false)}
         />
       </div>
       <input
