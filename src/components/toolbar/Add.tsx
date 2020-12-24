@@ -78,7 +78,6 @@ export const Add = ({ toggle }: Props) => {
       (e?.target as HTMLInputElement).classList.add('active');
     }
     updateDue(due);
-    toggleCalendar(false);
   };
 
   return (

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+
+import { useClickOutside } from '../hooks/useClickOutside';
 
 // import arrow from '../../images/arrow.svg';
 
@@ -8,14 +10,18 @@ type Props = {
     e: React.MouseEvent<HTMLInputElement> | null,
     isCalendar: boolean,
   ) => {};
-  toggle: () => void;
+  toggle: (toggle: boolean) => void;
 };
 
 export const CalendarInput = ({ handleDue, toggle }: any) => {
   const date = new Date();
+
   const [month, updateMonth] = useState(date.getMonth());
   const [today] = useState(date.getDate());
   const [year, updateYear] = useState(date.getFullYear());
+
+  const calendarInput = useRef<HTMLDivElement>(null!);
+
   const actualMonth = date.getMonth();
   const actualYear = date.getFullYear();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
@@ -34,7 +40,12 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
     'November',
     'December',
   ];
+
   let days: number[] = [];
+
+  useClickOutside(calendarInput, () => {
+    toggle(false);
+  });
 
   const handleUpdateMonth = (direction: string) => {
     if (direction === 'ascend') {
@@ -112,7 +123,7 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
   // actualMonth === month && actualYear === year && 'disabled';
 
   return (
-    <div className="calendar-input">
+    <div className="calendar-input" ref={calendarInput}>
       <div className="calendar-controls">
         <input
           className={`month-button ${actualMonth === month && `hidden`}`}
