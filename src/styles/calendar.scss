@@ -7,14 +7,18 @@
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
 
-    & input {
+    & .day {
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 50%;
+      font-size: 1.4rem;
+      line-height: 2.5rem;
       background: transparent;
-      margin: auto;
       padding: 0.5rem;
-      line-height: normal;
+      color: var(--secondary-font-color);
+    }
+
+    & .selectable {
       color: var(--main-font-color);
 
       &:hover {
@@ -23,47 +27,39 @@
       }
     }
 
-    & span {
-      width: 2.5rem;
-      height: 2.5rem;
+    & .day-of-the-week {
       font-size: 1.4rem;
-      color: var(--secondary-font-color);
-      margin: auto;
-      display: block;
-      line-height: 2.5rem;
-    }
-
-    & .day {
       color: var(--main-font-color);
     }
   }
 
   & .calendar-controls {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    display: flex;
+    align-items: center;
     text-align: center;
-    height: 2.5rem;
+    margin-bottom: var(--large-spacing);
+    padding: 0 0.5rem;
 
     & span {
-      grid-column-start: 2;
-      grid-column-end: 7;
-      height: 2.5rem;
-      line-height: 2.5rem;
       font-size: 1.4rem;
+      flex-grow: 1;
     }
 
     & .month-button {
       background: var(--theme-color) url('../images/arrow.svg') center/40%
         no-repeat;
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 3.5rem;
+      height: 3.5rem;
       border-radius: 50%;
-      margin: auto;
-      font-weight: bolder;
 
       &:nth-child(1) {
         transform: rotate(180deg);
       }
+    }
+
+    & .hidden {
+      opacity: 0;
+      cursor: default;
     }
   }
 }

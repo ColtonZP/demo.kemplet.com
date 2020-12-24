@@ -63,18 +63,27 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
     if (day < today && actualMonth === month && actualYear === year) {
       if (day === 1) {
         return (
-          <span key={day} style={{ gridColumnStart: firstDay + 1 }}>
+          <span
+            className="day"
+            key={day}
+            style={{ gridColumnStart: firstDay + 1 }}
+          >
             {day}
           </span>
         );
       }
-      return <span key={day}>{day}</span>;
+      return (
+        <span className="day" key={day}>
+          {day}
+        </span>
+      );
     }
     if (day === 1) {
       console.log(firstDay);
       return (
         <input
           type="button"
+          className="day selectable"
           value={day}
           key={day}
           style={{ gridColumnStart: firstDay + 1 }}
@@ -88,6 +97,7 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
     return (
       <input
         type="button"
+        className="day selectable"
         value={day}
         key={day}
         onClick={() => {
@@ -104,13 +114,12 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
   return (
     <div className="calendar-input">
       <div className="calendar-controls">
-        {actualMonth !== month && (
-          <input
-            className="month-button"
-            type="button"
-            onClick={() => handleUpdateMonth('descend')}
-          />
-        )}
+        <input
+          className={`month-button ${actualMonth === month && `hidden`}`}
+          type="button"
+          onClick={() => actualMonth !== month && handleUpdateMonth('descend')}
+        />
+
         <span>{`${months[month]}, ${year}`}</span>
         <input
           className="month-button"
@@ -120,13 +129,13 @@ export const CalendarInput = ({ handleDue, toggle }: any) => {
       </div>
 
       <div className="sheet">
-        <span className="day">Sun</span>
-        <span className="day">Mon</span>
-        <span className="day">Tue</span>
-        <span className="day">Wed</span>
-        <span className="day">Thu</span>
-        <span className="day">Fri</span>
-        <span className="day">Sat</span>
+        <span className="day-of-the-week">Sun</span>
+        <span className="day-of-the-week">Mon</span>
+        <span className="day-of-the-week">Tue</span>
+        <span className="day-of-the-week">Wed</span>
+        <span className="day-of-the-week">Thu</span>
+        <span className="day-of-the-week">Fri</span>
+        <span className="day-of-the-week">Sat</span>
         {days.map(day => calendarMap(day))}
       </div>
     </div>
