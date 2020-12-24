@@ -5,7 +5,6 @@
 
   & .add {
     font-size: 3em;
-    line-height: 1em;
     margin: 0 auto;
     display: block;
 
@@ -29,16 +28,13 @@
     & .username {
       padding: 0;
       margin: 0;
-      line-height: 28px;
       padding-right: var(--spacing);
       color: black;
       font-weight: bold;
     }
 
     & .bars {
-      font-size: 24px;
-      line-height: 24px;
-      outline: none;
+      font-size: 3em;
       display: inline;
 
       & svg path {
@@ -54,13 +50,13 @@
   & .add-form {
     position: absolute;
     width: calc(24.5em + (var(--large-spacing) * 2) + 2);
-    top: calc(4em + var(--large-spacing));
+    top: 6em;
     right: 50%;
     transform: translateX(50%);
     padding: var(--large-spacing);
     text-align: center;
-    border: 1px solid var(--button-group-color);
-    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.75);
+    border: 1px solid rgba(210, 210, 210, 0.2);
+    box-shadow: 0px 0px 14px -6px rgba(0, 0, 0, 0.75);
 
     & > span {
       font-size: 1em;
