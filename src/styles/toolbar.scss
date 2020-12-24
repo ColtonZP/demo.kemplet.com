@@ -81,7 +81,7 @@
 
     & .button-group {
       display: inline-flex;
-      border-radius: var(--rounded);
+      border-radius: var(--super-rounded);
       overflow: hidden;
       background: var(--button-group-color);
       margin-bottom: var(--large-spacing);
@@ -89,7 +89,7 @@
 
       & input {
         background: transparent;
-        border-radius: var(--rounded);
+        border-radius: var(--super-rounded);
         color: var(--main-font-color);
       }
 
