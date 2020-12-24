@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 
+import { useClickOutside } from '../../hooks/useClickOutside';
 import { dateToday } from '../../functions/kemplet-date';
 // import CalendarInput from '../CalendarInput';
 
@@ -17,6 +18,10 @@ export const Add = ({ toggle }: any) => {
 
   const today = dateToday(0);
   const tomorrow = dateToday(1);
+
+  useClickOutside(addDiv, () => {
+    toggle();
+  });
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
