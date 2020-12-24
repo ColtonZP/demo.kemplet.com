@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faBars } from '@fortawesome/free-solid-svg-icons';
 
 import plus from '../../images/plus.svg';
 import menu from '../../images/menu.svg';
