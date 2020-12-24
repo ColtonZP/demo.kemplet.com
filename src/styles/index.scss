@@ -14,10 +14,10 @@
   --main-font-color: rgb(0, 0, 0);
   --secondary-font-color: rgb(156, 156, 156);
 
-  --small-spacing: 6px;
+  --s-spacing: 6px;
   --spacing: 10px;
-  --large-spacing: 20px;
-  --x-large-spacing: 30px;
+  --l-spacing: 20px;
+  --xl-spacing: 30px;
 
   --rounded: 10px;
   --super-rounded: 16px;
@@ -68,7 +68,7 @@ button {
   border: none;
   outline: none;
   border-radius: var(--super-rounded);
-  padding: var(--small-spacing) var(--spacing);
+  padding: var(--s-spacing) var(--spacing);
   cursor: pointer;
   font-size: 1.4em;
 }
