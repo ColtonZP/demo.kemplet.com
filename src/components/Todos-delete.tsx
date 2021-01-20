@@ -1,30 +1,20 @@
 import React, { useRef } from 'react';
-import { observer } from 'mobx-react';
 
-import { Todo } from '../states/TodoState';
+import { Task } from '../Store';
 
-type Props = {
-  TodoState: {
-    todos: Todo[];
-    addTodo: (title: string) => {};
-    toggleTodo: (id: string) => {};
-  };
-};
-
-export const Todos = observer(({ TodoState }: Props) => {
-  const { todos, addTodo, toggleTodo } = TodoState;
+export const Todos = () => {
   const ref = useRef<HTMLInputElement>(null!);
 
   const Submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addTodo(ref?.current?.value);
+    // addTodo(ref?.current?.value);
     ref.current.value = '';
   };
 
   return (
     <>
       <ul>
-        {todos.map((todo: Todo) => (
+        {/* {todos.map((todo: Todo) => (
           <li key={todo.id}>
             <input
               type="checkbox"
@@ -33,11 +23,11 @@ export const Todos = observer(({ TodoState }: Props) => {
             />
             {todo.title}
           </li>
-        ))}
+        ))} */}
       </ul>
       <form onSubmit={Submit}>
         <input ref={ref} type="text" placeholder="add todo" />
       </form>
     </>
   );
-});
+};

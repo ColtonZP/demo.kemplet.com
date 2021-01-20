@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { TodoManager } from './states/TodoState';
-
 import { ToolBar } from './components/toolbar/ToolBar';
 
 // TodoState = { TodoManager };
