@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { Task } from '../Store';
+import { Task } from '../State';
 
 export const Todos = () => {
   const ref = useRef<HTMLInputElement>(null!);

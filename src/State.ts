@@ -19,7 +19,7 @@ export type Project = {
   tasks: Task[];
 };
 
-export const useStore = create<Store>(set => ({
+export const useProjectsState = create<Store>(set => ({
   Projects: [],
   createProject: (title, due) =>
     set(state => ({

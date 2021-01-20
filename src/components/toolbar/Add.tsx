@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import { useClickOutside } from '../../hooks/useClickOutside';
-import { dateToday } from '../../functions/kemplet-date';
+import { getDueDate } from '../../functions/kemplet-date';
 import { CalendarInput } from '../CalendarInput';
 
 type Props = {
@@ -20,8 +20,8 @@ export const Add = ({ toggleAdd }: Props) => {
   const addDiv = useRef<HTMLFormElement>(null!);
   const buttonGroup = useRef<HTMLDivElement>(null);
 
-  const today = dateToday(0);
-  const tomorrow = dateToday(1);
+  const today = getDueDate(0);
+  const tomorrow = getDueDate(1);
 
   useClickOutside(addDiv, () => {
     toggleAdd();
