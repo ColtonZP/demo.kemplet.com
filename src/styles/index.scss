@@ -42,10 +42,6 @@
   font-size: 10px;
 }
 
-@import './app.scss';
-@import './calendar.scss';
-@import './toolbar.scss';
-
 body {
   margin: 0;
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
@@ -145,3 +141,7 @@ progress {
   transition: all ease 0.08s;
   pointer-events: none;
 }
+
+@import './app.scss';
+@import './calendar.scss';
+@import './toolbar.scss';
