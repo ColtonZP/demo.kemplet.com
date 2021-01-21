@@ -3,12 +3,12 @@ import React from 'react';
 import { useProjectsState } from '../../State';
 
 export const Projects = () => {
-  const { Projects } = useProjectsState(state => ({
-    Projects: state.projects,
+  const { projects } = useProjectsState(state => ({
+    projects: state.projects,
   }));
 
-  const filteredProjects = Projects.filter(project => project.due !== 0);
-  const noDue = Projects.filter(project => project.due === 0);
+  const filteredProjects = projects.filter(project => project.due !== 0);
+  const noDue = projects.filter(project => project.due === 0);
 
   return (
     <>
