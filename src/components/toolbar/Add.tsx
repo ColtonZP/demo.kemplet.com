@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 
+import { useProjectsState } from '../../State';
 import { useClickOutside } from '../../hooks/useClickOutside';
 import { getDueDate } from '../../functions/kemplet-date';
 import { CalendarInput } from '../CalendarInput';
@@ -9,7 +10,9 @@ type Props = {
 };
 
 export const Add = ({ toggleAdd }: Props) => {
-  // const { addProject, addSimpleTodo } = AppState;
+  const { createProject } = useProjectsState(state => ({
+    createProject: state.createProject,
+  }));
 
   const [title, updateTitle] = useState('');
   const [due, updateDue] = useState('');
@@ -44,7 +47,7 @@ export const Add = ({ toggleAdd }: Props) => {
     if (type === 'project') {
       if (title) {
         newProject.todoLists = [];
-        // addProject(newProject);
+        createProject(title, due ? submitDue.getTime() : 0);
         toggleAdd();
       }
     } else if (type === 'todoList') {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ToolBar } from './components/toolbar/ToolBar';
-
+import { Projects } from './components/Projects';
 // TodoState = { TodoManager };
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
           <div className="project-list">
             {/* //! <Today /> */}
             <h1 className="project-title">Projects</h1>
-            {/* <Projects /> */}
+            <Projects />
           </div>
           {/* {openProjectId && <OpenProject />} */}
         </div>

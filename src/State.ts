@@ -2,7 +2,7 @@ import create from 'zustand';
 
 type Store = {
   Projects: Project[];
-  createProject: (title: string, due?: string) => void;
+  createProject: (title: string, due: number) => void;
 };
 
 export type Task = {
@@ -13,7 +13,7 @@ export type Task = {
 
 export type Project = {
   title: string;
-  due: string;
+  due: number;
   completed: boolean;
   id: string;
   tasks: Task[];
@@ -27,7 +27,7 @@ export const useProjectsState = create<Store>(set => ({
         ...state.Projects,
         {
           title,
-          due: due || '0',
+          due,
           completed: false,
           id: '1',
           tasks: [],
