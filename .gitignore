@@ -29,7 +29,6 @@ yarn.lock
 .prettierrc.js
 tsconfig.json
 
-# firebase
-.firebase
-.firebaserc
-firebase.json
+.husky
+commitlint.config.js
+.huskyrc
