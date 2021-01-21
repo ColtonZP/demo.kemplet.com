@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ToolBar } from './components/toolbar/ToolBar';
-import { Projects } from './components/Projects';
+import { Projects } from './components/projects/Projects';
 // TodoState = { TodoManager };
 
 function App() {

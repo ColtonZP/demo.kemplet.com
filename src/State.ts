@@ -1,7 +1,7 @@
 import create from 'zustand';
 
 type Store = {
-  Projects: Project[];
+  projects: Project[];
   createProject: (title: string, due: number) => void;
 };
 
@@ -20,11 +20,11 @@ export type Project = {
 };
 
 export const useProjectsState = create<Store>(set => ({
-  Projects: [],
+  projects: [],
   createProject: (title, due) =>
     set(state => ({
-      Projects: [
-        ...state.Projects,
+      projects: [
+        ...state.projects,
         {
           title,
           due,
