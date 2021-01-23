@@ -14,18 +14,14 @@
   --main-font-color: rgb(0, 0, 0);
   --secondary-font-color: rgb(156, 156, 156);
 
-  --s-spacing: 6px;
-  --spacing: 10px;
-  --l-spacing: 20px;
-  --xl-spacing: 30px;
-
-  --rounded: 10px;
   --super-rounded: 16px;
+
+  --calculated-full-height: calc(100vh - 3.5rem);
 
   @media (prefers-color-scheme: dark) {
     --main-color: rgb(10, 10, 10);
     --secondary-color: rgb(40, 40, 40);
-    --button-group-color: rgb(40, 42, 54);
+    --button-group-color: rgb(80, 80, 80);
     --options-background-color: rgb(5, 6, 10);
 
     --checkbox-color: rgb(75, 75, 75);
@@ -34,11 +30,6 @@
     --secondary-font-color: rgb(110, 110, 110);
   }
 }
-
-@import './app.scss';
-@import './calendar.scss';
-@import './toolbar.scss';
-@import './project.scss';
 
 * {
   box-sizing: border-box;
@@ -68,15 +59,15 @@ button {
   color: white;
   border: none;
   outline: none;
-  border-radius: var(--super-rounded);
-  padding: var(--s-spacing) var(--spacing);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
   font-size: 1.4em;
 }
 
 .card {
-  border-radius: var(--rounded);
-  padding: var(--spacing);
+  border-radius: 0.5rem;
+  padding: 1rem;
   background: var(--secondary-color);
   border: none;
   width: 100%;
@@ -91,9 +82,9 @@ ul {
 }
 
 progress {
-  border-radius: var(--rounded);
+  border-radius: 0.5rem;
   width: 100%;
-  height: 5px;
+  height: 0.5rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -124,8 +115,9 @@ progress {
     outline: none;
     width: 100%;
     background: var(--button-group-color);
-    border-radius: var(--rounded);
+    border-radius: 0.5rem;
     padding: 0.5em;
+    color: var(--main-font-color);
 
     &:focus,
     &:valid {
@@ -146,3 +138,8 @@ progress {
   transition: all ease 0.08s;
   pointer-events: none;
 }
+
+@import './app.scss';
+@import './calendar.scss';
+@import './toolbar.scss';
+@import './project.scss';

@@ -19,7 +19,7 @@
     padding: 0 var(--spacer);
     background: var(--secondary-theme-color);
     margin-left: var(--small-spacer);
-    border-radius: var(--rounded);
+    border-radius: 0.5rem;
     display: none;
     align-items: center;
     transition: fill 0.3s linear, background 0.3s linear;

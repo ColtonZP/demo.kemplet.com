@@ -1,6 +1,6 @@
 .calendar-input {
   overflow: hidden;
-  margin-bottom: var(--l-spacing);
+  margin-bottom: 2rem;
 
   & .sheet {
     display: grid;
@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    margin-bottom: var(--l-spacing);
+    margin-bottom: 2rem;
     padding: 0 0.5rem;
 
     & span {
