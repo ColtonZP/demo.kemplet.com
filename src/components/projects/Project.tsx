@@ -13,13 +13,13 @@ export const Project = ({ project }: any) => {
       >
         {/* <progress value={progress.completed} max={progress.total} /> */}
         <span className="title">{project.title}</span>
-        {project.due !== '' && project.due < new Date().getTime() ? (
+        {project.due !== 0 && project.due < new Date().getTime() ? (
           <span className="badge late">Late</span>
         ) : new Date(project.due).toDateString() ===
           new Date().toDateString() ? (
           <span className="badge today">Today</span>
         ) : (
-          project.due && (
+          project.due !== 0 && (
             <span className="badge">
               {`${new Date(project.due).getMonth() + 1}/${new Date(
                 project.due,
