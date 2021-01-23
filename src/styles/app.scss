@@ -1,5 +1,5 @@
 .app {
-  & .projects {
+  & .projects-panel {
     display: flex;
     background: var(--main-color);
     overflow: hidden;
@@ -7,15 +7,16 @@
     grid-column-start: 1;
     grid-column-end: 3;
     overflow: scroll;
+
     @media screen and (min-width: 768px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-gap: var(--spacer);
-      height: calc(100vh - 3rem - (var(--spacer) * 2));
+      height: var(--calculated-full-height);
     }
   }
 
-  & .project-list {
+  & .projects {
     @media screen and (min-width: 768px) {
       overflow: scroll;
     }
@@ -28,6 +29,7 @@
 
   & .content {
     padding: var(--spacer);
+
     @media screen and (min-width: 992px) {
       display: grid;
       grid-template-columns: repeat(3, 1fr);

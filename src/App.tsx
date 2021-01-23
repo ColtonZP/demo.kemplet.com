@@ -9,13 +9,12 @@ function App() {
     <div className="app">
       <ToolBar />
       <div className="content">
-        <div className="projects">
-          <div className="project-list">
+        <div className="projects-panel">
+          <div className="left-panel">
             {/* //! <Today /> */}
-            <h1 className="project-title">Projects</h1>
             <Projects />
+            {/* {openProjectId && <OpenProject />} */}
           </div>
-          {/* {openProjectId && <OpenProject />} */}
         </div>
         {/* <Calendar /> */}
       </div>
