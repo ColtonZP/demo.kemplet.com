@@ -1,5 +1,5 @@
 .app {
-  .projects {
+  & .projects {
     display: flex;
     background: var(--main-color);
     overflow: hidden;
@@ -15,18 +15,18 @@
     }
   }
 
-  .project-list {
+  & .project-list {
     @media screen and (min-width: 768px) {
       overflow: scroll;
     }
   }
 
-  .project-title {
+  & .project-title {
     font-size: 2rem;
     margin-bottom: var(--spacer);
   }
 
-  .content {
+  & .content {
     padding: var(--spacer);
     @media screen and (min-width: 992px) {
       display: grid;
