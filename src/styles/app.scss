@@ -11,8 +11,17 @@
     @media screen and (min-width: 768px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: var(--spacer);
+      grid-gap: 1rem;
       height: var(--calculated-full-height);
+    }
+  }
+
+  & .content {
+    padding: 1rem;
+
+    @media screen and (min-width: 992px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
@@ -20,19 +29,10 @@
     @media screen and (min-width: 768px) {
       overflow: scroll;
     }
-  }
 
-  & .project-title {
-    font-size: 2rem;
-    margin-bottom: var(--spacer);
-  }
-
-  & .content {
-    padding: var(--spacer);
-
-    @media screen and (min-width: 992px) {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    & .project-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
   }
 }

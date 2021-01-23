@@ -1,7 +1,7 @@
 .project {
   display: flex;
   flex-direction: row;
-  margin-bottom: var(--spacer);
+  margin-bottom: 1rem;
   overflow: hidden;
 
   &:hover {
@@ -16,7 +16,7 @@
 
   & .options {
     cursor: pointer;
-    padding: 0 var(--spacer);
+    padding: 0 1rem;
     background: var(--secondary-theme-color);
     margin-left: var(--small-spacer);
     border-radius: 0.5rem;
