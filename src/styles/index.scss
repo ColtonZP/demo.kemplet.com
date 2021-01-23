@@ -19,8 +19,8 @@
   --calculated-full-height: calc(100vh - 3.5rem);
 
   @media (prefers-color-scheme: dark) {
-    --main-color: rgb(10, 10, 10);
-    --secondary-color: rgb(40, 40, 40);
+    --main-color: rgb(0, 0, 0);
+    --secondary-color: rgb(30, 30, 30);
     --button-group-color: rgb(80, 80, 80);
     --options-background-color: rgb(5, 6, 10);
 
