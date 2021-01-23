@@ -35,6 +35,11 @@
   }
 }
 
+@import './app.scss';
+@import './calendar.scss';
+@import './toolbar.scss';
+@import './project.scss';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -141,8 +146,3 @@ progress {
   transition: all ease 0.08s;
   pointer-events: none;
 }
-
-@import './app.scss';
-@import './calendar.scss';
-@import './toolbar.scss';
-@import './project.scss';
