@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useProjectsState } from '../../State';
+import { Project } from './Project';
 
 export const Projects = () => {
   const { projects } = useProjectsState(state => ({
@@ -12,20 +13,13 @@ export const Projects = () => {
 
   return (
     <>
-      <ul>
-        {filteredProjects.map(project => (
-          <li key={project.id}>
-            <span className="title">{project.title}</span>
-            <span className="due">{project.due}</span>
-          </li>
-        ))}
-        {noDue.map(project => (
-          <li key={project.id}>
-            <span className="title">{project.title}</span>
-            <span className="due">{project.due}</span>
-          </li>
-        ))}
-      </ul>
+      {filteredProjects.map(project => (
+        <Project project={project} key={project.id} />
+      ))}
+
+      {noDue.map(project => (
+        <Project project={project} key={project.id} />
+      ))}
     </>
   );
 };
