@@ -118,7 +118,9 @@ export const Add = ({ toggleAdd }: Props) => {
             autoComplete="off"
             value={due}
             required
+            // readOnly
             onFocus={() => toggleCalendar(true)}
+            onChange={() => ''}
           />
           <span className="input-title">Due:</span>
         </div>
