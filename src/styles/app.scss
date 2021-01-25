@@ -14,6 +14,13 @@
       grid-gap: 1rem;
       height: var(--calculated-full-height);
     }
+
+    @media screen and (min-width: 992px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 1rem;
+      height: var(--calculated-full-height);
+    }
   }
 
   & .content {
