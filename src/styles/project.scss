@@ -22,7 +22,7 @@
     border-radius: 0.5rem;
     align-items: center;
     transition: fill 0.3s linear, background 0.3s linear;
-    padding: 0.5rem;
+    padding: 0.75rem;
 
     &:hover {
       background: var(--secondary-theme-color);
@@ -41,7 +41,7 @@
     flex-direction: row;
     justify-content: space-between;
     overflow: hidden;
-    padding: 0.5rem;
+    padding: 0.75rem;
 
     & .title {
       color: var(--main-font-color);
