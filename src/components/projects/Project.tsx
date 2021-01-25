@@ -1,15 +1,20 @@
 import React from 'react';
 
+import { useProjectsState, Project as ProjectType } from '../../State';
 import trash from '../../images/trash.svg';
 
-export const Project = ({ project }: any) => {
+export const Project = ({ project }: { project: ProjectType }) => {
+  const { updateOpenProject } = useProjectsState(state => ({
+    updateOpenProject: state.updateOpenProject,
+  }));
+
   return (
     <div className="project">
       <button
         className="projectButton card"
-        // onClick={() => {
-        //   changeOpenProject(project);
-        // }}
+        onClick={() => {
+          updateOpenProject(project.id);
+        }}
       >
         {/* <progress value={progress.completed} max={progress.total} /> */}
         <span className="title">{project.title}</span>

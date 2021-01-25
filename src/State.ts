@@ -3,7 +3,9 @@ import { quickId } from './functions/quickId';
 
 type Store = {
   projects: Project[];
+  openProject: undefined | string;
   createProject: (title: string, due: number) => void;
+  updateOpenProject: (id: string) => void;
 };
 
 export type Task = {
@@ -22,6 +24,7 @@ export type Project = {
 
 export const useProjectsState = create<Store>(set => ({
   projects: [],
+  openProject: undefined,
   createProject: (title, due) =>
     set(state => ({
       projects: [
@@ -34,5 +37,10 @@ export const useProjectsState = create<Store>(set => ({
           tasks: [],
         },
       ],
+    })),
+
+  updateOpenProject: id =>
+    set(state => ({
+      openProject: id,
     })),
 }));
