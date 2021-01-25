@@ -1,4 +1,5 @@
 import create from 'zustand';
+import { quickId } from './functions/quickId';
 
 type Store = {
   projects: Project[];
@@ -29,7 +30,7 @@ export const useProjectsState = create<Store>(set => ({
           title,
           due,
           completed: false,
-          id: '1',
+          id: quickId(),
           tasks: [],
         },
       ],
