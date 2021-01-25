@@ -6,6 +6,7 @@ type Store = {
   openProject: undefined | string;
   createProject: (title: string, due: number) => void;
   updateOpenProject: (id: string) => void;
+  removeProject: (id: string) => void;
 };
 
 export type Task = {
@@ -42,5 +43,10 @@ export const useProjectsState = create<Store>(set => ({
   updateOpenProject: id =>
     set(state => ({
       openProject: id,
+    })),
+
+  removeProject: id =>
+    set(state => ({
+      projects: state.projects.filter(project => project.id !== id),
     })),
 }));

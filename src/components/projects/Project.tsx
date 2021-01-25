@@ -4,8 +4,9 @@ import { useProjectsState, Project as ProjectType } from '../../State';
 import trash from '../../images/trash.svg';
 
 export const Project = ({ project }: { project: ProjectType }) => {
-  const { updateOpenProject } = useProjectsState(state => ({
+  const { updateOpenProject, removeProject } = useProjectsState(state => ({
     updateOpenProject: state.updateOpenProject,
+    removeProject: state.removeProject,
   }));
 
   return (
@@ -33,9 +34,9 @@ export const Project = ({ project }: { project: ProjectType }) => {
           )
         )}
       </button>
-      {/* <button className="options" onClick={() => removeProject(project.id)}>
+      <button className="options" onClick={() => removeProject(project.id)}>
         <img src={trash} alt="trash" />
-      </button> */}
+      </button>
     </div>
   );
 };
