@@ -11,8 +11,9 @@
       width: 3.5rem;
       height: 3.5rem;
       border-radius: 50%;
-      font-size: 1.4rem;
+      font-size: 1.333rem;
       line-height: 2.5rem;
+      vertical-align: center;
       background: transparent;
       padding: 0.5rem;
       color: var(--secondary-font-color);
@@ -28,7 +29,7 @@
     }
 
     & .day-of-the-week {
-      font-size: 1.4rem;
+      font-size: 1.333rem;
       color: var(--main-font-color);
     }
   }
@@ -41,15 +42,15 @@
     padding: 0 0.5rem;
 
     & span {
-      font-size: 1.4rem;
+      font-size: 1.333rem;
       flex-grow: 1;
     }
 
     & .month-button {
-      background: var(--theme-color) url('../images/arrow.svg') center/40%
+      background: var(--theme-color) url('../images/arrow.svg') center/30%
         no-repeat;
-      width: 3.5rem;
-      height: 3.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
       border-radius: 50%;
 
       &:nth-child(1) {
