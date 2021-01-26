@@ -2,11 +2,10 @@
   & .projects-panel {
     display: flex;
     background: var(--main-color);
-    overflow: hidden;
     flex-direction: column;
     grid-column-start: 1;
     grid-column-end: 3;
-    overflow: scroll;
+    overflow-y: scroll;
 
     @media screen and (min-width: 768px) {
       display: grid;

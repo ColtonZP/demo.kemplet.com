@@ -9,6 +9,10 @@ export const Project = ({ project }: { project: ProjectType }) => {
     removeProject: state.removeProject,
   }));
 
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+
   return (
     <div className="project">
       <button
@@ -21,12 +25,13 @@ export const Project = ({ project }: { project: ProjectType }) => {
         <span className="title">{project.title}</span>
         {project.due !== 0 && project.due < new Date().getTime() ? (
           <span className="badge late">Late</span>
-        ) : new Date(project.due).toDateString() ===
-          new Date().toDateString() ? (
-          <span className="badge today">Today</span>
+        ) : new Date(project.due).toDateString() === today.toDateString() ? (
+          <span className="badge green">Today</span>
+        ) : new Date(project.due).toDateString() === tomorrow.toDateString() ? (
+          <span className="badge green">Tomorrow</span>
         ) : (
           project.due !== 0 && (
-            <span className="badge">
+            <span className="badge green">
               {`${new Date(project.due).getMonth() + 1}/${new Date(
                 project.due,
               ).getDate()}`}
@@ -34,7 +39,10 @@ export const Project = ({ project }: { project: ProjectType }) => {
           )
         )}
       </button>
-      <button className="options" onClick={() => removeProject(project.id)}>
+      <button
+        className="options card"
+        onClick={() => removeProject(project.id)}
+      >
         <img src={trash} alt="trash" />
       </button>
     </div>

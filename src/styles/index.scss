@@ -2,7 +2,7 @@
 
 :root {
   --main-color: rgb(240, 240, 240);
-  --secondary-color: rgba(255, 255, 255, 0.8);
+  --secondary-color: rgba(255, 255, 255, 0.2);
   --button-group-color: rgb(210, 210, 210);
   --options-background-color: rgba(225, 225, 225);
 
@@ -71,13 +71,13 @@ button {
 
 .card {
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.75rem;
   background: var(--secondary-color);
   border: none;
-  width: 100%;
   text-align: left;
   backdrop-filter: blur(3px);
-  border: 0.1rem solid rgba(210, 210, 210, 0.2);
+  border: 0.1rem solid rgba(210, 210, 210, 0.5);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
 ul {

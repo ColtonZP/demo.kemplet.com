@@ -5,8 +5,8 @@
 
   & .add,
   & .bars {
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.157rem;
+    height: 3.157rem;
     margin: 0 auto;
     display: block;
     padding: 0 0.5rem;
@@ -41,12 +41,12 @@
   & .add-form {
     position: absolute;
     width: calc(3.5rem * 7 + 4rem + 2px);
-    top: calc(2.4rem + (0.5rem * 2) + 2rem);
+    top: calc(5.157rem);
     right: 50%;
     transform: translateX(50%);
     padding: 2rem;
     text-align: center;
-    box-shadow: 0px 0px 14px -6px rgba(0, 0, 0, 0.75);
+    z-index: 3;
 
     & > span {
       font-size: 1rem;

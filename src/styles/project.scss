@@ -2,16 +2,11 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 1rem;
-  overflow: hidden;
 
   &:hover {
     & .options {
       display: block;
     }
-  }
-
-  &:last-child {
-    margin-bottom: 0;
   }
 
   & .options {
@@ -45,13 +40,10 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    overflow: hidden;
-    padding: 0.75rem;
+    width: 100%;
 
     & .title {
       color: var(--main-font-color);
-      text-overflow: ellipsis;
-      overflow: hidden !important;
       font-size: 1.333rem;
     }
 
@@ -65,7 +57,7 @@
       color: var(--secondary-theme-color);
     }
 
-    & .today {
+    & .green {
       color: var(--theme-color);
     }
   }
