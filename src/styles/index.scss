@@ -2,8 +2,8 @@
 
 :root {
   --main-color: rgb(240, 240, 240);
-  --secondary-color: rgba(255, 255, 255, 0.2);
-  --button-group-color: rgb(210, 210, 210);
+  --secondary-color: rgba(255, 255, 255, 0.8);
+  --input-gray: rgb(230, 230, 230);
   --options-background-color: rgba(225, 225, 225);
 
   --theme-color: rgb(0, 200, 150);
@@ -15,13 +15,12 @@
   --secondary-font-color: rgb(156, 156, 156);
 
   --super-rounded: 16px;
-
   --calculated-full-height: calc(100vh - 3.5rem);
 
   @media (prefers-color-scheme: dark) {
-    --main-color: rgb(0, 0, 0);
-    --secondary-color: rgba(30, 30, 30, 0.8);
-    --button-group-color: rgb(80, 80, 80);
+    --main-color: rgb(20, 20, 20);
+    --secondary-color: rgba(50, 50, 50, 0.8);
+    --input-gray: rgb(70, 70, 70);
     --options-background-color: rgb(5, 6, 10);
 
     --checkbox-color: rgb(75, 75, 75);
@@ -76,8 +75,6 @@ button {
   border: none;
   text-align: left;
   backdrop-filter: blur(3px);
-  border: 0.1rem solid rgba(210, 210, 210, 0.5);
-  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
 }
 
 ul {
@@ -117,7 +114,7 @@ progress {
     border: none;
     outline: none;
     width: 100%;
-    background: var(--button-group-color);
+    background: var(--input-gray);
     border-radius: 0.5rem;
     padding: 0.5em;
 
