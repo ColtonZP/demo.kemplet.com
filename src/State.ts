@@ -8,7 +8,7 @@ type Store = {
   updateOpenProject: (id: string) => void;
   removeProject: (id: string) => void;
   createTaskList: (title: string, projectId: string) => void;
-  // removeTaskList: (id: string, , projectId: string) => void;
+  removeTaskList: (taskId: string, projectId: string) => void;
   // createTodo: (title: string, projectId: string, taskId: string) => void;
 };
 
@@ -24,6 +24,7 @@ export type Task = {
   id: string;
   due: string;
   completed: boolean;
+  description?: string;
   todos: Todo[];
 };
 
@@ -79,7 +80,22 @@ export const useProjectsState = create<Store>((set, get) => ({
         }),
     );
 
-    set(state => ({
+    set(() => ({
+      projects: newProjects,
+    }));
+  },
+
+  removeTaskList: (listId, projectId) => {
+    const { projects } = get();
+    const newProjects = projects;
+
+    newProjects.find(
+      project =>
+        project.id === projectId &&
+        project.taskLists.filter(task => task.id !== listId),
+    );
+
+    set(() => ({
       projects: newProjects,
     }));
   },
