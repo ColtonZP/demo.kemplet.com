@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ToolBar } from './components/toolbar/ToolBar';
 import { Projects } from './components/projects/Projects';
+import { OpenProject } from './components/projects/OpenProject';
 // TodoState = { TodoManager };
 
 function App() {
@@ -13,8 +14,8 @@ function App() {
           <div className="left-panel">
             {/* //! <Today /> */}
             <Projects />
-            {/* {openProjectId && <OpenProject />} */}
           </div>
+          <OpenProject />
         </div>
         {/* <Calendar /> */}
       </div>

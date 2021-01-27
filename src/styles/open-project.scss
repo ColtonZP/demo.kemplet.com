@@ -1,4 +1,49 @@
 .open-project {
   overflow-y: scroll;
   position: relative;
+
+  @media screen and (min-width: 992px) {
+    grid-column-end: span 2;
+  }
+
+  & .project-info {
+    display: inline-block;
+    cursor: text;
+    width: 100%;
+    margin: 1rem 0;
+
+    @media screen and (min-width: 768px) {
+      margin: 0 0 1rem 0;
+    }
+
+    & h1 {
+      margin-bottom: 1rem;
+      font-size: 2.369em;
+    }
+
+    & span {
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+  }
+
+  & .add-form {
+    width: 100%;
+  }
+
+  & .title-input {
+    width: 70%;
+    background: var(--secondary-color);
+    border: 0.2rem var(--theme-color) solid;
+    border-right: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    margin: 0;
+    outline: none;
+    padding: 0.3rem 0.5rem;
+  }
+
+  & .submit {
+    width: 30%;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
 }

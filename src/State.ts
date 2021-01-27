@@ -9,10 +9,16 @@ type Store = {
   removeProject: (id: string) => void;
 };
 
-export type Task = {
+type Todo = {
+  id: string;
   title: string;
   completed: boolean;
+  due: string;
+};
+
+type Task = {
   id: string;
+  todos: Todo[];
 };
 
 export type Project = {
@@ -20,7 +26,7 @@ export type Project = {
   due: number;
   completed: boolean;
   id: string;
-  tasks: Task[];
+  taskLists: Task[];
 };
 
 export const useProjectsState = create<Store>(set => ({
@@ -35,7 +41,7 @@ export const useProjectsState = create<Store>(set => ({
           due,
           completed: false,
           id: quickId(),
-          tasks: [],
+          taskLists: [],
         },
       ],
     })),
