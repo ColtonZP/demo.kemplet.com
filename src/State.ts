@@ -18,6 +18,8 @@ type Todo = {
 
 type Task = {
   id: string;
+  due: string;
+  completed: boolean;
   todos: Todo[];
 };
 

@@ -40,5 +40,24 @@
       font-size: 3.157rem;
       margin-bottom: 1rem;
     }
+
+    & .no-projects {
+      background: var(--secondary-color);
+      border-radius: 0.5rem;
+      padding: 1rem;
+
+      & span {
+        font-size: 1.777em;
+      }
+
+      & img {
+        height: 1.333rem;
+        width: 1.333rem;
+
+        @media (prefers-color-scheme: dark) {
+          filter: invert(1);
+        }
+      }
+    }
   }
 }
