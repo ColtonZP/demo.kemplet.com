@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useProjectsState, Project as ProjectType } from '../../State';
 
-// import TodoList from './todos/TodoList';
+import { TaskList } from './tasks/TaskList';
 // import ProjectEdit from './ProjectEdit';
 // import Todo from './todos/Todo';
 
@@ -21,14 +21,12 @@ export const OpenProject = () => {
     completed: false,
     id: '',
     taskLists: [],
-  };
-  let projectTodoList = null;
+  }; // ! figure out how to remove default values
   // let todoList = null;
 
   projects.forEach(project => {
     if (project.id === openProjectId) {
       openProject = project;
-      projectTodoList = openProject.taskLists;
     }
   });
 
@@ -94,17 +92,17 @@ export const OpenProject = () => {
               </form>
             </div>
 
-            {/* {projectTodoList &&
-          projectTodoList.map(list => {
-            return (
-              <TodoList
-                list={list}
-                key={list.id}
-                listId={list.id}
-                projectId={id}
-              />
-            );
-          })} */}
+            {openProject.taskLists.length > 0 &&
+              openProject.taskLists.map((list: any) => {
+                return (
+                  <TaskList
+                    key={list.id}
+                    list={list}
+                    listId={list.id}
+                    projectId={id}
+                  />
+                );
+              })}
             {/* {todoList && (
           <div className="card">
             <ul>
