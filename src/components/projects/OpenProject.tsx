@@ -2,15 +2,18 @@ import React, { useState } from 'react';
 
 import { useProjectsState, Project as ProjectType } from '../../State';
 
-import { TaskList } from './tasks/TaskList';
+// import { TaskList } from './tasks/TaskList';
 // import ProjectEdit from './ProjectEdit';
 // import Todo from './todos/Todo';
 
 export const OpenProject = () => {
-  const { projects, openProjectId } = useProjectsState(state => ({
-    projects: state.projects,
-    openProjectId: state.openProject,
-  }));
+  const { projects, openProjectId, createTaskList } = useProjectsState(
+    state => ({
+      projects: state.projects,
+      openProjectId: state.openProject,
+      createTaskList: state.createTaskList,
+    }),
+  );
 
   const [list, changeList] = useState('');
   const [editing, isEditing] = useState(false);
@@ -43,7 +46,7 @@ export const OpenProject = () => {
   const handleSubmit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     if (list.length > 0) {
-      // addList(id, list);
+      createTaskList(list, id);
       changeList('');
     }
   };
@@ -92,7 +95,7 @@ export const OpenProject = () => {
               </form>
             </div>
 
-            {openProject.taskLists.length > 0 &&
+            {/* {openProject.taskLists.length > 0 &&
               openProject.taskLists.map((list: any) => {
                 return (
                   <TaskList
@@ -102,7 +105,7 @@ export const OpenProject = () => {
                     projectId={id}
                   />
                 );
-              })}
+              })} */}
             {/* {todoList && (
           <div className="card">
             <ul>

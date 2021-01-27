@@ -7,6 +7,9 @@ type Store = {
   createProject: (title: string, due: number) => void;
   updateOpenProject: (id: string) => void;
   removeProject: (id: string) => void;
+  createTaskList: (title: string, projectId: string) => void;
+  // removeTaskList: (id: string, , projectId: string) => void;
+  // createTodo: (title: string, projectId: string, taskId: string) => void;
 };
 
 type Todo = {
@@ -17,6 +20,7 @@ type Todo = {
 };
 
 type Task = {
+  title: string;
   id: string;
   due: string;
   completed: boolean;
@@ -31,9 +35,10 @@ export type Project = {
   taskLists: Task[];
 };
 
-export const useProjectsState = create<Store>(set => ({
+export const useProjectsState = create<Store>((set, get) => ({
   projects: [],
   openProject: undefined,
+
   createProject: (title, due) =>
     set(state => ({
       projects: [
@@ -49,7 +54,7 @@ export const useProjectsState = create<Store>(set => ({
     })),
 
   updateOpenProject: id =>
-    set(state => ({
+    set(() => ({
       openProject: id,
     })),
 
@@ -57,4 +62,25 @@ export const useProjectsState = create<Store>(set => ({
     set(state => ({
       projects: state.projects.filter(project => project.id !== id),
     })),
+
+  createTaskList: (title, projectId) => {
+    const { projects } = get();
+    const newProjects = projects;
+
+    newProjects.find(
+      project =>
+        project.id === projectId &&
+        project.taskLists.push({
+          title,
+          id: quickId(),
+          due: '0',
+          completed: false,
+          todos: [],
+        }),
+    );
+
+    set(state => ({
+      projects: newProjects,
+    }));
+  },
 }));
