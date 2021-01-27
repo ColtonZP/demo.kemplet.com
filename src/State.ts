@@ -12,14 +12,14 @@ type Store = {
   // createTodo: (title: string, projectId: string, taskId: string) => void;
 };
 
-type Todo = {
+export type Todo = {
   id: string;
   title: string;
   completed: boolean;
   due: string;
 };
 
-type Task = {
+export type Task = {
   title: string;
   id: string;
   due: string;

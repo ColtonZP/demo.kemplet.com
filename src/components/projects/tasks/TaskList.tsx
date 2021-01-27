@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Task, Todo } from '../../../State';
 
 // import Todo from './Todo';
 // import ListOptions from './ListOptions';
 
-export const TaskList = ({ list, projectId, listId }) => {
+type Props = {
+  list: Task;
+  projectId: string;
+  listId: string;
+};
+
+export const TaskList = ({ list, projectId, listId }: Props) => {
   const [todo, changeTodo] = useState('');
   const [editing, toggleEditing] = useState(false);
   const [titleInput, updateTitleInput] = useState(list.title);
@@ -31,21 +38,21 @@ export const TaskList = ({ list, projectId, listId }) => {
     // }
   }, [list.todos]);
 
-  const handleNewList = e => {
+  const handleNewList = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     if (todo.length > 0) {
-      addTodo(projectId, listId, todo);
+      // addTodo(projectId, listId, todo);
       changeTodo('');
     }
   };
 
-  const handleListEdit = e => {
+  const handleListEdit = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     toggleEditing(false);
-    renameList(projectId, listId, titleInput);
+    // renameList(projectId, listId, titleInput);
   };
 
-  function compare(a, b) {
+  function compare(a: Todo, b: Todo) {
     if (a.completed < b.completed) {
       return -1;
     } else if (a.completed > b.completed) {
@@ -69,7 +76,7 @@ export const TaskList = ({ list, projectId, listId }) => {
       ) : (
         <h2 onClick={() => toggleEditing(true)}>{list.title}</h2>
       )}
-      {list.due && (
+      {list.due !== '0' && (
         <span className="list-due">
           {`${new Date(list.due).getMonth() + 1}/${new Date(
             list.due,
@@ -82,7 +89,7 @@ export const TaskList = ({ list, projectId, listId }) => {
       </div>
 
       <div className="list-options-container">
-        {options && (
+        {/* {options && (
           <ListOptions
             list={list}
             listId={listId}
@@ -91,7 +98,7 @@ export const TaskList = ({ list, projectId, listId }) => {
             currentDescription={list.description}
             completed={completedLength / todoLength}
           />
-        )}
+        )} */}
         <button
           className="options-button"
           value="Show"
@@ -103,14 +110,13 @@ export const TaskList = ({ list, projectId, listId }) => {
         <button
           className="collapse-button"
           value="Show"
-          // collapsed={list.collapsed}
-          onClick={() => collapseList(projectId, listId)}
+          // onClick={() => collapseList(projectId, listId)}
         >
           {/* <FontAwesomeIcon icon={faCaretDown} /> */}v
         </button>
       </div>
-      {list.description && <p>{list.description}</p>}
-      <ul className="List">
+      {/* {list.description && <p>{list.description}</p>} */}
+      <ul className="list">
         {/* {todos.map(todo => (
           <Todo
             todo={todo}

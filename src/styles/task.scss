@@ -1,0 +1,185 @@
+.task-container {
+  margin-bottom: 1rem;
+  position: relative;
+  background: var(--secondary-color);
+  padding: 1rem;
+
+  & h2 {
+    font-size: 1.777em;
+    display: inline;
+  }
+
+  & p {
+    display: inline-block;
+    width: calc(100% - 5.4rem); // why?
+  }
+
+  & .task-form {
+    display: inline;
+    & .task-input {
+      // width: 80%;
+      // font-size: 1.333em;
+      // border: none;
+      // outline: none;
+      // background-color: inherit;
+      // font-weight: bold;
+      // overflow: visible;
+      // resize: none;
+      // background-color: transparent;
+      // margin-left: 1.4rem;
+      // width: calc(100% - 2.6rem);
+    }
+  }
+
+  & .list-due {
+    display: inline;
+    font-size: 1rem;
+    color: gray;
+  }
+
+  & .progress-container {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    border-radius: 0.5rem;
+  }
+
+  & .list-options-container {
+    float: right; // don't use float, thx
+    padding-right: 1rem;
+    position: relative;
+  }
+
+  & .option-button {
+    font-size: 1.33rem;
+    cursor: pointer;
+
+    & svg path {
+      fill: gray;
+    }
+
+    display: inline;
+  }
+
+  & .new-todo {
+    position: relative;
+
+    & .submit-todo {
+      background: transparent;
+      color: var(--theme-color);
+      font-weight: bolder;
+      padding: 0 0.5rem;
+      position: absolute;
+      height: 1.33em;
+    }
+
+    & .add-todo {
+      background: inherit;
+      border: none;
+      outline: none;
+      font-size: 1.33em;
+      padding: 0 1.33em;
+      width: 100%;
+    }
+  }
+}
+
+// .task-option {
+//   position: absolute;
+//   right: 0;
+//   display: inline-block;
+//   opacity: 0;
+//   & button {
+//     cursor: pointer;
+//     &:hover {
+//       & svg path {
+//         fill: var(--secondary-theme-color);
+//         transition: fill 0.3s linear;
+//         -webkit-transition: fill 0.3s linear;
+//         -moz-transition: fill 0.3s linear;
+//         -ms-transition: fill 0.3s linear;
+//         -o-transition: fill 0.3s linear;
+//       }
+//     }
+//   }
+// }
+
+// .TodoCheck {
+//   margin: 0.4em 0.8rem;
+//   position: relative;
+//   &:hover ${TodoOptions} {
+//     opacity: 1;
+//   }
+//   & input[type='checkbox'] {
+//     opacity: 0;
+//     cursor: pointer;
+//     // margin-right: 0.4rem;
+//     height: 1em;
+//     width: 1em;
+//     position: absolute;
+//     top: 0.2em;
+//     z-index: 2;
+//     &:checked {
+//       & + label::after {
+//         content: url(${checkmark});
+//         color: var(--theme-color);
+//       }
+//       & + label {
+//         text-decoration: line-through;
+//         color: var(--secondary-font-color);
+//       }
+//     }
+//   }
+//   & label {
+//     font-weight: normal;
+//     word-break: break-word;
+//     margin-left: 1.4rem;
+//     cursor: text;
+//   }
+//   position: relative;
+//   & label::before,
+//   & label::after {
+//     display: inline-block;
+//     height: 1em;
+//     width: 1em;
+//     position: absolute;
+//     top: 0.2em;
+//     border-radius: 2px;
+//     pointer-events: none;
+//   }
+//   & label::before {
+//     background: var(--checkbox-color);
+//     content: '';
+//     left: 0rem;
+//   }
+//   & label::after {
+//     content: none;
+//     left: 0.3rem;
+//   }
+// `;
+
+// const TodoForm = styled.form`
+//   border: none;
+//   display: inline;
+//   margin: 0;
+// `;
+
+// const EditInput = styled.input`
+//   outline: none;
+//   border: none;
+//   overflow: visible;
+//   resize: none;
+//   background-color: transparent;
+//   margin-left: 1.4rem;
+//   width: calc(100% - 2.6rem);
+// `;
+
+// const TodoDue = styled.span`
+//   display: inline;
+//   font-size: 0.8rem;
+//   color: gray;
+//   margin-left: 0.6rem;
+// `;

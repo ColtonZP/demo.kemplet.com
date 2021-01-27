@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import { useProjectsState, Project as ProjectType } from '../../State';
+import { useProjectsState, Project as ProjectType, Task } from '../../State';
 
-// import { TaskList } from './tasks/TaskList';
+import { TaskList } from './tasks/TaskList';
 // import ProjectEdit from './ProjectEdit';
 // import Todo from './todos/Todo';
 
@@ -95,8 +95,8 @@ export const OpenProject = () => {
               </form>
             </div>
 
-            {/* {openProject.taskLists.length > 0 &&
-              openProject.taskLists.map((list: any) => {
+            {openProject.taskLists.length > 0 &&
+              openProject.taskLists.map((list: Task) => {
                 return (
                   <TaskList
                     key={list.id}
@@ -105,7 +105,7 @@ export const OpenProject = () => {
                     projectId={id}
                   />
                 );
-              })} */}
+              })}
             {/* {todoList && (
           <div className="card">
             <ul>
