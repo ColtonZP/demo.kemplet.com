@@ -91,7 +91,6 @@
   margin: 0.5rem 0;
   position: relative;
   font-size: 1.333rem;
-  line-height: 1;
   padding-left: 1.833rem;
 
   &:hover .task-options {
@@ -104,7 +103,7 @@
     height: 1em;
     width: 1em;
     position: absolute;
-    top: 0.1em;
+    top: 0.233em;
     vertical-align: center;
     left: 0;
     z-index: 2;
@@ -142,6 +141,7 @@
       background: var(--background-color);
       content: '';
       left: -1.833rem;
+      top: 0.233rem;
     }
 
     &::after {
