@@ -1,4 +1,5 @@
 import create from 'zustand';
+import { TaskList } from './components/projects/tasks/TaskList';
 import { quickId } from './functions/quickId';
 
 type Store = {
@@ -9,7 +10,7 @@ type Store = {
   removeProject: (id: string) => void;
   createTaskList: (title: string, projectId: string) => void;
   removeTaskList: (taskId: string, projectId: string) => void;
-  // createTodo: (title: string, projectId: string, taskId: string) => void;
+  createTodo: (title: string, projectId: string, taskId: string) => void;
 };
 
 export type Todo = {
@@ -25,6 +26,7 @@ export type Task = {
   due: string;
   completed: boolean;
   description?: string;
+  collapsed: boolean;
   todos: Todo[];
 };
 
@@ -76,6 +78,7 @@ export const useProjectsState = create<Store>((set, get) => ({
           id: quickId(),
           due: '0',
           completed: false,
+          collapsed: false,
           todos: [],
         }),
     );
@@ -93,6 +96,30 @@ export const useProjectsState = create<Store>((set, get) => ({
       project =>
         project.id === projectId &&
         project.taskLists.filter(task => task.id !== listId),
+    );
+
+    set(() => ({
+      projects: newProjects,
+    }));
+  },
+
+  createTodo: (title, projectId, listId) => {
+    const { projects } = get();
+    const newProjects = projects;
+
+    newProjects.find(
+      project =>
+        project.id === projectId &&
+        project.taskLists.find(
+          task =>
+            task.id === listId &&
+            task.todos.push({
+              id: quickId(),
+              title,
+              completed: false,
+              due: '0',
+            }),
+        ),
     );
 
     set(() => ({

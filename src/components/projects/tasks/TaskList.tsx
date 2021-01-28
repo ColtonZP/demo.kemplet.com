@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Task, Todo } from '../../../State';
+import { useProjectsState, Task, Todo as TodoType } from '../../../State';
 
-// import Todo from './Todo';
+import { Todo } from './Todo';
 // import ListOptions from './ListOptions';
 
 type Props = {
@@ -11,6 +11,9 @@ type Props = {
 };
 
 export const TaskList = ({ list, projectId, listId }: Props) => {
+  const { createTodo } = useProjectsState(state => ({
+    createTodo: state.createTodo,
+  }));
   const [todo, changeTodo] = useState('');
   const [editing, toggleEditing] = useState(false);
   const [titleInput, updateTitleInput] = useState(list.title);
@@ -41,7 +44,7 @@ export const TaskList = ({ list, projectId, listId }: Props) => {
   const handleNewList = (e: React.FormEvent<EventTarget>) => {
     e.preventDefault();
     if (todo.length > 0) {
-      // addTodo(projectId, listId, todo);
+      createTodo(todo, projectId, listId);
       changeTodo('');
     }
   };
@@ -52,7 +55,7 @@ export const TaskList = ({ list, projectId, listId }: Props) => {
     // renameList(projectId, listId, titleInput);
   };
 
-  function compare(a: Todo, b: Todo) {
+  function compare(a: TodoType, b: TodoType) {
     if (a.completed < b.completed) {
       return -1;
     } else if (a.completed > b.completed) {
@@ -117,14 +120,14 @@ export const TaskList = ({ list, projectId, listId }: Props) => {
       </div>
       {/* {list.description && <p>{list.description}</p>} */}
       <ul className="list">
-        {/* {todos.map(todo => (
+        {todos.map(todo => (
           <Todo
             todo={todo}
             projectId={projectId}
             listId={listId}
             key={todo.title + Math.random()}
           />
-        ))} */}
+        ))}
         <form className="new-todo" onSubmit={handleNewList}>
           <input className="submit-todo" type="submit" value="+" />
           <input
