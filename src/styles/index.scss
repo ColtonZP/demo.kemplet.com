@@ -1,7 +1,7 @@
 // @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 :root {
-  --main-color: rgb(240, 240, 240);
+  --background-color: rgb(240, 240, 240);
   --secondary-color: rgba(255, 255, 255, 0.8);
   --input-gray: rgb(230, 230, 230);
   --options-background-color: rgba(225, 225, 225);
@@ -48,7 +48,7 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--main-color);
+  background-color: var(--background-color);
   font-weight: 400;
 }
 
@@ -88,7 +88,7 @@ progress {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--main-color);
+  background-color: var(--background-color);
 
   &::-webkit-progress-bar {
     background-color: var(--secondary-color);

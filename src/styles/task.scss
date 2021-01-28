@@ -87,25 +87,126 @@
   }
 }
 
-// .task-option {
-//   position: absolute;
-//   right: 0;
-//   display: inline-block;
-//   opacity: 0;
-//   & button {
-//     cursor: pointer;
-//     &:hover {
-//       & svg path {
-//         fill: var(--secondary-theme-color);
-//         transition: fill 0.3s linear;
-//         -webkit-transition: fill 0.3s linear;
-//         -moz-transition: fill 0.3s linear;
-//         -ms-transition: fill 0.3s linear;
-//         -o-transition: fill 0.3s linear;
-//       }
-//     }
-//   }
-// }
+.todo {
+  margin: 0.5rem 0;
+  position: relative;
+  font-size: 1.333rem;
+  line-height: 1;
+
+  &:hover .task-options {
+    opacity: 1;
+  }
+
+  & input[type='checkbox'] {
+    opacity: 0;
+    cursor: pointer;
+    // margin-right: 0.4rem;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    top: 0.1em;
+    vertical-align: center;
+    left: 0;
+    z-index: 2;
+
+    &:checked {
+      & + label::after {
+        content: url('../images/checkmark.svg');
+        color: var(--theme-color);
+      }
+
+      & + label {
+        text-decoration: line-through;
+        color: var(--secondary-font-color);
+      }
+    }
+  }
+
+  & label {
+    font-weight: normal;
+    word-break: break-word;
+    margin-left: 1em;
+    cursor: text;
+  }
+
+  position: relative;
+  & label::before,
+  & label::after {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    position: absolute;
+    border-radius: 2px;
+    pointer-events: none;
+  }
+
+  & label::before {
+    background: var(--background-color);
+    content: '';
+    left: 0rem;
+  }
+  & label::after {
+    content: none;
+    left: 0.3rem;
+  }
+
+  & .task-option {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    opacity: 0;
+
+    & button {
+      cursor: pointer;
+      &:hover {
+        & svg path {
+          fill: var(--secondary-theme-color);
+          transition: fill 0.3s linear;
+        }
+      }
+    }
+  }
+
+  & .todo-form {
+    border: none;
+    display: inline;
+    margin: 0;
+  }
+
+  & .edit-input {
+    outline: none;
+    border: none;
+    overflow: visible;
+    resize: none;
+    background-color: transparent;
+    width: calc(100% - 2.6rem);
+  }
+
+  & .todo-due {
+    display: inline;
+    font-size: 0.75rem;
+    color: gray;
+    margin-left: 1rem;
+  }
+
+  & .todo-options {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    opacity: 0;
+
+    & button {
+      cursor: pointer;
+
+      &:hover {
+        & svg path {
+          fill: var(--secondary-theme-color);
+          transition: fill 0.3s linear;
+        }
+      }
+    }
+  }
+}
 
 // .TodoCheck {
 //   margin: 0.4em 0.8rem;
