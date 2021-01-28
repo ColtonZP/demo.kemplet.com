@@ -92,6 +92,7 @@
   position: relative;
   font-size: 1.333rem;
   line-height: 1;
+  padding-left: 1.833rem;
 
   &:hover .task-options {
     opacity: 1;
@@ -100,7 +101,6 @@
   & input[type='checkbox'] {
     opacity: 0;
     cursor: pointer;
-    // margin-right: 0.4rem;
     height: 1em;
     width: 1em;
     position: absolute;
@@ -108,6 +108,7 @@
     vertical-align: center;
     left: 0;
     z-index: 2;
+    border: none;
 
     &:checked {
       & + label::after {
@@ -123,31 +124,30 @@
   }
 
   & label {
-    font-weight: normal;
-    word-break: break-word;
-    margin-left: 1em;
+    // margin-left: 1.33rem;
     cursor: text;
-  }
+    position: relative;
 
-  position: relative;
-  & label::before,
-  & label::after {
-    display: inline-block;
-    height: 1em;
-    width: 1em;
-    position: absolute;
-    border-radius: 2px;
-    pointer-events: none;
-  }
+    &::before,
+    &::after {
+      display: inline-block;
+      height: 1em;
+      width: 1em;
+      position: absolute;
+      border-radius: 2px;
+      pointer-events: none;
+    }
 
-  & label::before {
-    background: var(--background-color);
-    content: '';
-    left: 0rem;
-  }
-  & label::after {
-    content: none;
-    left: 0.3rem;
+    &::before {
+      background: var(--background-color);
+      content: '';
+      left: -1.833rem;
+    }
+
+    &::after {
+      content: none;
+      left: -1.533rem;
+    }
   }
 
   & .task-option {
@@ -184,9 +184,9 @@
 
   & .todo-due {
     display: inline;
-    font-size: 0.75rem;
+    font-size: 1em;
     color: gray;
-    margin-left: 1rem;
+    margin-left: 1ch;
   }
 
   & .todo-options {
