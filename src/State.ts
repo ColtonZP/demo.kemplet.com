@@ -1,5 +1,4 @@
 import create from 'zustand';
-import { TaskList } from './components/projects/tasks/TaskList';
 import { quickId } from './functions/quickId';
 
 type Store = {
@@ -26,7 +25,7 @@ export type Task = {
   due: string;
   completed: boolean;
   description?: string;
-  collapsed: boolean;
+  collapsed?: boolean;
   todos: Todo[];
 };
 
@@ -38,8 +37,58 @@ export type Project = {
   taskLists: Task[];
 };
 
+const defaultProjects: Project = {
+  title: 'Welcome',
+  due: new Date(new Date().setHours(23, 59, 0)).getTime(),
+  id: 'welcome',
+  completed: false,
+  taskLists: [
+    {
+      title: 'Add a project',
+      id: 'welcome-list-1',
+      completed: false,
+      due: '0',
+      todos: [
+        {
+          title:
+            'to add a project, click the add button at the top of the window.',
+          completed: false,
+          id: '1',
+          due: '0',
+        },
+        {
+          title: 'you can add a list to the project by using the input above.',
+          completed: false,
+          id: '2',
+          due: '0',
+        },
+        {
+          title: 'mark something complete',
+          completed: true,
+          id: '3',
+          due: '0',
+        },
+      ],
+    },
+    {
+      title: 'Sign up',
+      id: 'welcome-list-2',
+      completed: false,
+      due: '0',
+      todos: [
+        {
+          title: 'sign up to get more features!',
+          completed: false,
+          id: '3',
+          due: '0',
+        },
+      ],
+    },
+  ],
+};
+
 export const useProjectsState = create<Store>((set, get) => ({
-  projects: [],
+  projects: [defaultProjects],
   openProject: undefined,
 
   createProject: (title, due) =>
