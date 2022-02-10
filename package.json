@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "proptypes": "^1.1.0",
     "quickids": "^1.0.1",
     "react": "^16.13.1",
