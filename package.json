@@ -11,14 +11,14 @@
     "@testing-library/user-event": "^7.2.1",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
-    "node-sass": "^4.14.1",
+    "node-sass": "^9.0.0",
     "proptypes": "^1.1.0",
     "quickids": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -58,6 +58,6 @@
     "eslint-plugin-standard": "^4.0.1",
     "gh-pages": "^2.2.0",
     "prettier": "2.0.4",
-    "prettier-eslint": "^9.0.1"
+    "prettier-eslint": "^15.0.1"
   }
 }
